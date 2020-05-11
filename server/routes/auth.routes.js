@@ -31,4 +31,14 @@ router.delete('/session', ensureLoggedIn(), (req, res, next) => {
     res.status(200).json({ message: 'Log out success!' });
 });
 
+
+router.get('/loggedin', (req, res, next) => {
+    // req.isAuthenticated() is defined by passport
+    if (req.isAuthenticated()) {
+        res.status(200).json(req.user);
+        return;
+    }
+    res.status(403).json({ message: 'Unauthorized' });
+});
+
 module.exports = router
