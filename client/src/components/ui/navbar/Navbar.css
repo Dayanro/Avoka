@@ -1,0 +1,36 @@
+.navbar{
+    display: flex;
+    padding-top: 9px;
+    margin-bottom: 9px;
+}
+
+#Brand{
+    flex-grow: 12;
+font-size: 30px;
+font-weight:bold;
+}
+.NavLogOut{
+display: flex;
+align-self:flex-end;
+padding-bottom: 10px;
+}
+
+Form{
+    margin-left: 20px; 
+}
+input{
+    margin-left: 20px;
+    margin-bottom: 2px;
+    width: 300px;
+    height: 38px;
+    border: 0ch;
+}
+
+.UserList{
+    display: flex;
+    flex-direction: column;
+}
+.NavUser{
+    text-align: center;
+    font-weight: 900;
+}
