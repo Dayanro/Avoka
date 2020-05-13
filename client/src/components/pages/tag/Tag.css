@@ -1,0 +1,12 @@
+.cards{
+    margin: 20px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.Button{
+    margin: 5px;
+    justify-content: right;
+}
+.ButtonAdd{
+    justify-content: right;
+}

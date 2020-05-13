@@ -47,6 +47,7 @@ class Navigation extends Component {
                             <>
                                 <Nav className="mr-auto">
                                     <Nav.Link as={NavLink} to='/' exact className="Home">Home</Nav.Link>
+                                    <Nav.Link as={NavLink} to='/tag' exact className="Tag">Tag</Nav.Link>
 
                                     <NavDropdown title="Dropdown" id="basic-nav-dropdown" className="NavDropdown">
                                         <NavDropdown.Item className="UserList">

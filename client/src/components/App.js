@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
 import { Switch, Route, Redirect } from 'react-router-dom'
-
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 
@@ -9,6 +8,7 @@ import Navigation from './ui/navbar/Navbar'
 import Signup from './pages/signup/Signup'
 import Login from './pages/login/Login'
 import Profile from './pages/profile/Profile'
+import Tag from './pages/tag/Tag'
 
 import AuthService from './../service/auth.service'
 
@@ -32,7 +32,6 @@ class App extends Component {
   }
 
   render() {
-    console.log("PROPSSS", this.props)
     this.fetchUser()
 
     return (
@@ -46,6 +45,7 @@ class App extends Component {
             <Route path="/signup" render={props => <Signup {...props} setTheUser={this.setTheUser} />} />
             <Route path="/login" render={props => <Login {...props} setTheUser={this.setTheUser} />} />
             <Route path="/profile" render={props => <Profile {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
+            <Route path="/tag" render={props => <Tag {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
           </Switch>
 
         </main>

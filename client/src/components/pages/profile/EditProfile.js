@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './Profile.css'
 import UserService from './../../../service/user.service'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-//import { faEdit } from '@fortawesome/free-solid-svg-icons'
+
 import { faUserAlt } from '@fortawesome/free-solid-svg-icons'
 import Button from 'react-bootstrap/Button'
 import Toast from 'react-bootstrap/Toast'

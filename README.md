@@ -37,3 +37,4 @@ FRONT ROUTES
 | 9 |/post/:_id     |PostDetails        |Vista del post con el id especificado           |                |
 |10 |/popularposts  |popularPosts       |Vista los 3  posts con mayores visitas          |                |
 |11 |/allposts      |allposts           |Vista del listado de posts                      |                |
+|12 |/tag           |tag               |Vista del listado de tags                       |                |
