@@ -31,12 +31,12 @@ class App extends Component {
     }
   }
 
-
   render() {
-
+    console.log("PROPSSS", this.props)
     this.fetchUser()
 
     return (
+
       <>
         <Navigation setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />
 
@@ -45,7 +45,7 @@ class App extends Component {
           <Switch>
             <Route path="/signup" render={props => <Signup {...props} setTheUser={this.setTheUser} />} />
             <Route path="/login" render={props => <Login {...props} setTheUser={this.setTheUser} />} />
-            <Route path="/profile" render={props => <Profile {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser}/>} />
+            <Route path="/profile" render={props => <Profile {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
           </Switch>
 
         </main>

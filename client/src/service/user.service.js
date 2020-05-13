@@ -8,7 +8,7 @@ export default class services {
         })
     }
     getUserData = (id) => this.service.get(`/users/${id}`)
-    updateUserData = (id, { username, email, status, shortBio, avatar }) => this.service.put(`/users/${id}`, { username, email, status, shortBio, avatar })
+    updateUserData = (id, formData) => this.service.put(`/users/${id}`, formData)
     deleteUsers = (id) => this.service.delete(`/users/${id}`)
     //profile = ({ username, email, status, shortBio, avatar }) => this.service.get('/api/users', { username, email, status, shortBio, avatar })
 }

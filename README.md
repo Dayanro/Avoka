@@ -17,9 +17,10 @@ BACK ROUTES
 | 11|post     |/api/tags          |Crea un tag                                       |                |
 | 12|get      |/api/tags          |Obtiene los tags                                  |                |
 | 13|get      |/api/tags/:id      |Obtiene el tag con el id especificado             |                |
-| 14|delete   |/api/tags/:id      |Elimina el tag con el id especificado             |                |
-| 15|post     |/api/session       |Autentica al usuario y crea una sesion            |                |
-| 16|delete   |/api/session       |La sesion es cerrada                              |                |
+| 14|put      |/api/tags/:id      |Actualiza el tag con el id especificado           |                |
+| 15|delete   |/api/tags/:id      |Elimina el tag con el id especificado             |                |
+| 16|post     |/api/session       |Autentica al usuario y crea una sesion            |                |
+| 17|delete   |/api/session       |La sesion es cerrada                              |                |
 
 FRONT ROUTES
 

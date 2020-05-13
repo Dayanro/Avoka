@@ -21,10 +21,12 @@ class Navigation extends Component {
     logout = () => {
         this.props.setTheUser(false)
         this.authService.logout()
+            // .then(response => {
+            //     this.props.history.push('/')
+            // })
     }
 
     render() {
-
         return (
             <Navbar bg="light" expand="lg" sticky="top">
                 <Navbar.Brand id="Brand" as="div">Avoka</Navbar.Brand>
@@ -47,12 +49,12 @@ class Navigation extends Component {
                                     <Nav.Link as={NavLink} to='/' exact className="Home">Home</Nav.Link>
 
                                     <NavDropdown title="Dropdown" id="basic-nav-dropdown" className="NavDropdown">
-                                        <NavDropdown.Item  className="UserList">
+                                        <NavDropdown.Item className="UserList">
                                             <Image src="" roundedCircle />
                                             <Navbar.Text className="NavUser">  {this.props.loggedInUser.username}</Navbar.Text>
                                             <Navbar.Text className="NavEmail"> {this.props.loggedInUser.email}</Navbar.Text>
                                         </NavDropdown.Item>
-                                        
+
                                         <NavDropdown.Divider />
                                         <NavDropdown.Item >Nuevo Post</NavDropdown.Item>
                                         <NavDropdown.Item >Posts</NavDropdown.Item>

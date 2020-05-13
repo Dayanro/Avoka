@@ -10,6 +10,7 @@ const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
 const uploadCloud = require("../configs/cloudinary.config.js");
+const { ensureLoggedIn, ensureLoggedOut } = require("connect-ensure-login");
 
 router.post("/users", (req, res, next) => {
 
@@ -80,7 +81,7 @@ router.post("/users", (req, res, next) => {
         });
     });
 })
-router.get("/users", (req, res, next) => {
+router.get("/users", ensureLoggedIn(), (req, res, next) => {
     User.find()
 
         .then(data => res.status(200).json(data))
@@ -88,14 +89,14 @@ router.get("/users", (req, res, next) => {
 })
 
 
-router.get("/users/:id", (req, res, next) => {
+router.get("/users/:id", ensureLoggedIn(), (req, res, next) => {
     User.findById(req.params.id)
         .then(data => res.status(200).json(data))
         .catch(err => res.status(404).json({ message: 'No se encontró información en la base de datos' }))
 })
 
 
-router.put("/users/:id", uploadCloud.single('photo'), (req, res, next) => {
+router.put("/users/:id", ensureLoggedIn(), uploadCloud.single('avatar'), (req, res, next) => {
     const username = req.body.username;
     const email = req.body.email;
     const shortBio = req.body.shortBio;
@@ -111,7 +112,7 @@ router.put("/users/:id", uploadCloud.single('photo'), (req, res, next) => {
 })
 
 
-router.delete("/users/:id", (req, res, next) => {
+router.delete("/users/:id", ensureLoggedIn(), (req, res, next) => {
     User.findByIdAndDelete(req.params.id)
         .then(data => res.status(204))
         .catch(err => res.status(500).json({ message: 'No fue posible eliminar la información seleccionada' }))

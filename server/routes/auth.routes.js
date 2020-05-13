@@ -32,7 +32,7 @@ router.delete('/session', ensureLoggedIn(), (req, res, next) => {
 });
 
 
-router.get('/loggedin', (req, res, next) => {
+router.get('/loggedin', ensureLoggedIn(), (req, res, next) => {
     // req.isAuthenticated() is defined by passport
     if (req.isAuthenticated()) {
         res.status(200).json(req.user);

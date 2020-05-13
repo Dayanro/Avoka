@@ -42,7 +42,7 @@ class Login extends Component {
             })
             .catch(err => {
                 console.log(err)
-                err.response.status === 400 && this.setState({ errorMessage: err.response.data.message })
+                err.response.status === 401 && this.setState({ errorMessage: err.response.data.message })
             })
     }
 
@@ -50,10 +50,8 @@ class Login extends Component {
         this.props.history.push("/")
     }
 
-
-
     render() {
-
+        console.log("ERROOOOOERRRRRR", this.state)
         return (
 
             <Modal
@@ -90,7 +88,7 @@ class Login extends Component {
 
                     <p><small>¿No tienes cuenta? <Link to="/signup">Regístrate</Link></small></p>
 
-                    
+
                 </Modal.Body>
             </Modal>
 

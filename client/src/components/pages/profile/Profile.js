@@ -16,37 +16,16 @@ class Profile extends Component {
         }
         this.UserService = new UserService()
     }
-
-
     buildProfile = () => {
         this.setState({ edit: true })
     }
 
-    cancelOption = () => {
-        this.props.history.push("/")
+    closeEdit = () => {
+        this.setState({ edit: false })
     }
-
-
-    handleSubmit = e => {
-        e.preventDefault()
-        this.UserService.updateUserData(this.state)
-        //.then(() => this.props.)
-        //.catch(err => console.log(err))
-    }
-
-    handleInputChange = e => {
-        const { name, value } = e.target
-
-        this.setState({
-            [name]: value
-        })
-    }
-
-
-
     render() {
         const username = this.props.loggedInUser ? this.props.loggedInUser.username : "";
-        const name = username.charAt(0).toUpperCase() + username.slice(1)
+        const name = this.props.loggedInUser ? username.charAt(0).toUpperCase() + username.slice(1) : ""
         const email = this.props.loggedInUser ? this.props.loggedInUser.email : "";
         const shortBio = this.props.loggedInUser ? this.props.loggedInUser.shortBio : "";
         const avatar = this.props.loggedInUser ? this.props.loggedInUser.avatar : "";
@@ -54,32 +33,35 @@ class Profile extends Component {
 
         return (
             <>
-                <Container as="section">
-                    {
-                        !this.state.edit ?
-                            <>
-                                <div style={{ display: "flex" }}>
-                                    <div style={{ flexGrow: "1" }}>
-                                        <h1>{name}</h1>
-                                        <h5>{email}</h5>
-                                    </div>
-                                    <div>
-                                        <Button id="edit" variant="outline-secondary" onClick={this.buildProfile}>Editar</Button>
-                                    </div>
-                                    <div className="avatar">
-                                        {avatar ? <img src={avatar} /> : <FontAwesomeIcon icon={faUserAlt} size="5x" color="#f8f9fa" />}
-                                    </div>
-                                </div>
-                                <div className="shortBio">
-                                    {shortBio ? <p>{shortBio}</p> : <h5>{name} aún no ha estado activo en Avoka, ven y cuéntanos tu historia</h5>}
-                                </div>
-                            </>
-                            :
-                            <EditProfile id={id} username={username} email={email} avatar={avatar} shortBio={shortBio} setTheUser={this.props.setTheUser} />
-
-
-                    }
-                </Container>
+                {
+                    this.props.loggedInUser ?
+                        <Container as="section">
+                            {
+                                !this.state.edit ?
+                                    <>
+                                        <div style={{ display: "flex" }}>
+                                            <div style={{ flexGrow: "1" }}>
+                                                <h1>{name}</h1>
+                                                <h5>{email}</h5>
+                                            </div>
+                                            <div>
+                                                <Button id="edit" variant="outline-secondary" onClick={this.buildProfile}>Editar</Button>
+                                            </div>
+                                            <div className="avatar">
+                                                {avatar ? <img src={avatar} /> : <FontAwesomeIcon icon={faUserAlt} size="5x" color="#f8f9fa" />}
+                                            </div>
+                                        </div>
+                                        <div className="shortBio">
+                                            {shortBio ? <p>{shortBio}</p> : <h5>{name} aún no ha estado activo en Avoka.</h5>}
+                                        </div>
+                                    </>
+                                    :
+                                    <EditProfile id={id} username={username} email={email} avatar={avatar} shortBio={shortBio} setTheUser={this.props.setTheUser} closeEdit={this.closeEdit} />
+                            }
+                        </Container>
+                        :
+                        <h1>NO ESTA AUTORIZADO</h1>
+                }
             </>
         )
     }

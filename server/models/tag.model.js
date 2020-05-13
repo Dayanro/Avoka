@@ -3,6 +3,8 @@ const Schema = mongoose.Schema
 
 const tagSchema = new Schema({
     name: String,
+    photo: String,
+    definition:String
 }, {
     timestamps: true
 })
