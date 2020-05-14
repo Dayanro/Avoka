@@ -7,10 +7,7 @@ import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/Navbar'
 import '../navbar/Navbar.css'
 import AuthService from './../../../service/auth.service'
-
 import { Link, NavLink } from 'react-router-dom'
-
-
 
 class Navigation extends Component {
 
@@ -21,9 +18,9 @@ class Navigation extends Component {
     logout = () => {
         this.props.setTheUser(false)
         this.authService.logout()
-        // .then(response => {
-        //     this.props.history.push('/')
-        // })
+            // .then(response => {
+            //     this.props.history.push('/')
+            // })
     }
 
     render() {
@@ -59,7 +56,7 @@ class Navigation extends Component {
                                         <NavDropdown.Item >Nuevo Post</NavDropdown.Item>
                                         <NavDropdown.Item >Posts</NavDropdown.Item>
                                         <NavDropdown.Item >Lista de Lecturas</NavDropdown.Item>
-                                        <NavDropdown.Item >Indica tus Intereses </NavDropdown.Item>
+                                        <NavDropdown.Item as="div"><Link to='/interests'>Indica tus Intereses</Link></NavDropdown.Item>
                                         {this.props.loggedInUser.role == "Admin" ?
                                             <>
                                                 <NavDropdown.Divider />
@@ -76,38 +73,6 @@ class Navigation extends Component {
                 </Navbar.Collapse>
             </Navbar>
 
-
-
-
-
-
-            // <Navbar bg="dark" variant="dark" expand="md">
-            //     <Navbar.Brand as="div"><Link to="/">Avoka!</Link></Navbar.Brand>
-            //     <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            //     <Navbar.Collapse id="basic-navbar-nav">
-            //         <Nav>
-            //             <Nav.Link as="div"><Link to="/">Inicio</Link></Nav.Link>
-
-            //             {
-            //                 !this.props.loggedInUser ?
-            //                     <>
-            //                         <Nav.Link as="div"><Link to="/login">Iniciar sesión</Link></Nav.Link>
-            //                         <Nav.Link as="div"><Link to="/signup">Registro</Link></Nav.Link>
-            //                     </>
-
-            //                     :
-            //                     <>
-            //                         <Nav.Link as="div"><Link to="/profile">Mi perfil</Link></Nav.Link>
-            //                         <Nav.Link as="div" onClick={this.logout}>Cerrar sesión</Nav.Link>
-            //                     </>
-
-            //             }
-
-            //         </Nav>
-            //         <Navbar.Text className="ml-auto"> Hola, {this.props.loggedInUser ? this.props.loggedInUser.username : 'invitad@'}</Navbar.Text>
-            //     </Navbar.Collapse>
-
-            // </Navbar>
         )
     }
 

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './Tag.css'
-import UserService from '../../../service/user.service'
 import TagService from '../../../service/tag.service'
 import EditTag from './EditTag'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

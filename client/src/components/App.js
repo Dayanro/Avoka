@@ -9,6 +9,7 @@ import Signup from './pages/signup/Signup'
 import Login from './pages/login/Login'
 import Profile from './pages/profile/Profile'
 import Tag from './pages/tag/Tag'
+import Interests from './pages/Interests/Interests'
 
 import AuthService from './../service/auth.service'
 
@@ -46,6 +47,7 @@ class App extends Component {
             <Route path="/login" render={props => <Login {...props} setTheUser={this.setTheUser} />} />
             <Route path="/profile" render={props => <Profile {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
             <Route path="/tag" render={props => <Tag {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
+            <Route path="/interests" render={props => <Interests {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
           </Switch>
 
         </main>

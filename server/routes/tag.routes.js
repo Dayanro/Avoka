@@ -25,13 +25,13 @@ router.post("/tags", ensureLoggedIn(), uploadCloud.single('photo'), (req, res, n
 
 router.get("/tags", ensureLoggedIn(), (req, res, next) => {
     const role = req.user.role
-    if (role == "Admin") {
+    //if (role == "Admin") {
         Tag.find()
             .then(data => res.status(200).json(data))
             .catch(err => res.status(404).json({ message: 'No se encontró información en la base de datos' }))
-    } else {
-        res.status(401).json({ mensaje: "No esta autorizado" })
-    }
+    //} else {
+       // res.status(401).json({ mensaje: "No esta autorizado" })
+    //}
 })
 
 router.get("/tags/:id", ensureLoggedIn(), (req, res, next) => {
