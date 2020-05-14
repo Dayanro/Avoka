@@ -7,7 +7,7 @@ export default class services {
             withCredentials: true
         })
     }
-    createTag = ({ name, definition, photo }) => this.service.post('/tags', { name, definition, photo })
+    createTag = (formData) => this.service.post('/tags', formData)
     getAllTags = () => this.service.get(`/tags`)
     getTagById = (id) => this.service.get(`/tags/${id}`)
     updateTags = (id, formData) => this.service.put(`/tags/${id}`, formData)

@@ -21,9 +21,9 @@ class Navigation extends Component {
     logout = () => {
         this.props.setTheUser(false)
         this.authService.logout()
-            // .then(response => {
-            //     this.props.history.push('/')
-            // })
+        // .then(response => {
+        //     this.props.history.push('/')
+        // })
     }
 
     render() {
@@ -47,7 +47,6 @@ class Navigation extends Component {
                             <>
                                 <Nav className="mr-auto">
                                     <Nav.Link as={NavLink} to='/' exact className="Home">Home</Nav.Link>
-                                    <Nav.Link as={NavLink} to='/tag' exact className="Tag">Tag</Nav.Link>
 
                                     <NavDropdown title="Dropdown" id="basic-nav-dropdown" className="NavDropdown">
                                         <NavDropdown.Item className="UserList">
@@ -61,6 +60,12 @@ class Navigation extends Component {
                                         <NavDropdown.Item >Posts</NavDropdown.Item>
                                         <NavDropdown.Item >Lista de Lecturas</NavDropdown.Item>
                                         <NavDropdown.Item >Indica tus Intereses </NavDropdown.Item>
+                                        {this.props.loggedInUser.role == "Admin" ?
+                                            <>
+                                                <NavDropdown.Divider />
+                                                <NavDropdown.Item as="div"><Link to='/tag'>Edición de Tags</Link></NavDropdown.Item>
+                                            </>
+                                            : null}
                                         <NavDropdown.Divider />
                                         <NavDropdown.Item as="div"><Link to="/profile">Perfil</Link></NavDropdown.Item>
                                         <NavDropdown.Item onClick={this.logout}>Cerrar sesión</NavDropdown.Item>
