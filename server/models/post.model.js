@@ -4,11 +4,15 @@ const Schema = mongoose.Schema
 const postSchema = new Schema({
     title: String,
     owner: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-    summary: String,
-    content: String,
-    imageURL: String,
+    theHook: String,
+    realStory: String,
+    expandOnThePoint: String,
+    closing: String,
+    readTime: Number,
+    fastReceipe: String,
+    photo: String,
     tags_id: [{ type: Schema.Types.ObjectId, ref: 'Tag' }],
-    views: number,
+    views: Number,
     status: { type: String, enum: ["Borrador", "Publicado"], default: "Borrador" },
 }, {
     timestamps: true

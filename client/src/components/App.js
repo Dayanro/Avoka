@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-
 import { Switch, Route, Redirect } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
-
 import Navigation from './ui/navbar/Navbar'
 import Signup from './pages/signup/Signup'
 import Login from './pages/login/Login'
