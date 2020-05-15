@@ -76,7 +76,7 @@ class Interests extends Component {
                     <h1>Indica tus Intereses</h1>
                     <hr />
                     <Row >
-                        {this.state.tags.map(tag => {
+                        {this.state.tags&&this.state.tags.map(tag => {
                             const marked = this.state.interest.includes(tag._id)
                             return (
                                 <Col sm={4}>
