@@ -13,8 +13,8 @@ import AuthService from './../service/auth.service'
 
 class App extends Component {
 
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = { loggedInUser: null }
     this.authService = new AuthService()
   }
@@ -36,7 +36,7 @@ class App extends Component {
     return (
 
       <>
-        <Navigation setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />
+        <Navigation setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} {...this.props} />
 
         <main>
 

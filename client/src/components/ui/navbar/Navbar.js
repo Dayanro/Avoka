@@ -17,10 +17,11 @@ class Navigation extends Component {
     }
     logout = () => {
         this.props.setTheUser(false)
+        console.log("PROPS", this.props)
         this.authService.logout()
-            // .then(response => {
-            //     this.props.history.push('/')
-            // })
+        // .then(response => {
+        //     this.props.history.push('/')
+        // })
     }
 
     render() {

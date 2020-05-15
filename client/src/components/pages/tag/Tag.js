@@ -55,8 +55,8 @@ class Tag extends Component {
         uploadData.append("definition", this.state.definition)
         this.tagService.createTag(uploadData)
             .then((response) => {
-                this.state.tags.push(response.data)
                 const updateTag = [...this.state.tags]
+                updateTag.push(response.data)
                 this.setState({ tags: updateTag, showCreateModal: false })
             })
             .catch(err => console.log(err))

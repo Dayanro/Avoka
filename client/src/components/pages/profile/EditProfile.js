@@ -52,10 +52,8 @@ class EditProfile extends Component {
         this.setState({ [e.target.name]: value })
     }
 
+    closeToast = () => this.setState({ showToast: false });
     render() {
-
-        const closeToast = () => this.setState({ showToast: false });
-        console.log("reneeeeeer")
         const { username, email, shortBio, avatar } = this.state;
         const name = username.charAt(0).toUpperCase() + username.slice(1)
         console.log('AVATAR', avatar)
@@ -87,7 +85,7 @@ class EditProfile extends Component {
                         maxHeight: '100px',
                     }}
                 >
-                    <Toast show={this.state.showToast} onClose={closeToast}
+                    <Toast show={this.state.showToast} onClose={this.closeToast}
                         style={{
                             position: 'absolute',
                             top: 70,

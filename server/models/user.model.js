@@ -10,7 +10,7 @@ const userSchema = new Schema({
     status: { type: String, enum: ["Pending Confirmation", "Active"], default: "Pending Confirmation" },
     confirmationCode: { type: Schema.Types.Mixed, unique: true },
     interest: [{ type: Schema.Types.ObjectId, ref: 'Tag' }],
-    posts: [{ type: Schema.Types.ObjectId, ref: 'Post' }],
+    //posts: [{ type: Schema.Types.ObjectId, ref: 'Post' }],
     role: { type: String, enum: ["Editor", "Admin"], default: "Editor" },
     following: [String],
 }, {

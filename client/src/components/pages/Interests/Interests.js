@@ -40,9 +40,9 @@ class Interests extends Component {
 
 
     customizeInterest = (tagId) => {
-        const currentInteres = this.state.interest
-        currentInteres.push(tagId)
-        const updatedInterest = [...currentInteres]
+        const currentInterest = [...this.state.interest]
+        currentInterest.push(tagId)
+        const updatedInterest = [...currentInterest]
         const updateUser = { ...this.props.loggedInUser, interest: updatedInterest }
         this.userService.updateUserData(this.props.loggedInUser._id, updateUser)
             .then((response) => {
@@ -54,12 +54,9 @@ class Interests extends Component {
 
 
     deleteInterest = (tagId) => {
-        const currentInterests = this.state.interest
+        const currentInterests = [...this.state.interest]
         let updatedInterest = currentInterests.filter(tag => tag !== tagId)
-        console.log("filter", tagId, updatedInterest)
         const updateUser = { ...this.props.loggedInUser, interest: updatedInterest }
-
-        console.log("ESRTA", tagId, updateUser)
         this.userService.updateUserData(this.props.loggedInUser._id, updateUser)
             .then((response) => {
                 this.props.setTheUser(response.data)
@@ -76,12 +73,12 @@ class Interests extends Component {
                     <h1>Indica tus Intereses</h1>
                     <hr />
                     <Row >
-                        {this.state.tags.map(tag => {
+                        {this.state.tags && this.state.tags.map(tag => {
                             const marked = this.state.interest.includes(tag._id)
                             return (
                                 <Col sm={4}>
                                     <Card className="cards"  >
-                                        <div style={{ display: "flex"}}>
+                                        <div style={{ display: "flex" }}>
                                             <Card.Body >
                                                 <Card.Title>{tag.name}</Card.Title>
                                             </Card.Body>

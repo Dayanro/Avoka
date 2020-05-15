@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 const postSchema = new Schema({
     title: String,
-    owner: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+    owner: { type: Schema.Types.ObjectId, ref: 'User' },
     theHook: String,
     realStory: String,
     expandOnThePoint: String,
