@@ -1,0 +1,11 @@
+h1{
+    margin: 80px 0px 40px 0px;
+}
+
+.post{
+ cursor: pointer;
+  
+}
+.post:hover{
+    background-color:#f8f8f8;
+  }

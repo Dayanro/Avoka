@@ -30,8 +30,8 @@ FRONT ROUTES
 | 2 |/login         |LogIn              |Vista Inicio de sesion                          |                |
 | 3 |/signup        |SignUp             |Vista de Registro                               |                |
 | 4 |/profile       |Profile            |Vista del Perfil                                |                |
-| 5 |/newpost       |NewPost            |Vista Creacion de un nuevo post                 |                |
-| 6 |/myposts       |MyPost             |Vista del listado de posts                      |                |
+| 5 |/post/new       |NewPost            |Vista Creacion de un nuevo post                 |                |
+| 6 |/post/me       |MyPost             |Vista del listado de posts                      |                |
 | 7 |/readinglist   |ReadingList        |Vista del listado de lecturas                   |                |
 | 8 |/interests     |Interests          |Vista de Intereses                              |                |
 | 9 |/post/:_id     |PostDetails        |Vista del post con el id especificado           |                |

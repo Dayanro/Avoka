@@ -1,0 +1,78 @@
+.newPost{
+    margin-top: 70px;
+}
+
+.title{
+    margin-bottom: 6%;
+   
+}
+.titleEditor .ql-container{ 
+font-size: 50px;
+ background-color:#f6f7f9;
+ border-radius: 12px;
+} 
+
+p{
+    font-size: 12px;
+}
+
+.theHook{
+    margin-bottom: 6%;
+   
+}
+.theHookEditor .ql-container{ 
+font-size: 20px;
+ background-color:#f6f7f9;
+ border-radius: 12px;
+} 
+.photo{
+    margin-bottom: 6%;
+}
+
+.photoEditor .ql-container{ 
+font-size: 20px;
+ background-color:#f6f7f9;
+ border-radius: 12px;
+} 
+
+.realStory{
+    margin-bottom: 6%;
+}
+
+.realStoryEditor .ql-container{ 
+font-size: 20px;
+ background-color:#f6f7f9;
+ border-radius: 12px;
+} 
+
+.expandOnThePoint{
+    margin-bottom: 6%;
+}
+
+.expandOnThePointEditor .ql-container{ 
+font-size: 20px;
+ background-color:#f6f7f9;
+ border-radius: 12px;
+} 
+
+
+
+.closing{
+    margin-bottom: 6%;
+}
+
+.closingEditor .ql-container{ 
+font-size: 20px;
+ background-color:#f6f7f9;
+ border-radius: 12px;
+} 
+
+.fastReceipe{
+    margin-bottom: 6%;
+}
+
+.fastReceipeEditor .ql-container{ 
+font-size: 20px;
+ background-color:#f6f7f9;
+ border-radius: 12px;
+} 

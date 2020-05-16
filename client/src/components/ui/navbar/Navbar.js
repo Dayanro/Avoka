@@ -54,8 +54,8 @@ class Navigation extends Component {
                                         </NavDropdown.Item>
 
                                         <NavDropdown.Divider />
-                                        <NavDropdown.Item >Nuevo Post</NavDropdown.Item>
-                                        <NavDropdown.Item >Posts</NavDropdown.Item>
+                                        <NavDropdown.Item as="div"><Link to='/post/new'>Nuevo Post</Link></NavDropdown.Item>
+                                        <NavDropdown.Item as="div"><Link to='/post/me'>Posts</Link></NavDropdown.Item>
                                         <NavDropdown.Item >Lista de Lecturas</NavDropdown.Item>
                                         <NavDropdown.Item as="div"><Link to='/interests'>Indica tus Intereses</Link></NavDropdown.Item>
                                         {this.props.loggedInUser.role == "Admin" ?

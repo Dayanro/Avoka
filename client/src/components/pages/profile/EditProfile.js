@@ -6,8 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserAlt } from '@fortawesome/free-solid-svg-icons'
 import Button from 'react-bootstrap/Button'
 import Toast from 'react-bootstrap/Toast'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+
 
 class EditProfile extends Component {
     constructor(props) {
