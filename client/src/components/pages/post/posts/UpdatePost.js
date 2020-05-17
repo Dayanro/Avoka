@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router'
 import './NewPost.css'
 
 import UserService from '../../../../service/user.service'
@@ -14,10 +15,12 @@ import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 
 
-class NewPost extends Component {
+class UpdatePost extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            post: {},
+            id: "",
             title: "",
             owner: "",
             theHook: "",
@@ -33,6 +36,7 @@ class NewPost extends Component {
             tags: [],
             values: [],
 
+
             theme1: 'snow',
             theme2: 'bubble'
         }
@@ -40,6 +44,53 @@ class NewPost extends Component {
         this.tagService = new TagService()
         this.postService = new PostService()
 
+    }
+
+
+    componentDidMount() {
+        if (Object.keys(this.props.posts).length > 0) {
+            const post = this.props.posts.filter(post => post._id == this.props.match.params.id)[0]
+            this.setState({
+                id: post._id,
+                title: post.title,
+                owner: post.owner,
+                theHook: post.theHook,
+                realStory: post.realStory,
+                expandOnThePoint: post.expandOnThePoint,
+                closing: post.closing,
+                readTime: post.readTime,
+                fastReceipe: post.fastReceipe,
+                photo: post.photo,
+                views: post.views,
+                status: post.status,
+                tags_id: post.tags_id,
+                post
+            })
+        }
+        this.getAllTags()
+
+    }
+
+    componentDidUpdate(prevProps) {
+        if (Object.keys(prevProps.posts).length <= 0 && Object.keys(this.props.posts).length > 0) {
+            const post = this.props.posts.filter(post => post._id == this.props.match.params.id)[0]
+            this.setState({
+                id: post._id,
+                title: post.title,
+                owner: post.owner,
+                theHook: post.theHook,
+                realStory: post.realStory,
+                expandOnThePoint: post.expandOnThePoint,
+                closing: post.closing,
+                readTime: post.readTime,
+                fastReceipe: post.fastReceipe,
+                photo: post.photo,
+                views: post.views,
+                status: post.status,
+                tags_id: post.tags_id,
+                post
+            })
+        }
     }
 
     handleChangeTitle = (text) => {
@@ -77,7 +128,7 @@ class NewPost extends Component {
         console.log(this.state.fastReceipe)
     }
 
-    createPost = (e, status) => {
+    updatePost = (e, status) => {
         e.preventDefault()
         const tagsId = this.state.values.map(tag => tag._id)
         const uploadData = new FormData()
@@ -94,9 +145,9 @@ class NewPost extends Component {
         uploadData.append("status", status || this.state.status)
         uploadData.append("tags_id", tagsId)
         console.log('form', uploadData)
-        this.postService.createPost(uploadData)
+        this.postService.updatePost(this.state.id, uploadData)
             .then((response) => {
-                this.props.addPost(response.data)
+                //this.props.addPost(response.data)
                 this.props.history.push('/post/me')
             })
             .catch(err => console.log(err))
@@ -116,10 +167,6 @@ class NewPost extends Component {
             .catch(err => console.log(err))
     }
 
-    componentDidMount = () => {
-        this.getAllTags()
-    }
-
     handleInputTag = e => {
         console.log('update', e.target.value)
         const value = e.target.value
@@ -137,8 +184,8 @@ class NewPost extends Component {
     }
 
     render() {
-        console.log("PROPS-POST", this.props)
-        console.log('this.state', this.state)
+        console.log("PROPS EN UPDATE", this.props)
+        console.log('STATE POS UPDATE', this.state.post)
         return (
             <div >
                 <Container fluid="md" as="section" className="newPost">
@@ -153,8 +200,8 @@ class NewPost extends Component {
                                 theme={this.state.theme2}
                                 onChange={this.handleChangeTitle}
                                 value={this.state.title}
-                                modules={NewPost.modules}
-                                formats={NewPost.formats}
+                                modules={UpdatePost.modules}
+                                formats={UpdatePost.formats}
                                 bounds={'.app'}
                                 placeholder={"Titulo..."}
                                 style={{ height: "100px", width: "700px" }}
@@ -172,8 +219,8 @@ class NewPost extends Component {
                                 theme={this.state.theme2}
                                 onChange={this.handleChangeTheHook}
                                 value={this.state.theHook}
-                                modules={NewPost.modules}
-                                formats={NewPost.formats}
+                                modules={UpdatePost.modules}
+                                formats={UpdatePost.formats}
                                 bounds={'.app'}
                                 placeholder={"Subtítulo o entradilla..."}
                                 style={{ height: "100px", width: "700px" }}
@@ -199,8 +246,8 @@ class NewPost extends Component {
                                 theme={this.state.theme2}
                                 onChange={this.handleChangeRealStory}
                                 value={this.state.realStory}
-                                modules={NewPost.modules}
-                                formats={NewPost.formats}
+                                modules={UpdatePost.modules}
+                                formats={UpdatePost.formats}
                                 bounds={'.app'}
                                 placeholder={"Cuentanos tu historia..."}
                                 style={{ height: "300px", width: "700px" }}
@@ -218,8 +265,8 @@ class NewPost extends Component {
                                 theme={this.state.theme2}
                                 onChange={this.handleChangeExpandOnThePoint}
                                 value={this.state.expandOnThePoint}
-                                modules={NewPost.modules}
-                                formats={NewPost.formats}
+                                modules={UpdatePost.modules}
+                                formats={UpdatePost.formats}
                                 bounds={'.app'}
                                 placeholder={"...Y en caso de que desearas profundizar acerca del tema a tratar..."}
                                 style={{ height: "300px", width: "700px" }}
@@ -237,8 +284,8 @@ class NewPost extends Component {
                                 theme={this.state.theme2}
                                 onChange={this.handleChangeClosing}
                                 value={this.state.closing}
-                                modules={NewPost.modules}
-                                formats={NewPost.formats}
+                                modules={UpdatePost.modules}
+                                formats={UpdatePost.formats}
                                 bounds={'.app'}
                                 placeholder={"¡Enhorabuena  has terminado tu post."}
                                 style={{ height: "300px", width: "700px" }}
@@ -256,8 +303,8 @@ class NewPost extends Component {
                                 theme={this.state.theme2}
                                 onChange={this.handleChangeFastReceipe}
                                 value={this.state.fastReceipe}
-                                modules={NewPost.modules}
-                                formats={NewPost.formats}
+                                modules={UpdatePost.modules}
+                                formats={UpdatePost.formats}
                                 bounds={'.app'}
                                 placeholder={"¿Alguna receta rápida para compartir?"}
                                 style={{ height: "300px", width: "700px" }}
@@ -275,7 +322,7 @@ class NewPost extends Component {
                     </div>
 
                     <div style={{ display: "flex", justifyContent: "flex-end", margin: "40px 0px" }}>
-                        <Button style={{ marginRight: "20px" }} variant="info" onClick={this.createPost}>Publicar</Button>
+                        <Button style={{ marginRight: "20px" }} variant="info" onClick={this.updatePost}>Publicar</Button>
                         <Button variant="info" onClick={this.scheduleForLater}>Guardar para despues</Button>
                     </div>
 
@@ -289,7 +336,7 @@ class NewPost extends Component {
     }
 }
 
-NewPost.modules = {
+UpdatePost.modules = {
     toolbar: [
         [{ 'header': '1' }, { 'header': '2' }, { 'font': [] }],
         [{ size: [] }],
@@ -304,11 +351,11 @@ NewPost.modules = {
         matchVisual: false,
     }
 }
-NewPost.formats = [
+UpdatePost.formats = [
     'header', 'font', 'size',
     'bold', 'italic', 'underline', 'strike', 'blockquote',
     'list', 'bullet', 'indent',
     'link', 'image', 'video'
 ]
 
-export default NewPost
+export default withRouter(UpdatePost)

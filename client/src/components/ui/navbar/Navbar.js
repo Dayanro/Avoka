@@ -54,18 +54,18 @@ class Navigation extends Component {
                                         </NavDropdown.Item>
 
                                         <NavDropdown.Divider />
-                                        <NavDropdown.Item as="div"><Link to='/post/new'>Nuevo Post</Link></NavDropdown.Item>
-                                        <NavDropdown.Item as="div"><Link to='/post/me'>Posts</Link></NavDropdown.Item>
+                                        <Link to='/post/new'><NavDropdown.Item as="div">Nuevo Post</NavDropdown.Item></Link>
+                                        <Link to='/post/me'><NavDropdown.Item as="div">Posts</NavDropdown.Item></Link>
                                         <NavDropdown.Item >Lista de Lecturas</NavDropdown.Item>
-                                        <NavDropdown.Item as="div"><Link to='/interests'>Indica tus Intereses</Link></NavDropdown.Item>
+                                        <Link to='/interests'><NavDropdown.Item as="div">Indica tus Intereses</NavDropdown.Item></Link>
                                         {this.props.loggedInUser.role == "Admin" ?
                                             <>
                                                 <NavDropdown.Divider />
-                                                <NavDropdown.Item as="div"><Link to='/tag'>Edición de Tags</Link></NavDropdown.Item>
+                                                <Link to='/tag'><NavDropdown.Item as="div">Edición de Tags</NavDropdown.Item></Link>
                                             </>
                                             : null}
                                         <NavDropdown.Divider />
-                                        <NavDropdown.Item as="div"><Link to="/profile">Perfil</Link></NavDropdown.Item>
+                                        <Link to="/profile"><NavDropdown.Item as="div">Perfil</NavDropdown.Item></Link>
                                         <NavDropdown.Item onClick={this.logout}>Cerrar sesión</NavDropdown.Item>
                                     </NavDropdown>
                                 </Nav>

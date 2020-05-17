@@ -7,7 +7,7 @@ export default class services {
             withCredentials: true
         })
     }
-    createPost = (formData) => this.service.post('/posts', formData)
+    createPost = (post) => this.service.post('/posts', post)
     getAllPost = () => this.service.get(`/posts`)
     getPostById = (id) => this.service.get(`/posts/${id}`)
     updatePost = (id, formData) => this.service.put(`/posts/${id}`, formData)

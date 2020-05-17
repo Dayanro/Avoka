@@ -6,19 +6,7 @@ const { ensureLoggedIn, ensureLoggedOut } = require("connect-ensure-login");
 const uploadCloud = require("../configs/cloudinary.config.js");
 
 router.post("/posts", ensureLoggedIn(), uploadCloud.single('photo'), (req, res, next) => {
-    const { title,
-        theHook,
-        realStory,
-        expandOnThePoint,
-        closing,
-        readTime,
-        fastReceipe,
-        views,
-        status,
-    } = req.body;
-    const filename = req.file ? req.file.url : "";
-
-    Post.create({
+    const { owner,
         title,
         theHook,
         realStory,
@@ -28,6 +16,23 @@ router.post("/posts", ensureLoggedIn(), uploadCloud.single('photo'), (req, res, 
         fastReceipe,
         views,
         status,
+        tags_id
+    } = req.body;
+    
+    const filename = req.file ? req.file.url : "";
+    const tags = tags_id.split(",")
+    Post.create({
+        owner,
+        title,
+        theHook,
+        realStory,
+        expandOnThePoint,
+        closing,
+        readTime,
+        fastReceipe,
+        views,
+        status,
+        tags_id: tags,
         photo: filename
     })
         .then(data => res.status(200).json(data))
@@ -47,7 +52,7 @@ router.get("/posts/:id", ensureLoggedIn(), (req, res, next) => {
 })
 
 router.put("/posts/:id", ensureLoggedIn(), uploadCloud.single('photo'), (req, res, next) => {
-    const { title, theHook, realStory, expandOnThePoint, closing, readTime, fastReceipe, views, status } = req.body
+    const { title, owner, theHook, realStory, expandOnThePoint, closing, readTime, fastReceipe, views, status, tags_id } = req.body
 
     // const title = req.body.title;
     // const theHook = req.body.theHook;
@@ -59,9 +64,10 @@ router.put("/posts/:id", ensureLoggedIn(), uploadCloud.single('photo'), (req, re
     // const views = req.body.views;
     // const status = req.body.status;
     const photo = req.file ? req.file.url : req.body.photo;
-
+    const tags = tags_id ? tags_id.split(","): []
     Post.findByIdAndUpdate(req.params.id, {
         title,
+        owner,
         theHook,
         realStory,
         expandOnThePoint,
@@ -70,10 +76,14 @@ router.put("/posts/:id", ensureLoggedIn(), uploadCloud.single('photo'), (req, re
         fastReceipe,
         views,
         status,
+        tags_id : tags,
         photo
     }, { new: true })
         .then(data => res.status(200).json(data))
-        .catch(err => res.status(500).json({ message: 'No fue posible actualizar el post seleccionado' }))
+        .catch(err => {
+            console.log(err)
+            res.status(500).json({ message: 'No fue posible actualizar el post seleccionado' })
+        })
 
 })
 

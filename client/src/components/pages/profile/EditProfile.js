@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
-import './Profile.css'
-import UserService from './../../../service/user.service'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import './EditProfile.css'
 
+import UserService from './../../../service/user.service'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserAlt } from '@fortawesome/free-solid-svg-icons'
+
 import Button from 'react-bootstrap/Button'
 import Toast from 'react-bootstrap/Toast'
 
@@ -66,7 +68,7 @@ class EditProfile extends Component {
                         </div>
                         <div>
                             <div className="avatar">
-                                {avatar ? <img src={this.state.avatar} /> : <FontAwesomeIcon icon={faUserAlt} size="5x" color="#f8f9fa" />}
+                                {avatar ? <img src={this.state.avatar} className="profilePict"/> : <FontAwesomeIcon icon={faUserAlt} size="5x" color="#f8f9fa" />}
                             </div>
                             <input type="file" name="avatar" onChange={this.handleInputChange} />
                         </div>

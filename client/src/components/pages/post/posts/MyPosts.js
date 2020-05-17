@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import './MyPosts.css'
+import { Link, NavLink } from 'react-router-dom'
+
 
 import UserService from '../../../../service/user.service'
 import TagService from '../../../../service/tag.service'
@@ -64,6 +66,8 @@ class MyPosts extends Component {
             .catch(err => console.log(err))
     }
 
+    createMarkup = (html) => ({ __html: html });
+
     render() {
         const posts = this.getByStatus(this.state.status)
         return (
@@ -84,15 +88,21 @@ class MyPosts extends Component {
                             <Card className="post" style={{ borderLeft: "unset", borderRight: "unset", borderTop: "unset" }} key={idx} >
                                 <Card.Body style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                                     < div style={{ flexGrow: "1" }}>
-                                        <div >
-                                            <div><h4>{post.title}</h4></div>
-                                            <Card.Text>{post.theHook}</Card.Text>
-                                        </div>
+                                        <Link to={`/post/${post._id}`}>
+                                            <div>
+                                                <div>
+                                                    <div dangerouslySetInnerHTML={this.createMarkup(post.title)}  className="postTitle" />
+                                                </div>
+                                                <Card.Text>
+                                                    <div dangerouslySetInnerHTML={this.createMarkup(post.theHook)} className="postHook" />
+                                                </Card.Text>
+                                            </div>
+                                        </Link >
                                     </div>
                                     <div className="Buttons" style={{ display: "flex" }}>
-                                        <div style={{ marginRight: "10px" }}>
+                                        <Link to={`/post/${post._id}/edit`}> <div style={{ marginRight: "10px" }}>
                                             <FontAwesomeIcon icon={faPencilAlt} size="1x" color="grey" className="Button" />
-                                        </div>
+                                        </div></Link >
                                         <div onClick={() => this.deletePost(post._id)} >
                                             <FontAwesomeIcon icon={faTrash} size="1x" color="grey" className="Button" />
                                         </div>

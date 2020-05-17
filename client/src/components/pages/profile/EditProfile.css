@@ -1,0 +1,19 @@
+.avatar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0,1px solid;
+    background-color: #e8f3ec;
+    border-radius: 50%;
+    width: 128px;
+    height: 128px;
+    text-align: center;
+    padding: 16px;
+}
+
+.profilePict{
+    display:flex ;
+    width: 128px;
+    height: 128px;
+
+}

@@ -9,3 +9,13 @@ h1{
 .post:hover{
     background-color:#f8f8f8;
   }
+
+.postTitle h1{
+    margin: 20px 0px 5px 0px;
+    font-size: 20px;
+}
+
+.postHook h1{
+    margin: 0px;
+    font-size: 20px;
+}
