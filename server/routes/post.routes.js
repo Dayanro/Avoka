@@ -18,9 +18,10 @@ router.post("/posts", ensureLoggedIn(), uploadCloud.single('photo'), (req, res, 
         status,
         tags_id
     } = req.body;
-    
+
     const filename = req.file ? req.file.url : "";
-    const tags = tags_id.split(",")
+    const tags = tags_id ? tags_id.split(",") : []
+    console.log("ACA ESTA", tags_id)
     Post.create({
         owner,
         title,
@@ -64,7 +65,7 @@ router.put("/posts/:id", ensureLoggedIn(), uploadCloud.single('photo'), (req, re
     // const views = req.body.views;
     // const status = req.body.status;
     const photo = req.file ? req.file.url : req.body.photo;
-    const tags = tags_id ? tags_id.split(","): []
+    const tags = tags_id ? tags_id.split(",") : []
     Post.findByIdAndUpdate(req.params.id, {
         title,
         owner,
@@ -76,7 +77,7 @@ router.put("/posts/:id", ensureLoggedIn(), uploadCloud.single('photo'), (req, re
         fastReceipe,
         views,
         status,
-        tags_id : tags,
+        tags_id: tags,
         photo
     }, { new: true })
         .then(data => res.status(200).json(data))
