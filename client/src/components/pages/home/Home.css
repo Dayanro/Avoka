@@ -1,0 +1,72 @@
+h4{
+    font-family: 'Roboto Slab', serif;
+    font-weight: 600;
+    font-size: 1.5em;
+}
+
+p{
+    font-family: 'Roboto Slab', serif;
+    font-weight: 300;
+    font-size: 1em; 
+}
+
+.homePost{
+    display: grid;
+    grid-template-columns: 70% 30% ;
+    grid-column-gap: 5%;
+
+}
+
+
+
+.post{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 70% 5% 25% ;
+    align-items: center;
+    border-left: unset;
+    border-right: unset;
+    border-top: unset;
+} 
+
+.postSave{
+    display: flex;
+    height: 100%;
+    align-items: flex-end;
+
+}
+
+.postDate{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 0.7em;
+}
+
+.postItem{
+    font-family: 'Suez One', serif;
+    font-size: 3em ;
+    color:#264e70 ;
+}
+
+.image {
+    object-fit: cover;
+    width: 100%;
+}
+
+
+.popularPost{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 20% 80% ;
+    align-items: center;
+    border-left: unset;
+    border-right: unset;
+    border-top: unset;
+}
+
+.side {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 15px;
+  
+}

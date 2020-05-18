@@ -1,13 +1,43 @@
-.navbar{
+navbar{
+    height: 100px;
     display: flex;
     padding-top: 9px;
     margin-bottom: 9px;
+    background-color:white;
+}
+
+.navBarMain{
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  justify-items: center;
+  background-color: white;
+} 
+.navBarMain div:nth-child(1) { grid-column-start: 2; } 
+
+.navBarMain div:nth-child(2) { margin-left: auto; }
+
+
+
+
+.logo{
+    
+
+}
+
+.links{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navBarItem{
+
 }
 
 #Brand{
+    font-family: 'Rozha One', serif;   
     flex-grow: 12;
-font-size: 30px;
-font-weight:bold;
+    font-size: 70px;
+
 }
 .NavLogOut{
 display: flex;

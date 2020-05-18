@@ -1,0 +1,33 @@
+.title p {
+    font-family: 'Roboto Slab', serif;
+    font-size: 50px;
+    font-weight: 500;
+}
+.title h1 {
+    font-family: 'Roboto Slab', serif;;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.picture{
+    width: 100%;
+    object-fit: cover;
+}
+
+.autor{
+    display: flex;
+    align-items: center;
+}
+.autorInf{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    line-height: 0.2;
+}
+
+.hook p{
+   font-family: 'Open Sans', sans-serif;
+   font: Regular 400 italic; 
+   font-size: 25px;
+   margin-top: 20px;
+}

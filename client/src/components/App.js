@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
+
+import Home from './pages/home/Home'
 import Navigation from './ui/navbar/Navbar'
 import Signup from './pages/signup/Signup'
 import Login from './pages/login/Login'
@@ -42,6 +44,7 @@ class App extends Component {
         <main>
 
           <Switch>
+            <Route exact path="/" render={props => <Home {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
             <Route path="/signup" render={props => <Signup {...props} setTheUser={this.setTheUser} />} />
             <Route path="/login" render={props => <Login {...props} setTheUser={this.setTheUser} />} />
             <Route path="/profile" render={props => <Profile {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />

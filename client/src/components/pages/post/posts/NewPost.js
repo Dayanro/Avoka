@@ -4,6 +4,7 @@ import './NewPost.css'
 import UserService from '../../../../service/user.service'
 import TagService from '../../../../service/tag.service'
 import PostService from '../../../../service/post.service'
+
 import ReactTags from 'react-tag-autocomplete'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';

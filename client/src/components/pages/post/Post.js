@@ -45,6 +45,14 @@ class Post extends Component {
         this.setState({ posts })
     }
 
+
+    updatePost = (updatedPost) => {
+        const tempPosts = [...this.state.posts]
+        const filteredPosts = tempPosts.filter(post => post._id !== updatedPost._id)
+        filteredPosts.push(updatedPost)
+        this.setState({ posts: filteredPosts })
+    }
+
     render() {
         return (
             <>
@@ -52,7 +60,7 @@ class Post extends Component {
                     <Route path="/post/new" render={props => <NewPost {...props} {...this.props} addPost={this.addPost}/>} />
                     <Route path="/post/me" render={props => <MyPosts {...props} {...this.props} updatePosts={this.updatePosts}/>} />
                     <Route exact path="/post/:id" render={props => <PostDetails {...props} {...this.props} posts={this.state.posts} updatePosts={this.updatePosts} />} />
-                    <Route exact path="/post/:id/edit" render={props => <UpdatePost {...props} {...this.props} posts={this.state.posts} updatePosts={this.updatePosts} />} />
+                    <Route exact path="/post/:id/edit" render={props => <UpdatePost {...props} {...this.props} posts={this.state.posts} updatePosts={this.updatePosts} updatePost={this.updatePost} />} />
                 </Switch>
             </>
         )

@@ -22,7 +22,6 @@ class PostDetails extends Component {
     }
 
     componentDidMount() {
-        //this.postService.updatePost()
         if (Object.keys(this.props.posts).length > 0) {
             const post = this.props.posts.filter(post => post._id == this.props.match.params.id)[0]
             this.setState({ post })
@@ -36,15 +35,6 @@ class PostDetails extends Component {
             this.setState({ post })
         }
     }
-
-    // getPostById = () => {
-    //     this.postService.getPostById()
-    //         .then(response => {
-    //             const data = response.data
-    //             this.setState({ post: response.data })
-    //         })
-    //         .catch(err => console.log(err))
-    // }
 
     createMarkup = (html) => ({ __html: html });
 
@@ -60,24 +50,29 @@ class PostDetails extends Component {
         const fastReceipe = this.state.post ? this.state.post.fastReceipe : null
         const views = this.state.post ? this.state.post.views : null
         const tags_id = this.state.post ? this.state.post.tags_id : null
+        const username = this.props.loggedInUser ? this.props.loggedInUser.username : null
+        const email = this.props.loggedInUser ? this.props.loggedInUser.email : null
 
 
-        console.log('props', this.props)
+        console.log('props_POST DETAILS', this.props.loggedInUser)
         console.log('state', this.state)
         return (
             <>
-                <Container>
-                    <div dangerouslySetInnerHTML={this.createMarkup(title)} />
-                    <div>
-                        <img src="/img/undraw_female_avatar_w3jk.svg" className="avatar" />
-                        <div>{}</div>
+                <Container >
+                    <div className="title" dangerouslySetInnerHTML={this.createMarkup(title)} />
+                    <div className="autor">
+                        <img className="profile" src="/img/undraw_female_avatar_w3jk.svg" className="avatar" />
+                        <div className="autorInf">
+                            <p>{username}</p>
+                            <p>{email}</p>
+                        </div>
                     </div>
-                    <div dangerouslySetInnerHTML={this.createMarkup(theHook)} />
-                    {photo ? (<img src={photo} />):null }
-                    <div dangerouslySetInnerHTML={this.createMarkup(realStory)} />
-                    <div dangerouslySetInnerHTML={this.createMarkup(expandOnThePoint)} />
-                    <div dangerouslySetInnerHTML={this.createMarkup(closing)} />
-                    <div dangerouslySetInnerHTML={this.createMarkup(fastReceipe)} />
+                    <div className="hook" dangerouslySetInnerHTML={this.createMarkup(theHook)} />
+                    {photo ? (<img className="picture" src={photo} />) : null}
+                    <div className="content" dangerouslySetInnerHTML={this.createMarkup(realStory)} />
+                    <div className="content" dangerouslySetInnerHTML={this.createMarkup(expandOnThePoint)} />
+                    <div className="content" dangerouslySetInnerHTML={this.createMarkup(closing)} />
+                    <div className="recipe" dangerouslySetInnerHTML={this.createMarkup(fastReceipe)} />
 
                 </Container>
             </>

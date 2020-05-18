@@ -49,6 +49,7 @@ class UpdatePost extends Component {
 
     componentDidMount() {
         if (Object.keys(this.props.posts).length > 0) {
+            console.log("this.props.posts", this.props.posts)
             const post = this.props.posts.filter(post => post._id == this.props.match.params.id)[0]
             this.setState({
                 id: post._id,
@@ -62,7 +63,7 @@ class UpdatePost extends Component {
                 fastReceipe: post.fastReceipe,
                 photo: post.photo,
                 views: post.views,
-                status: post.status,
+                status: this.state.status,
                 tags_id: post.tags_id,
                 post
             })
@@ -86,7 +87,7 @@ class UpdatePost extends Component {
                 fastReceipe: post.fastReceipe,
                 photo: post.photo,
                 views: post.views,
-                status: post.status,
+                status: this.state.status,
                 tags_id: post.tags_id,
                 post
             })
@@ -147,15 +148,14 @@ class UpdatePost extends Component {
         console.log('form', uploadData)
         this.postService.updatePost(this.state.id, uploadData)
             .then((response) => {
-                //this.props.addPost(response.data)
+                this.props.updatePost(response.data)
                 this.props.history.push('/post/me')
             })
             .catch(err => console.log(err))
-
     }
 
     scheduleForLater = e => {
-        this.createPost(e, "Borrador")
+        this.updatePost(e, "Borrador")
     }
 
     getAllTags = () => {
