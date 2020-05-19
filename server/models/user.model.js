@@ -13,6 +13,7 @@ const userSchema = new Schema({
     //posts: [{ type: Schema.Types.ObjectId, ref: 'Post' }],
     role: { type: String, enum: ["Editor", "Admin"], default: "Editor" },
     following: [String],
+    readingList: [String]
 }, {
     timestamps: true
 })

@@ -13,7 +13,7 @@ const postSchema = new Schema({
     photo: String,
     tags_id: [{ type: Schema.Types.ObjectId, ref: 'Tag' }],
     views: Number,
-    status: { type: String, enum: ["Borrador", "Publicado"], default: "Borrador" },
+    status: { type: String, enum: ["Borrador", "Publicado"], default: "Borrador" }
 }, {
     timestamps: true
 })

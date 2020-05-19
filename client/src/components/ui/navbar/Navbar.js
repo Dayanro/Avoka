@@ -97,7 +97,7 @@ class Navigation extends Component {
                                             <NavDropdown.Divider />
                                             <Link to='/post/new'><NavDropdown.Item as="div">Nuevo Post</NavDropdown.Item></Link>
                                             <Link to='/post/me'><NavDropdown.Item as="div">Posts</NavDropdown.Item></Link>
-                                            <NavDropdown.Item >Lista de Lecturas</NavDropdown.Item>
+                                            <Link to='/readingList'><NavDropdown.Item as="div">Lista de Lecturas</NavDropdown.Item></Link>
                                             <Link to='/interests'><NavDropdown.Item as="div">Indica tus Intereses</NavDropdown.Item></Link>
                                             {this.props.loggedInUser.role === "Admin" ?
                                                 <>

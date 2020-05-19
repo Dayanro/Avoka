@@ -11,7 +11,7 @@ import Profile from './pages/profile/Profile'
 import Tag from './pages/tag/Tag'
 import Interests from './pages/interests/Interests'
 import Post from './pages/post/Post'
-
+import ReadingList from './pages/readingList/ReadingList'
 
 import AuthService from './../service/auth.service'
 
@@ -53,6 +53,7 @@ class App extends Component {
             <Route path="/tag" render={props => <Tag {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
             <Route path="/interests" render={props => <Interests {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
             <Route path="/post" render={props => <Post {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
+            <Route path="/readinglist" render={props => <ReadingList {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
           </Switch>
 
         </main>

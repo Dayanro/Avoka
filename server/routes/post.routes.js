@@ -21,7 +21,6 @@ router.post("/posts", ensureLoggedIn(), uploadCloud.single('photo'), (req, res, 
 
     const filename = req.file ? req.file.url : "";
     const tags = tags_id ? tags_id.split(",") : []
-    console.log("ACA ESTA", tags_id)
     Post.create({
         owner,
         title,

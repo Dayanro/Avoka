@@ -101,14 +101,17 @@ router.put("/users/:id", ensureLoggedIn(), uploadCloud.single('avatar'), (req, r
     const email = req.body.email;
     const interest = req.body.interest;
     const shortBio = req.body.shortBio;
+    const readingList = req.body.readingList;
 
     const tempUsername = username || req.user.username;
     const tempEmail = email || req.user.email;
     const tempInterest = interest || req.user.interest;
     const tempShortBio = shortBio || req.user.shortBio;
+    const tempReadingList = readingList || req.user.readingList;
+
     const tempAvatar = req.file ? req.file.url : req.user.avatar;
 
-    User.findByIdAndUpdate(req.params.id, { username: tempUsername, email: tempEmail, shortBio: tempShortBio, avatar: tempAvatar, interest: tempInterest }, { new: true })
+    User.findByIdAndUpdate(req.params.id, { username: tempUsername, email: tempEmail, shortBio: tempShortBio, avatar: tempAvatar, interest: tempInterest, readingList: tempReadingList }, { new: true })
         .then(data => res.status(200).json(data))
         .catch(err => res.status(500).json({ message: 'No fue posible actualizar' }))
 })
@@ -117,7 +120,7 @@ router.put("/users/:id", ensureLoggedIn(), uploadCloud.single('avatar'), (req, r
 router.delete("/users/:id", ensureLoggedIn(), (req, res, next) => {
     User.findByIdAndDelete(req.params.id)
         .then(data => res.status(204))
-        .catch(err => res.status(500).json({message: 'No fue posible eliminar la información seleccionada' }))
+        .catch(err => res.status(500).json({ message: 'No fue posible eliminar la información seleccionada' }))
 })
 
 

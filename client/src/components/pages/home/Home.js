@@ -19,7 +19,8 @@ class Home extends Component {
         super(props)
         this.state = {
             posts: [],
-            popularPosts: []
+            popularPosts: [],
+            readingList: this.props.loggedInUser ? this.props.loggedInUser.readingList : []
         }
         this.userService = new UserService()
         this.tagService = new TagService()
@@ -54,7 +55,49 @@ class Home extends Component {
         this.setState({ popularPosts: popularOnes })
     }
 
+    save = (postId) => {
+        const currentReadingList = [...this.props.loggedInUser.readingList]
+        currentReadingList.push(postId)
+        const updatedReadingList = [...currentReadingList]
+        const updateUser = { ...this.props.loggedInUser, readingList: updatedReadingList }
+        this.userService.updateUserData(this.props.loggedInUser._id, updateUser)
+            .then((response) => {
+                this.props.setTheUser(response.data)
+            })
+            .catch(err => console.log(err))
+    }
+
+    unsave = (postId) => {
+        const currentReadingList = [...this.props.loggedInUser.readingList]
+        let updatedReadingList = currentReadingList.filter(post => post !== postId)
+        const updateUser = { ...this.props.loggedInUser, readingList: updatedReadingList }
+        this.userService.updateUserData(this.props.loggedInUser._id, updateUser)
+            .then((response) => {
+                this.props.setTheUser(response.data)
+            })
+            .catch(err => console.log(err))
+    }
+
+
     createMarkup = (html) => ({ __html: html });
+
+    displaySaveOptions = (postId) => {
+        const { loggedInUser } = this.props
+        return (
+            <>
+                {loggedInUser && loggedInUser.readingList.length  && loggedInUser.readingList.includes(postId) ?
+
+                    <div style={{ marginRight: "10px" }} onClick={() => this.unsave(postId)}>
+                        <FontAwesomeIcon icon={faBookmark} size="1x" color=" #679186" className="Button1" />
+                    </div>
+                    :
+
+                    <div style={{ marginRight: "10px" }} onClick={() => this.save(postId)}>
+                        <FontAwesomeIcon icon={faBookmark} size="1x" color="#bbd4ce" className="Button1" />
+                    </div>}
+            </>
+        )
+    }
 
     render() {
         console.log("POST HOME", this.state.posts)
@@ -80,12 +123,12 @@ class Home extends Component {
                                     </div>
                                     <div className="postSave">
                                         {this.props.loggedInUser ?
-                                            <Link to={`/post/${post._id}/edit`}> <div style={{ marginRight: "10px" }}>
-                                                <FontAwesomeIcon icon={faBookmark} size="1x" color="#bbd4ce" className="Button1" />
-                                            </div></Link > : null}
+                                            this.displaySaveOptions(post._id) : null}
+
+
                                     </div>
                                     <div className="postImage" style={{ display: "flex" }}>
-                                        {post.photo ? (<img className="image" src={post.photo} />) : null}
+                                        {post.photo ? (<img className="image" src={post.photo} />) : <img className="searchImage" src="/img/undraw_cooking_lyxy.svg" />}
                                     </div>
                                 </Card>))}
                         </div>
