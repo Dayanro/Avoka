@@ -29,7 +29,8 @@ class Home extends Component {
     getAllPost = () => {
         this.postService.getAllPost()
             .then(response => {
-                this.setState({ posts: response.data })
+                const publishedPost = response.data.filter(post => post.status == "Publicado")
+                this.setState({ posts: publishedPost })
                 this.popularPosts()
             })
             .catch(err => console.log(err))
@@ -62,9 +63,6 @@ class Home extends Component {
             <>
                 <Container fluid="md" as="section">
                     <h1></h1>
-
-
-                    
                     <div className="homePost"  >
                         <div>
                             {this.state.posts && this.state.posts.map((post, idx) => (
@@ -81,9 +79,10 @@ class Home extends Component {
                                         </Link >
                                     </div>
                                     <div className="postSave">
-                                        <Link to={`/post/${post._id}/edit`}> <div style={{ marginRight: "10px" }}>
-                                            <FontAwesomeIcon icon={faBookmark} size="1x" color="#bbd4ce" className="Button1" />
-                                        </div></Link >
+                                        {this.props.loggedInUser ?
+                                            <Link to={`/post/${post._id}/edit`}> <div style={{ marginRight: "10px" }}>
+                                                <FontAwesomeIcon icon={faBookmark} size="1x" color="#bbd4ce" className="Button1" />
+                                            </div></Link > : null}
                                     </div>
                                     <div className="postImage" style={{ display: "flex" }}>
                                         {post.photo ? (<img className="image" src={post.photo} />) : null}

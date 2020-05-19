@@ -9,6 +9,7 @@ import NewPost from './posts/NewPost'
 import MyPosts from './posts/MyPosts'
 import PostDetails from './posts/PostDetails'
 import UpdatePost from './posts/UpdatePost'
+import SearchPosts from './posts/SearchPosts'
 
 
 
@@ -37,11 +38,11 @@ class Post extends Component {
     }
 
     updatePosts = (posts) => {
-        this.setState({posts})
+        this.setState({ posts })
     }
 
     addPost = (post) => {
-        const posts = [ ...this.state.posts, post ]
+        const posts = [...this.state.posts, post]
         this.setState({ posts })
     }
 
@@ -57,10 +58,12 @@ class Post extends Component {
         return (
             <>
                 <Switch>
-                    <Route path="/post/new" render={props => <NewPost {...props} {...this.props} addPost={this.addPost}/>} />
-                    <Route path="/post/me" render={props => <MyPosts {...props} {...this.props} updatePosts={this.updatePosts}/>} />
+                    <Route path="/post/new" render={props => <NewPost {...props} {...this.props} addPost={this.addPost} />} />
+                    <Route path="/post/me" render={props => <MyPosts {...props} {...this.props} updatePosts={this.updatePosts} />} />
+                    <Route exact path="/post/search" render={props => <SearchPosts {...props} {...this.props} posts={this.state.posts} updatePosts={this.updatePosts} updatePost={this.updatePost} />} />
                     <Route exact path="/post/:id" render={props => <PostDetails {...props} {...this.props} posts={this.state.posts} updatePosts={this.updatePosts} />} />
                     <Route exact path="/post/:id/edit" render={props => <UpdatePost {...props} {...this.props} posts={this.state.posts} updatePosts={this.updatePosts} updatePost={this.updatePost} />} />
+
                 </Switch>
             </>
         )

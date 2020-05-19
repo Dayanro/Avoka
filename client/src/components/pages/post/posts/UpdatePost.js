@@ -69,7 +69,6 @@ class UpdatePost extends Component {
             })
         }
         this.getAllTags()
-
     }
 
     componentDidUpdate(prevProps) {

@@ -12,7 +12,9 @@ import Tag from './pages/tag/Tag'
 import Interests from './pages/interests/Interests'
 import Post from './pages/post/Post'
 
+
 import AuthService from './../service/auth.service'
+
 
 class App extends Component {
 

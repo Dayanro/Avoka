@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import { withRouter } from 'react-router'
 import './Navbar.css'
 
 import AuthService from './../../../service/auth.service'
 import TagService from './../../../service/tag.service'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTag } from '@fortawesome/free-solid-svg-icons'
 
 import Navbar from 'react-bootstrap/Navbar'
 import Image from 'react-bootstrap/Image'
@@ -25,21 +29,18 @@ class Navigation extends Component {
         this.tagService = new TagService()
     }
 
-
-
     logout = () => {
         this.props.setTheUser(false)
-        console.log("PROPS", this.props)
         this.authService.logout()
-        // .then(response => {
-        //     this.props.history.push('/')
-        // })
+            .then(response => {
+                this.props.history.push('/')
+            })
     }
 
     showAllTags = () => {
         this.tagService.getAllTags()
             .then(response => {
-                const tags = response.data.map(tag => ({ label: tag.name, value: tag.name }))
+                const tags = response.data.map(tag => ({ label: tag.name, value: tag._id }))
                 this.setState({ tags })
             })
             .catch(err => console.log(err))
@@ -49,18 +50,31 @@ class Navigation extends Component {
         this.showAllTags()
     }
 
+    searchPost = (value) => {
+        console.log("VALUE", value)
+        const tagId = value[0].value
+        console.log("IDTAG", tagId)
+        this.props.history.push({
+            pathname: ('/post/search'),
+            search: `?tag=${tagId}`
+        });
+    }
+
     render() {
-        console.log("TAGS",this.state.tags)
+        console.log("PROPSSS-NAVBAR", this.props)
+        console.log("TAGS-NAVBAR", this.state.tags)
         return (
             <Navbar className="navBarMain" expand="lg" sticky="top">
                 <div className="logo">
                     <Link to='/' exact className="Home"><Navbar.Brand id="Brand" as="div">Avoka</Navbar.Brand></Link>
                 </div>
                 <div className="links">
-                    <Select
-                        multi
+                    <Select className="search"
+                        placeholder={`Busquedas por Tags`}
+                        loading={this.state.tags.length < 0 ? true : false}
+                        searchable="true"
                         options={this.state.tags}
-                        onChange={(values) => this.onChange(values)} />
+                        onChange={(value) => this.searchPost(value)} />
                     <Nav.Link as={NavLink} to='/' exact className="about">Acerca de</Nav.Link>
                     <Navbar.Toggle as="button" aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav" className="NavLogOut">
@@ -85,7 +99,7 @@ class Navigation extends Component {
                                             <Link to='/post/me'><NavDropdown.Item as="div">Posts</NavDropdown.Item></Link>
                                             <NavDropdown.Item >Lista de Lecturas</NavDropdown.Item>
                                             <Link to='/interests'><NavDropdown.Item as="div">Indica tus Intereses</NavDropdown.Item></Link>
-                                            {this.props.loggedInUser.role == "Admin" ?
+                                            {this.props.loggedInUser.role === "Admin" ?
                                                 <>
                                                     <NavDropdown.Divider />
                                                     <Link to='/tag'><NavDropdown.Item as="div">Edición de Tags</NavDropdown.Item></Link>
@@ -107,4 +121,4 @@ class Navigation extends Component {
 
 }
 
-export default Navigation
+export default withRouter(Navigation)

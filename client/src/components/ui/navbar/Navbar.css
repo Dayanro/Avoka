@@ -16,14 +16,6 @@ navbar{
 
 .navBarMain div:nth-child(2) { margin-left: auto; }
 
-
-
-
-.logo{
-    
-
-}
-
 .links{
     display: flex;
     justify-content: flex-end;
@@ -63,4 +55,9 @@ input{
 .NavUser{
     text-align: center;
     font-weight: 900;
+}
+
+.search{
+    width: 100%;
+    
 }
