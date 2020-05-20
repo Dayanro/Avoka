@@ -11,7 +11,7 @@ import Card from 'react-bootstrap/Card'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookmark } from '@fortawesome/free-solid-svg-icons'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
+
 
 class Home extends Component {
 
@@ -100,7 +100,6 @@ class Home extends Component {
     }
 
     render() {
-        console.log("POST HOME", this.state.posts)
 
         return (
             <>

@@ -1,0 +1,54 @@
+
+#readingTitle{
+    font-family: 'Playfair Display', serif;
+    font-size: 2em;
+    text-align: left;
+    color: #264e70;
+    margin-top: 20px;
+    border-bottom: #f5f5f5 solid 1px;
+
+}
+
+
+h3{
+    font-family: 'Playfair Display', serif;
+    font-size: 1em;
+    text-align: center;
+    color: #264e70;
+    margin-top: 50px;
+}
+
+hr{
+    width: 50px;
+}
+.notFoundReading{
+    margin-top: 10%;
+    padding: 10px;
+    display: flex;
+    grid-column-gap: 5px;
+    grid-template-columns: 40% 60% ;
+}
+
+
+.notFoundReading{
+    background-color:#f5f5f5;
+    padding:20px;
+
+}
+
+#alert{
+    font-family: 'Roboto', serif;
+    font-weight: 400;
+    font-size: 1.5em; 
+    text-align: justify;
+    margin: 10%;
+
+}
+
+.notFoundImg{
+width: 80%;
+}
+
+.userList{
+    display:flex
+}

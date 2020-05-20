@@ -24,9 +24,10 @@ class SearchPosts extends Component {
             posts: [],
             tagSelected: [],
             postSelected: [],
-            relatedTags: []
+            relatedTags: [],
+            readingList: this.props.loggedInUser ? this.props.loggedInUser.readingList : [],
         }
-        // this.userService = new UserService()
+        this.userService = new UserService()
         this.tagService = new TagService()
         this.postService = new PostService()
     }
@@ -42,6 +43,7 @@ class SearchPosts extends Component {
         const tagId = params.get("tag");
         if (tagIdPrev !== tagId) {
             this.getAllTags()
+            this.getSavedPosts()
         }
     }
 
@@ -65,6 +67,7 @@ class SearchPosts extends Component {
                 const publishedPost = response.data.filter(post => post.status == "Publicado")
                 this.setState({ posts: publishedPost })
                 this.getRelatedTags()
+                this.getSavedPosts()
                 console.log("response.data-POSSSSST", response.data)
             })
             .catch(err => console.log(err))
@@ -81,6 +84,57 @@ class SearchPosts extends Component {
         this.setState({ relatedTags: nameTags })
     }
 
+    getSavedPosts = () => {
+        const savedPosts = this.state.posts.filter(posts => this.state.readingList.includes(posts._id))
+        this.setState({ savedPosts: savedPosts })
+        console.log("LISTA DE LECTURAS", this.state.savedPosts)
+    }
+
+
+    save = (postId) => {
+        const currentReadingList = [...this.props.loggedInUser.readingList]
+        currentReadingList.push(postId)
+        const updatedReadingList = [...currentReadingList]
+        const updateUser = { ...this.props.loggedInUser, readingList: updatedReadingList }
+        this.userService.updateUserData(this.props.loggedInUser._id, updateUser)
+            .then((response) => {
+                this.props.setTheUser(response.data)
+            })
+            .catch(err => console.log(err))
+        this.setState({ readingList: updateUser })
+    }
+
+    unsave = (postId) => {
+        const currentReadingList = [...this.props.loggedInUser.readingList]
+        let updatedReadingList = currentReadingList.filter(post => post !== postId)
+        const updateUser = { ...this.props.loggedInUser, readingList: updatedReadingList }
+        this.userService.updateUserData(this.props.loggedInUser._id, updateUser)
+            .then((response) => {
+                this.props.setTheUser(response.data)
+            })
+            .catch(err => console.log(err))
+        this.setState({ readingList: updateUser })
+    }
+
+    displaySaveOptions = (postId) => {
+        const { loggedInUser } = this.props
+        return (
+            <>
+                {loggedInUser && loggedInUser.readingList.length && loggedInUser.readingList.includes(postId) ?
+
+                    <div style={{ marginRight: "10px" }} onClick={() => this.unsave(postId)}>
+                        <FontAwesomeIcon icon={faBookmark} size="1x" color=" #679186" className="Button1" />
+                    </div>
+                    :
+
+                    <div style={{ marginRight: "10px" }} onClick={() => this.save(postId)}>
+                        <FontAwesomeIcon icon={faBookmark} size="1x" color="#bbd4ce" className="Button1" />
+                    </div>}
+            </>
+        )
+    }
+
+
     createdAt = (dateString) => {
         const date = new Date(dateString);
         return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
@@ -90,7 +144,7 @@ class SearchPosts extends Component {
 
 
     render() {
-        console.log("TAGS_SEARCH", this.props)
+        console.log("PROPSSSS_SEARCH", this.props)
         console.log("POSTSELECTE", this.state.posts)
         console.log("NAMEEEE", this.state.tagSelected)
 
@@ -130,10 +184,7 @@ class SearchPosts extends Component {
                                             </Link >
                                         </div>
                                         <div className="searchPostSave">
-                                            {this.props.loggedInUser ?
-                                                <Link to={`/post/${post._id}/edit`}> <div style={{ marginRight: "10px" }}>
-                                                    <FontAwesomeIcon icon={faBookmark} size="lg" color="#cccccc" className="buttonSafe" />
-                                                </div></Link > : null}
+                                            {this.props.loggedInUser ? this.displaySaveOptions(post._id) : null}
                                         </div>
                                         <div className="searchPostImage" style={{ display: "flex", width: '100%', height: '100%' }}>
                                             {post.photo ? (<img className="searchImage" src={post.photo} />) : <img className="searchImage" src="/img/undraw_cooking_lyxy.svg" />}

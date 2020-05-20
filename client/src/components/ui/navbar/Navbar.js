@@ -7,7 +7,7 @@ import AuthService from './../../../service/auth.service'
 import TagService from './../../../service/tag.service'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTag } from '@fortawesome/free-solid-svg-icons'
+import { faBookmark } from '@fortawesome/free-regular-svg-icons'
 
 import Navbar from 'react-bootstrap/Navbar'
 import Image from 'react-bootstrap/Image'
@@ -51,9 +51,7 @@ class Navigation extends Component {
     }
 
     searchPost = (value) => {
-        console.log("VALUE", value)
         const tagId = value[0].value
-        console.log("IDTAG", tagId)
         this.props.history.push({
             pathname: ('/post/search'),
             search: `?tag=${tagId}`
@@ -61,21 +59,24 @@ class Navigation extends Component {
     }
 
     render() {
-        console.log("PROPSSS-NAVBAR", this.props)
-        console.log("TAGS-NAVBAR", this.state.tags)
         return (
             <Navbar className="navBarMain" expand="lg" sticky="top">
                 <div className="logo">
                     <Link to='/' exact className="Home"><Navbar.Brand id="Brand" as="div">Avoka</Navbar.Brand></Link>
                 </div>
                 <div className="links">
-                    <Select className="search"
-                        placeholder={`Busquedas por Tags`}
-                        loading={this.state.tags.length < 0 ? true : false}
-                        searchable="true"
-                        options={this.state.tags}
-                        onChange={(value) => this.searchPost(value)} />
-                    <Nav.Link as={NavLink} to='/' exact className="about">Acerca de</Nav.Link>
+                    <div className="bookMarkNav">
+                        <Link to='/readingList'><FontAwesomeIcon icon={faBookmark} color="#cccccc" size="2x" className="uttonNav" /></Link>
+                    </div>
+                    <div className="searchNavBar">
+                        <Select className="searchNav"
+                            style={{  width: '200px', marginRight: '20px', alignItems: 'center', borderRadius: '3px', lineHeight: "40px" }}
+                            placeholder={`Busquedas por Tags`}
+                            loading={this.state.tags.length < 0 ? true : false}
+                            searchable="true"
+                            options={this.state.tags}
+                            onChange={(value) => this.searchPost(value)} />
+                    </div>
                     <Navbar.Toggle as="button" aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav" className="NavLogOut">
                         {
@@ -85,13 +86,22 @@ class Navigation extends Component {
                                     <Nav.Link as={NavLink} to='/signup' exact className="SignUpButton">Registro</Nav.Link>
                                 </>
                                 :
-                                <>
+                                <div>
                                     <Nav className="mr-auto">
-                                        <NavDropdown title="Dropdown" alignRight id="basic-nav-dropdown" className="NavDropdown">
-                                            <NavDropdown.Item className="UserList">
-                                                <Image src="" roundedCircle />
-                                                <Navbar.Text className="NavUser">  {this.props.loggedInUser.username}</Navbar.Text>
-                                                <Navbar.Text className="NavEmail"> {this.props.loggedInUser.email}</Navbar.Text>
+                                        <NavDropdown title={
+                                            <div className="pull-left">
+                                                {this.props.loggedInUser.avatar ? <img src={this.props.loggedInUser.avatar} className="profilePictNav" /> : <img className="notFoundAvatar" src="/img/undraw_female_avatar_w3jk.svg" />}
+                                            </div>}
+                                            alignRight id="basic-nav-dropdown" className="NavDropdown">
+                                            <NavDropdown.Item className="userList">
+                                                <div clasName="sectionAvatar">
+                                                    {this.props.loggedInUser.avatar ? <img src={this.props.loggedInUser.avatar} className="profiledrow" /> : <img className="notFoundAvatarDrow" src="/img/undraw_female_avatar_w3jk.svg" />}
+                                                    {/* <Image src="" roundedCircle /> */}
+                                                </div>
+                                                <div className="sectionInf">
+                                                    <Navbar.Text className="NavUser">  {this.props.loggedInUser.username}</Navbar.Text>
+                                                    <Navbar.Text className="NavEmail"> {this.props.loggedInUser.email}</Navbar.Text>
+                                                </div>
                                             </NavDropdown.Item>
 
                                             <NavDropdown.Divider />
@@ -110,7 +120,9 @@ class Navigation extends Component {
                                             <NavDropdown.Item onClick={this.logout}>Cerrar sesión</NavDropdown.Item>
                                         </NavDropdown>
                                     </Nav>
-                                </>
+                                </div>
+
+
                         }
                     </Navbar.Collapse>
                 </div>
