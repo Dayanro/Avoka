@@ -108,7 +108,8 @@ class Home extends Component {
                 <header className="hero">
                     <img className="pictureHero" src="/img/Hero_avoka.jpg"></img>
                     <div className="homeText">
-                        <h1>Historias Saludables</h1>
+                        <h1>Historias</h1>
+                        <h1>Saludables</h1>
 
                     </div>
                 </header>
