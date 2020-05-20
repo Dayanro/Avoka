@@ -55,8 +55,20 @@ class App extends Component {
             <Route path="/post" render={props => <Post {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
             <Route path="/readinglist" render={props => <ReadingList {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
           </Switch>
-
         </main>
+        <footer className="footer">
+          <div className="footertext">
+            <div className="about">
+              <p> Avoka</p>
+            </div>
+            <div className="follow">
+              <p> Avoka</p>
+            </div>
+            <div className="write">
+              <p> Avoka</p>
+            </div>
+          </div>
+        </footer>
       </>
     )
   }

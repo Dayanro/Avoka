@@ -10,7 +10,8 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBookmark } from '@fortawesome/free-solid-svg-icons'
+
+import { faBookmark } from '@fortawesome/free-regular-svg-icons'
 
 
 class Home extends Component {
@@ -85,7 +86,7 @@ class Home extends Component {
         const { loggedInUser } = this.props
         return (
             <>
-                {loggedInUser && loggedInUser.readingList.length  && loggedInUser.readingList.includes(postId) ?
+                {loggedInUser && loggedInUser.readingList.length && loggedInUser.readingList.includes(postId) ?
 
                     <div style={{ marginRight: "10px" }} onClick={() => this.unsave(postId)}>
                         <FontAwesomeIcon icon={faBookmark} size="1x" color=" #679186" className="Button1" />
@@ -93,18 +94,27 @@ class Home extends Component {
                     :
 
                     <div style={{ marginRight: "10px" }} onClick={() => this.save(postId)}>
-                        <FontAwesomeIcon icon={faBookmark} size="1x" color="#bbd4ce" className="Button1" />
+                        <FontAwesomeIcon icon={faBookmark} size="1x" color="#cccccc" className="Button1" />
                     </div>}
             </>
         )
     }
 
     render() {
+        console.log("POSTHOME", this.state.posts)
 
         return (
             <>
-                <Container fluid="md" as="section">
-                    <h1></h1>
+                <header className="hero">
+                    <img className="pictureHero" src="/img/Hero_avoka.jpg"></img>
+                    <div className="homeText">
+                        <h1>Historias Saludables</h1>
+
+                    </div>
+                </header>
+                <Container fluid="lg" as="section">
+                    <h1 id="titleHome">Ultimas Publicaciones</h1>
+                    <hr id="hrHome"></hr>
                     <div className="homePost"  >
                         <div>
                             {this.state.posts && this.state.posts.map((post, idx) => (
@@ -116,6 +126,7 @@ class Home extends Component {
                                                     <div dangerouslySetInnerHTML={this.createMarkup(post.title)} className="postTitle" />
                                                 </div>
                                                 <div dangerouslySetInnerHTML={this.createMarkup(post.theHook)} className="postHook" />
+                                                <div className="postUsername">{post.owner.username}</div>
                                                 <div className="postDate">{this.createdAt(post.createdAt)}</div>
                                             </div>
                                         </Link >
@@ -123,23 +134,21 @@ class Home extends Component {
                                     <div className="postSave">
                                         {this.props.loggedInUser ?
                                             this.displaySaveOptions(post._id) : null}
-
-
                                     </div>
-                                    <div className="postImage" style={{ display: "flex" }}>
-                                        {post.photo ? (<img className="image" src={post.photo} />) : <img className="searchImage" src="/img/undraw_cooking_lyxy.svg" />}
+                                    <div className="postImage" style={{ display: "flex", width: '100%', height: '100%' }}>
+                                        {post.photo ? (<img className="homeImg" src={post.photo} />) : <img className="homeImg" src="/img/undraw_cooking_lyxy.svg" />}
                                     </div>
                                 </Card>))}
                         </div>
 
                         <div className="side">
-                            <h4>Post populares en Avoka</h4>
+                            <h3>Post populares en Avoka</h3>
                             <hr></hr>
                             <div>
                                 {this.state.posts && this.state.popularPosts.map((post, idx) => (
                                     <div className="popularPost" key={post.id} >
                                         <div className="postItem">
-                                            <h2>0{idx + 1}</h2>
+                                            <div id="popularNumb">0{idx + 1}</div>
                                         </div>
                                         <div className="postInfo" >
                                             <Link to={`/post/${post._id}`}>
@@ -154,6 +163,7 @@ class Home extends Component {
                             </div>
                         </div>
                     </div>
+
                 </Container>
 
             </>

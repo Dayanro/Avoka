@@ -35,7 +35,8 @@ class MyPosts extends Component {
         this.postService.getAllPost()
             .then(response => {
                 const data = response.data
-                const ownPost = data.filter(post => post.owner == this.props.loggedInUser._id)
+                console.log(response.data)
+                const ownPost = data.filter(post => post.owner._id == this.props.loggedInUser._id)
                 this.setState({ posts: ownPost })
             })
             .catch(err => console.log(err))
@@ -69,7 +70,6 @@ class MyPosts extends Component {
     createMarkup = (html) => ({ __html: html });
 
     render() {
-        console.log(this.props)
         const posts = this.getByStatus(this.state.status)
         return (
             <>

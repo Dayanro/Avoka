@@ -57,7 +57,6 @@ class EditProfile extends Component {
     render() {
         const { username, email, shortBio, avatar } = this.state;
         const name = username.charAt(0).toUpperCase() + username.slice(1)
-        console.log('AVATAR', avatar)
         return (
             <>
                 <form onSubmit={this.handleSubmit} className="updateData">

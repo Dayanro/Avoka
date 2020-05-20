@@ -52,3 +52,45 @@ width: 80%;
 .userList{
     display:flex
 }
+
+ .searchPostTitle  h1{
+   font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    text-transform: capitalize;
+    text-align: justify;
+}
+
+
+ .searchPostTitle  p{
+   font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    text-transform: capitalize;
+    text-align: justify;
+}
+.searchPostHook{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    text-transform: capitalize;
+    text-align: justify;
+
+}
+
+.searchPosUsername{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: capitalize;
+    text-align: justify;
+
+}
+
+.searchPostDate{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    text-transform: capitalize;
+    text-align: justify;
+}

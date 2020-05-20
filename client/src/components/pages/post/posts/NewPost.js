@@ -45,37 +45,37 @@ class NewPost extends Component {
 
     handleChangeTitle = (text) => {
         this.setState({ title: text });
-        console.log(this.state.title)
+        
     }
     handleChangePhoto = (e) => {
         const photo = e.target.files[0]
         this.setState({ photo });
-        console.log(this.state.photo)
+       
     }
 
     handleChangeTheHook = (text) => {
         this.setState({ theHook: text });
-        console.log(this.state.theHook)
+       
     }
 
     handleChangeRealStory = (text) => {
         this.setState({ realStory: text });
-        console.log(this.state.realStory)
+        
     }
 
     handleChangeExpandOnThePoint = (text) => {
         this.setState({ expandOnThePoint: text });
-        console.log(this.state.expandOnThePoint)
+        
     }
 
     handleChangeClosing = (text) => {
         this.setState({ closing: text });
-        console.log(this.state.closing)
+       
     }
 
     handleChangeFastReceipe = (text) => {
         this.setState({ fastReceipe: text });
-        console.log(this.state.fastReceipe)
+        
     }
 
     createPost = (e, status) => {
@@ -94,7 +94,7 @@ class NewPost extends Component {
         uploadData.append("views", this.state.views)
         uploadData.append("status", status || this.state.status)
         uploadData.append("tags_id", tagsId)
-        console.log('form', uploadData)
+        
         this.postService.createPost(uploadData)
             .then((response) => {
                 this.props.addPost(response.data)
@@ -119,10 +119,11 @@ class NewPost extends Component {
 
     componentDidMount = () => {
         this.getAllTags()
+        window.scrollTo(0, 0)
     }
 
     handleInputTag = e => {
-        console.log('update', e.target.value)
+        
         const value = e.target.value
         this.setState({ value })
     }
@@ -138,8 +139,7 @@ class NewPost extends Component {
     }
 
     render() {
-        console.log("PROPS-POST", this.props)
-        console.log('this.state', this.state)
+
         return (
             <div >
                 <Container fluid="md" as="section" className="newPost">
@@ -147,7 +147,7 @@ class NewPost extends Component {
                     <div id="title" className="block">
                         <div className="note" >
                             <img src="/img/undraw_wall_post_83ul.svg" className="picture" />
-                            <p>Para empezar,escribe un título. </p>
+                            <p>Para empezar, escribe un título. </p>
                         </div>
                         <div className="titleEditor" style={{ marginBottom: "20px", height: "100%" }}>
                             <ReactQuill
@@ -271,7 +271,7 @@ class NewPost extends Component {
                             suggestions={this.state.tags}
                             handleDelete={this.handleDelete}
                             handleAddition={this.handleAddition}
-                            placeholder="No olvides Agregar tags para que los lectores sepan de qué trata tu post."
+                            placeholder="No olvides agregar tags para que los lectores sepan de qué trata tu post."
                         />
                     </div>
 

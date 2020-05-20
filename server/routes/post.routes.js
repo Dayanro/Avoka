@@ -42,21 +42,21 @@ router.get("/posts", (req, res, next) => {
     if (req.query.tag) {
         return next()
     } else {
-        Post.find()
+        Post.find().populate('owner', "username avatar")
             .then(data => res.status(200).json(data))
             .catch(err => res.status(404).json({ message: 'No se encontró información en la base de datos' }))
     }
 })
 
 router.get("/posts", (req, res, next) => {
-    Post.find({ tags_id: req.query.tag })
+    Post.find({ tags_id: req.query.tag }).populate('owner', "username avatar")
         .then(data => res.status(200).json(data))
         .catch(err => res.status(404).json({ message: 'No se encontró información en la base de datos' }))
 })
 
 
 router.get("/posts/:id", (req, res, next) => {
-    Post.findById(req.params.id)
+    Post.findById(req.params.id).populate('owner', "username avatar")
         .then(data => res.status(200).json(data))
         .catch(err => res.status(404).json({ message: 'No se encontró información en la base de datos' }))
 })

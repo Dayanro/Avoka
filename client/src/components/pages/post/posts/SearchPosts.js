@@ -68,7 +68,7 @@ class SearchPosts extends Component {
                 this.setState({ posts: publishedPost })
                 this.getRelatedTags()
                 this.getSavedPosts()
-                console.log("response.data-POSSSSST", response.data)
+ 
             })
             .catch(err => console.log(err))
     }
@@ -87,7 +87,6 @@ class SearchPosts extends Component {
     getSavedPosts = () => {
         const savedPosts = this.state.posts.filter(posts => this.state.readingList.includes(posts._id))
         this.setState({ savedPosts: savedPosts })
-        console.log("LISTA DE LECTURAS", this.state.savedPosts)
     }
 
 
@@ -144,10 +143,6 @@ class SearchPosts extends Component {
 
 
     render() {
-        console.log("PROPSSSS_SEARCH", this.props)
-        console.log("POSTSELECTE", this.state.posts)
-        console.log("NAMEEEE", this.state.tagSelected)
-
         const tagName = this.state.tagSelected && this.state.tagSelected.length > 0 ? this.state.tagSelected[0].name : ""
 
         return (

@@ -18,7 +18,7 @@ Post.collection.drop();
 const user = [
     {
         avatar: "https://res.cloudinary.com/dw3tnxljg/image/upload/v1589557252/Avoka/undraw_female_avatar_w3jk_xivrbo.png",
-        shortBio: "To cure disease after it has appeared is like digging a well when one feels thirsty, ― David Perlmutter",
+        shortBio: "Dime qué comes y te diré quién eres. ― Anthelme Brillat-Savarin",
         username: "Admin",
         email: "dayanrojas48@gmail.com",
         password: bcrypt.hashSync("admin", salt),
@@ -65,6 +65,11 @@ const tag = [
     },
     {
         name: "Estilos de vida",
+        photo: "https://res.cloudinary.com/dw3tnxljg/image/upload/v1589578601/Avoka/estetoscopio-medico-manzana-sobre-fondo-madera-imagen-concepto-estilo-vida-saludable_1205-1295_cz9jfg.jpg",
+        definition: "Aquellos hábitos de nuestra vida diaria que nos ayudan a mantenernos más sanos y con menos limitaciones funcionales."
+    },
+    {
+        name: "Probando, probando, 1",
         photo: "https://res.cloudinary.com/dw3tnxljg/image/upload/v1589578601/Avoka/estetoscopio-medico-manzana-sobre-fondo-madera-imagen-concepto-estilo-vida-saludable_1205-1295_cz9jfg.jpg",
         definition: "Aquellos hábitos de nuestra vida diaria que nos ayudan a mantenernos más sanos y con menos limitaciones funcionales."
     }

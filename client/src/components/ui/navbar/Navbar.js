@@ -90,12 +90,12 @@ class Navigation extends Component {
                                     <Nav className="mr-auto">
                                         <NavDropdown title={
                                             <div className="pull-left">
-                                                {this.props.loggedInUser.avatar ? <img src={this.props.loggedInUser.avatar} className="profilePictNav" /> : <img className="notFoundAvatar" src="/img/undraw_female_avatar_w3jk.svg" />}
+                                                {this.props.loggedInUser.avatar ? <img src={this.props.loggedInUser.avatar} className="profilePictNav" /> : <img className="profilePictNav" src="/img/undraw_female_avatar_w3jk.svg" />}
                                             </div>}
                                             alignRight id="basic-nav-dropdown" className="NavDropdown">
                                             <NavDropdown.Item className="userList">
                                                 <div clasName="sectionAvatar">
-                                                    {this.props.loggedInUser.avatar ? <img src={this.props.loggedInUser.avatar} className="profiledrow" /> : <img className="notFoundAvatarDrow" src="/img/undraw_female_avatar_w3jk.svg" />}
+                                                    {this.props.loggedInUser.avatar ? <img src={this.props.loggedInUser.avatar} className="notFoundAvatarDrow" /> : <img className="notFoundAvatarDrow" src="/img/undraw_female_avatar_w3jk.svg" />}
                                                     {/* <Image src="" roundedCircle /> */}
                                                 </div>
                                                 <div className="sectionInf">

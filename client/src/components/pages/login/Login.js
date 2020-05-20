@@ -37,7 +37,6 @@ class Login extends Component {
         this.authService.login(this.state.loginInfo)
             .then(response => {
                 this.props.setTheUser(response.data)
-                console.log('HISTORY', this.props.history);
                 this.props.history.push('/')
             })
             .catch(err => {
@@ -51,7 +50,6 @@ class Login extends Component {
     }
 
     render() {
-        console.log("ERROOOOOERRRRRR", this.state)
         return (
 
             <Modal

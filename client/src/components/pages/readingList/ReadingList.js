@@ -50,7 +50,6 @@ class ReadingList extends Component {
     getSavedPosts = () => {
         const savedPosts = this.state.posts.filter(posts => this.state.readingList.includes(posts._id))
         this.setState({ savedPosts: savedPosts })
-        console.log("LISTA DE LECTURAS", this.state.savedPosts)
     }
 
 
@@ -107,12 +106,9 @@ class ReadingList extends Component {
 
     render() {
 
-        console.log("STATE_READINGLIST", this.state.readingList)
-        console.log("PROPSSSS READINGLIST", this.state.posts)
-
         return (
             <>
-                <Container fluid="sm" as="section">
+                <Container fluid="md" as="section">
                     <div id="readingTitle">
                         <h2 >Lista de Posts</h2>
                     </div>
@@ -137,7 +133,8 @@ class ReadingList extends Component {
                                                     <div dangerouslySetInnerHTML={this.createMarkup(post.title)} className="searchPostTitle" />
                                                 </div>
                                                 <div dangerouslySetInnerHTML={this.createMarkup(post.theHook)} className="searchPostHook" />
-                                                <div className="searchPostDate">{this.createdAt(post.createdAt)}</div>
+                                                <div dangerouslySetInnerHTML={this.createMarkup(post.owner.username)} className="searchPosUsername" />
+                                                <div className="searchPostDate">{this.createdAt(post.createdAt)} </div>
                                             </div>
                                         </Link >
                                     </div>

@@ -1,5 +1,20 @@
-.searchPostTitle h4 , h1, p{
-    font-family: 'Roboto Slab', serif;
+ h4 .searchPostTitle{
+    font-family: 'Roboto', serif;
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0px;
+}
+
+h1 .searchPostTitle{
+    font-family: 'Roboto', serif;
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0px;
+    
+}
+
+p .searchPostTitle{
+    font-family: 'Roboto', serif;
     font-weight: 600;
     font-size: 16px;
     margin: 0px;
@@ -7,12 +22,12 @@
 }
 
 .searchPostHook p{
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Roboto', serif;
     font-weight: 300;
     font-size: 12px; 
 }
 .searchPostDate p {
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Roboto', serif;
     font-weight: 300;
     font-size: 10px; 
 }

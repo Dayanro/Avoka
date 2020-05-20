@@ -49,7 +49,6 @@ class UpdatePost extends Component {
 
     componentDidMount() {
         if (Object.keys(this.props.posts).length > 0) {
-            console.log("this.props.posts", this.props.posts)
             const post = this.props.posts.filter(post => post._id == this.props.match.params.id)[0]
             this.setState({
                 id: post._id,
@@ -95,37 +94,37 @@ class UpdatePost extends Component {
 
     handleChangeTitle = (text) => {
         this.setState({ title: text });
-        console.log(this.state.title)
+        
     }
     handleChangePhoto = (e) => {
         const photo = e.target.files[0]
         this.setState({ photo });
-        console.log(this.state.photo)
+        
     }
 
     handleChangeTheHook = (text) => {
         this.setState({ theHook: text });
-        console.log(this.state.theHook)
+      
     }
 
     handleChangeRealStory = (text) => {
         this.setState({ realStory: text });
-        console.log(this.state.realStory)
+       
     }
 
     handleChangeExpandOnThePoint = (text) => {
         this.setState({ expandOnThePoint: text });
-        console.log(this.state.expandOnThePoint)
+        
     }
 
     handleChangeClosing = (text) => {
         this.setState({ closing: text });
-        console.log(this.state.closing)
+       
     }
 
     handleChangeFastReceipe = (text) => {
         this.setState({ fastReceipe: text });
-        console.log(this.state.fastReceipe)
+       
     }
 
     updatePost = (e, status) => {
@@ -144,7 +143,6 @@ class UpdatePost extends Component {
         uploadData.append("views", this.state.views)
         uploadData.append("status", status || this.state.status)
         uploadData.append("tags_id", tagsId)
-        console.log('form', uploadData)
         this.postService.updatePost(this.state.id, uploadData)
             .then((response) => {
                 this.props.updatePost(response.data)
@@ -167,7 +165,6 @@ class UpdatePost extends Component {
     }
 
     handleInputTag = e => {
-        console.log('update', e.target.value)
         const value = e.target.value
         this.setState({ value })
     }
@@ -183,8 +180,6 @@ class UpdatePost extends Component {
     }
 
     render() {
-        console.log("PROPS EN UPDATE", this.props)
-        console.log('STATE POS UPDATE', this.state.post)
         return (
             <div >
                 <Container fluid="md" as="section" className="newPost">

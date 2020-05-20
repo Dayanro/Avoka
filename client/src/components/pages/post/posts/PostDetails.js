@@ -54,8 +54,6 @@ class PostDetails extends Component {
         const email = this.props.loggedInUser ? this.props.loggedInUser.email : null
 
 
-        console.log('props_POST DETAILS', this.props.loggedInUser)
-        console.log('state', this.state)
         return (
             <>
                 <Container >
