@@ -40,11 +40,9 @@ class App extends Component {
 
     return (
 
-      <>
+      <div id="page-container">
         <Navigation setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} {...this.props} />
-
-        <main>
-
+        <main id="content-wrap">
           <Switch>
             <Route exact path="/" render={props => <Home {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
             <Route path="/signup" render={props => <Signup {...props} setTheUser={this.setTheUser} />} />
@@ -56,7 +54,7 @@ class App extends Component {
             <Route path="/readinglist" render={props => <ReadingList {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
           </Switch>
         </main>
-        <footer className="footer">
+        <footer id="footer" className="footer">
           <div className="footertext">
             <div className="about">
               <p> Avoka</p>
@@ -69,7 +67,7 @@ class App extends Component {
             </div>
           </div>
         </footer>
-      </>
+      </div>
     )
   }
 }

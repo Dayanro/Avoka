@@ -2,7 +2,6 @@
  margin: 0px;
 }
 
-
 .dropdown-item {
     font-family: 'Roboto Slab', serif;
     font-size: 1em;
@@ -33,12 +32,6 @@
 .navBarMain div:nth-child(2) { margin-left: auto; }
 
 .links{
-
-  /* display: grid;
-  grid-template-columns: 10% 50% 20% 20%;
-  justify-items: right;
-  align-items: center;
-  grid-column-gap: 25px; */
     display: flex;
     justify-content: flex-end;
     align-self: flex-end;
@@ -51,12 +44,11 @@
     font-family: 'Rozha One', serif;   
     flex-grow: 12;
     font-size: 90px;
-    color:#113100;
+    color:black;
 
 }
 .NavLogOut{
 display: flex;
-padding-bottom: 10px;
 }
 
 Form{
@@ -140,4 +132,19 @@ input{
     color: #fff;
     border-bottom: 1px solid #fff;
     font-family: 'Roboto', serif;
+}
+
+.authButton{
+    align-self: center;
+    font-family: 'Roboto', serif;
+    font-size: 1em;
+    font-weight: 300;
+    color:#999999;
+}
+input{
+    align-self: center;
+    font-family: 'Roboto', serif;
+    font-size: 2em;
+    font-weight: 300;
+    color:#999999;
 }

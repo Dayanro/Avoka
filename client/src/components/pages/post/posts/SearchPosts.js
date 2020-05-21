@@ -34,9 +34,11 @@ class SearchPosts extends Component {
 
     componentDidMount() {
         this.getAllTags()
+        window.scrollTo(0, 0)
 
     }
     componentDidUpdate(prevProps) {
+        window.scrollTo(0, 0)
         const paramsPrev = new URLSearchParams(prevProps.location.search);
         const tagIdPrev = paramsPrev.get("tag");
         const params = new URLSearchParams(this.props.location.search);
@@ -68,7 +70,7 @@ class SearchPosts extends Component {
                 this.setState({ posts: publishedPost })
                 this.getRelatedTags()
                 this.getSavedPosts()
- 
+
             })
             .catch(err => console.log(err))
     }
@@ -156,25 +158,26 @@ class SearchPosts extends Component {
                         </>) :
                         <div className="search">
                             <div className="tags">
-                                <p>Tag relacionados Avoka</p>
+                                <p id="searchTags">Tag relacionados Avoka</p>
                                 {this.state.tags && this.state.relatedTags.map((tag, idx) => (
-                                    <Button size="sm" onClick={() => this.getPostsRelated(tag._id)} className="button">{tag.name}</Button>
+                                    <Button size="sm" variant="outline-light" onClick={() => this.getPostsRelated(tag._id)} className="searchTagsB">{tag.name}</Button>
                                 ))}
 
                             </div>
                             <div >
-                                <h4>Publicaciones relacionadas con {tagName}</h4>
-                                <hr></hr>
+                                <h4 id="searchMainText">Publicaciones relacionadas con {tagName}</h4>
+                                <hr id="hrCompl"></hr>
                                 {this.state.posts && this.state.posts.map((post, idx) => (
                                     <Card className="searchPost">
                                         <div className="searchPostInf" key={idx} >
                                             <Link to={`/post/${post._id}`}>
                                                 <div>
                                                     <div>
-                                                        <div dangerouslySetInnerHTML={this.createMarkup(post.title)} className="searchPostTitle" />
+                                                        <div dangerouslySetInnerHTML={this.createMarkup(post.title)} id="searchPostTitle" />
                                                     </div>
-                                                    <div dangerouslySetInnerHTML={this.createMarkup(post.theHook)} className="searchPostHook" />
-                                                    <div className="searchPostDate">{this.createdAt(post.createdAt)}</div>
+                                                    <div dangerouslySetInnerHTML={this.createMarkup(post.theHook)} id="searchPostHook" />
+                                                    <div id="searchUsername">{post.owner.username}</div>
+                                                    <div id="searchPostDate">{this.createdAt(post.createdAt)}</div>
                                                 </div>
                                             </Link >
                                         </div>

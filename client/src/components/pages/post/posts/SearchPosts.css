@@ -1,35 +1,35 @@
- h4 .searchPostTitle{
+ #searchMainText{
+     margin-top: 10%;
+     margin-top: 5%;
+    margin-bottom: 0%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+}
+ 
+ 
+ #searchPostTitle{
     font-family: 'Roboto', serif;
-    font-weight: 600;
-    font-size: 16px;
+    font-weight: 700;
+    font-size: 20px;
     margin: 0px;
 }
 
-h1 .searchPostTitle{
+#searchPostHook {
     font-family: 'Roboto', serif;
-    font-weight: 600;
-    font-size: 16px;
-    margin: 0px;
-    
+    font-weight: 400;
+    font-size: 18px; 
 }
-
-p .searchPostTitle{
+#searchUsername {
     font-family: 'Roboto', serif;
-    font-weight: 600;
-    font-size: 16px;
-    margin: 0px;
-    
+    font-weight: 300;
+    font-size: 16px; 
+    margin-top: 5%;
 }
-
-.searchPostHook p{
+#searchPostDate {
     font-family: 'Roboto', serif;
     font-weight: 300;
     font-size: 12px; 
-}
-.searchPostDate p {
-    font-family: 'Roboto', serif;
-    font-weight: 300;
-    font-size: 10px; 
 }
 
 .search{
@@ -86,15 +86,15 @@ p .searchPostTitle{
     object-fit: cover;
 }
 
-.button{
+.searchTagsB{
     width: 200px;
     margin-top: 10px;
     background-color:white ;
-    border: #bbd4ce solid 1px;
-    color:#679186;
+    border: #264e70 solid 1px;
+    color:#264e70;
 }
-.button:hover{
-    background-color:#679186;
+.searchTagsB:hover{
+    background-color:#264e70;
     color: white;
     border: #bbd4ce solid 1px;
   }
@@ -120,5 +120,16 @@ p .searchPostTitle{
 
   .tags{
      align-self: flex-start;
+  }
 
+  #hrCompl{
+      width: 100%;
+  }
+
+  #searchTags{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px ;
+    color:#264e70 ;
+    text-align: center;
+    font-weight: 600;
   }

@@ -183,11 +183,13 @@ class NewPost extends Component {
                     </div>
 
                     <div id="photo" className="block">
-                        <div className="note">
+                        <div className="notePicture">
                             <img src="/img/undraw_image_post_24iy.svg" className="picture" />
                             <p>Las imágenes de cabecera son opcionales, pero aportan un impacto visual tremendo, por lo que su utilización es más que recomendable. Para añadir una, haz click en el icono situado sobre el titular y selecciónala de entre los archivos de tu disco duro.</p>
                         </div>
-                        <input type="file" name="photo" onChange={this.handleChangePhoto} />
+                        <label id="largeFile" for="file">
+                            <input type="file" id="file" name="photo" onChange={this.handleChangePhoto} />
+                        </label>
                     </div>
 
                     <div id="realStory" className="block">

@@ -168,6 +168,7 @@ class UpdatePost extends Component {
         const value = e.target.value
         this.setState({ value })
     }
+
     handleDelete = (i) => {
         const values = this.state.values.slice(0)
         values.splice(i, 1)
@@ -193,7 +194,7 @@ class UpdatePost extends Component {
                             <ReactQuill
                                 theme={this.state.theme2}
                                 onChange={this.handleChangeTitle}
-                                value={this.state.title}
+                                value={this.state.title || ''}
                                 modules={UpdatePost.modules}
                                 formats={UpdatePost.formats}
                                 bounds={'.app'}
@@ -212,7 +213,7 @@ class UpdatePost extends Component {
                             <ReactQuill
                                 theme={this.state.theme2}
                                 onChange={this.handleChangeTheHook}
-                                value={this.state.theHook}
+                                value={this.state.theHook || ''}
                                 modules={UpdatePost.modules}
                                 formats={UpdatePost.formats}
                                 bounds={'.app'}
@@ -223,13 +224,16 @@ class UpdatePost extends Component {
                     </div>
 
                     <div id="photo" className="block">
-                        <div className="note">
+                        <div className="notePicture">
                             <img src="/img/undraw_image_post_24iy.svg" className="picture" />
                             <p>Las imágenes de cabecera son opcionales, pero aportan un impacto visual tremendo, por lo que su utilización es más que recomendable. Para añadir una, haz click en el icono situado sobre el titular y selecciónala de entre los archivos de tu disco duro.</p>
                         </div>
-                        <input type="file" name="photo" onChange={this.handleChangePhoto} />
+                        <label id="largeFile" for="file">
+                            <input type="file" id="file" name="photo" onChange={this.handleChangePhoto} />
+                        </label>
                     </div>
 
+                    
                     <div id="realStory" className="block">
                         <div className="note">
                             <img src="/img/undraw_researching_22gp.svg" className="picture" />
@@ -239,7 +243,7 @@ class UpdatePost extends Component {
                             <ReactQuill
                                 theme={this.state.theme2}
                                 onChange={this.handleChangeRealStory}
-                                value={this.state.realStory}
+                                value={this.state.realStory || ''}
                                 modules={UpdatePost.modules}
                                 formats={UpdatePost.formats}
                                 bounds={'.app'}
@@ -258,7 +262,7 @@ class UpdatePost extends Component {
                             <ReactQuill
                                 theme={this.state.theme2}
                                 onChange={this.handleChangeExpandOnThePoint}
-                                value={this.state.expandOnThePoint}
+                                value={this.state.expandOnThePoint || ''}
                                 modules={UpdatePost.modules}
                                 formats={UpdatePost.formats}
                                 bounds={'.app'}
@@ -277,7 +281,7 @@ class UpdatePost extends Component {
                             <ReactQuill
                                 theme={this.state.theme2}
                                 onChange={this.handleChangeClosing}
-                                value={this.state.closing}
+                                value={this.state.closing || ''}
                                 modules={UpdatePost.modules}
                                 formats={UpdatePost.formats}
                                 bounds={'.app'}
@@ -296,7 +300,7 @@ class UpdatePost extends Component {
                             <ReactQuill
                                 theme={this.state.theme2}
                                 onChange={this.handleChangeFastReceipe}
-                                value={this.state.fastReceipe}
+                                value={this.state.fastReceipe || ''}
                                 modules={UpdatePost.modules}
                                 formats={UpdatePost.formats}
                                 bounds={'.app'}

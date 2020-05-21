@@ -5,6 +5,7 @@ import './Home.css'
 import UserService from '../../../service/user.service'
 import TagService from '../../../service/tag.service'
 import PostService from '../../../service/post.service'
+import BackgroundVideo from "../backgroundVideo/BackgroundVideo"
 
 import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
@@ -106,14 +107,23 @@ class Home extends Component {
         return (
             <>
                 <header className="hero">
-                    <img className="pictureHero" src="/img/Hero_avoka.jpg"></img>
+                    <BackgroundVideo />
+
+                    <div className="homeText">
+                        <h1>Avoka</h1>
+                    </div> 
+
+                    {/* <img className="pictureHero" src="/img/Hero_avoka.jpg"></img>
                     <div className="homeText">
                         <h1>Historias</h1>
                         <h1>Saludables</h1>
 
-                    </div>
+                    </div> */}
                 </header>
-                <Container fluid="lg" as="section">
+                <div className="textOverVideo">
+
+                </div>
+                <Container fluid="lg" as="section" className="containerHome">
                     <h1 id="titleHome">Ultimas Publicaciones</h1>
                     <hr id="hrHome"></hr>
                     <div className="homePost"  >
@@ -122,11 +132,9 @@ class Home extends Component {
                                 <Card className="post" key={idx} >
                                     <div className="postInfo" >
                                         <Link to={`/post/${post._id}`}>
-                                            <div>
-                                                <div>
-                                                    <div dangerouslySetInnerHTML={this.createMarkup(post.title)} className="postTitle" />
-                                                </div>
-                                                <div dangerouslySetInnerHTML={this.createMarkup(post.theHook)} className="postHook" />
+                                            <div className="postContainer">
+                                                <div dangerouslySetInnerHTML={this.createMarkup(post.title)} className="postTitle" id="postTitle" /> 
+                                                <div dangerouslySetInnerHTML={this.createMarkup(post.theHook)} className="postHook" id="postHook" />
                                                 <div className="postUsername">{post.owner.username}</div>
                                                 <div className="postDate">{this.createdAt(post.createdAt)}</div>
                                             </div>
@@ -143,7 +151,7 @@ class Home extends Component {
                         </div>
 
                         <div className="side">
-                            <h3>Post populares en Avoka</h3>
+                            <h2 id="titleSide">Post populares en Avoka</h2>
                             <hr></hr>
                             <div>
                                 {this.state.posts && this.state.popularPosts.map((post, idx) => (
@@ -154,10 +162,11 @@ class Home extends Component {
                                         <div className="postInfo" >
                                             <Link to={`/post/${post._id}`}>
                                                 <div>
-                                                    <div dangerouslySetInnerHTML={this.createMarkup(post.title)} className="postTitle" />
+                                                    <div dangerouslySetInnerHTML={this.createMarkup(post.title)} className="popularTitle" id="popularTitle" />
                                                 </div>
-                                                <div dangerouslySetInnerHTML={this.createMarkup(post.theHook)} className="postHook" />
-                                                <div className="postDate">{this.createdAt(post.createdAt)}</div>
+                                                <div dangerouslySetInnerHTML={this.createMarkup(post.theHook)} id="popularHook" />
+                                                <div className="popularUsername">{post.owner.username}</div>
+                                                <div className="popularDate">{this.createdAt(post.createdAt)}</div>
                                             </Link >
                                         </div>
                                     </div>))}

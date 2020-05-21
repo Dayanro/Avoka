@@ -70,7 +70,7 @@ class Navigation extends Component {
                     </div>
                     <div className="searchNavBar">
                         <Select className="searchNav"
-                            style={{  width: '200px', marginRight: '20px', alignItems: 'center', borderRadius: '3px', lineHeight: "40px" }}
+                            style={{ width: '200px', marginRight: '20px', alignItems: 'center', borderRadius: '3px', lineHeight: "40px"}}
                             placeholder={`Busquedas por Tags`}
                             loading={this.state.tags.length < 0 ? true : false}
                             searchable="true"
@@ -82,8 +82,8 @@ class Navigation extends Component {
                         {
                             !this.props.loggedInUser ?
                                 <>
-                                    <Nav.Link as={NavLink} to='/login' exact className="LogInButton">Iniciar sesión</Nav.Link>
-                                    <Nav.Link as={NavLink} to='/signup' exact className="SignUpButton">Registro</Nav.Link>
+                                    <Nav.Link as={NavLink} to='/login' exact className="authButton">Iniciar sesión</Nav.Link>
+                                    <Nav.Link as={NavLink} to='/signup' exact className="authButton">Registro</Nav.Link>
                                 </>
                                 :
                                 <div>

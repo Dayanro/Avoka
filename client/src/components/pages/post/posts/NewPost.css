@@ -25,6 +25,12 @@ p{
   margin-right: 30px;
 }
 
+.notePicture{
+  display: flex;
+  flex-direction: column;
+  width: 36%;
+  margin-right: 30px;
+}
 .block{
   margin-bottom: 6%;
   display: flex;
@@ -32,7 +38,6 @@ p{
 }
 
 .picture{
-
   width: 100%;
   object-fit: cover;
 }
@@ -220,4 +225,37 @@ font-size: 20px;
 .react-tags__suggestions li.is-disabled {
   opacity: 0.5;
   cursor: auto;
+}
+
+/* --------File Input--------------- */
+
+* {border:0;outline:0;}
+
+label#largeFile:after {
+  position:absolute;
+  width:60%;
+  max-width:684px;
+  content:"Añade una imagen";
+  left:23%;
+  right:0;
+  margin:50px auto;
+  text-align:center;
+  padding:50px 0px 50px 0px;
+  border-radius:10px;
+  border: 2px dashed #ccc;
+  color:#ccc;
+  font-family:"Helvetica Neue", Helvetica, Arial;
+  font-size:30px; 
+}
+
+label#largeFile:hover:after {
+  background:#ccc;
+  color:#fff;
+  cursor:pointer;
+}
+
+
+label#largeFile input#file {
+    width: 0px;
+    height: 0px;
 }
