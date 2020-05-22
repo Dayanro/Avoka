@@ -136,10 +136,6 @@ class Navigation extends Component {
                                             </div>}
                                             alignRight id="basic-nav-dropdown" className="NavDropdown">
                                             <NavDropdown.Item className="userList">
-                                                <Link to="/profile"><div clasName="sectionAvatar">
-                                                    {this.props.loggedInUser.avatar ? <img src={this.props.loggedInUser.avatar} className="notFoundAvatarDrow" /> : <img className="notFoundAvatarDrow" src="/img/undraw_female_avatar_w3jk.svg" />}
-
-                                                </div></Link>
                                                 <div className="sectionInf">
                                                     <Navbar.Text className="NavUser">  {this.props.loggedInUser.username}</Navbar.Text>
                                                     <Navbar.Text className="NavEmail"> {this.props.loggedInUser.email}</Navbar.Text>
