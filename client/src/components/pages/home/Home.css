@@ -18,10 +18,7 @@
     top: 144%;
     left: 39%;
     opacity: 0.8;
-    /* z-index: 1000;
-    position: absolute;
-    top: 21%;
-    left: 10%; */
+
 }
 
  .homeText h1{
@@ -29,11 +26,6 @@
     flex-grow: 12;
     font-size: 156px;
     color:white; 
-    /* font-family: 'Australis';
-    font-size: 220px;
-    color:black;
-    margin: unset;
-    transform: rotate(-15deg); */
 }
 
 
@@ -137,7 +129,7 @@ font-family: 'Roboto', sans-serif;
 #sideContainer{
     display: grid;
     height: 100%;
-    grid-template-rows: 28% 1fr auto auto;
+    grid-template-rows: auto 1fr auto auto;
     margin-bottom: 9px;
 }
 

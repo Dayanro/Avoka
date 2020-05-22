@@ -23,9 +23,11 @@ class PostDetails extends Component {
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0)
         if (Object.keys(this.props.posts).length > 0) {
             const post = this.props.posts.filter(post => post._id == this.props.match.params.id)[0]
             this.setState({ post })
+            
         }
 
     }
