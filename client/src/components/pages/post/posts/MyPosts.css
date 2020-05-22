@@ -1,28 +1,70 @@
-h1{
-    margin: 80px 0px 40px 0px;
+@font-face {
+  font-family: 'Australis';
+  src: local('Australis'), url(../../../../fonts/Australis.ttf) format('truetype');
+} 
+
+#myPostWriting{
+    font-family: 'Australis';
+    font-size: 156px;
+    color: black;
+    margin: unset;
+    font-weight: 100;
+  }
+
+  #myPostSpace{
+z-index: 1000;
+    position: absolute;
+    top: 25%;
+    left: 42%;
 }
 
-.post{
+.picMyPost{
+   width: 100%;
+    object-fit: cover;
+    height: 700px;
+}
+
+.myPostsContainer{
+    position: relative;
+    background-color: white;
+    top: -300px;
+    padding: 40px 40px;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.05), 0 6px 12px rgba(0, 0, 0, 0.12);
+}
+
+.myPostsSaved{
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 26px;
+    color: #264e70;
+    text-align: center;
+    font-weight: 400;
+}
+
+.myPost{
  cursor: pointer;
-  
+padding: 10px;
+display: grid;
+grid-template-columns: 70% 30% ;
+grid-template-rows: 200px ;
+border-left: unset;
+border-right: unset;
+border-top: unset;
 }
 .post:hover{
     background-color:#f8f8f8;
   }
 
-  h1{
-      font-family: 'Roboto Slab', serif;
-      font-weight: 400 ;
-  }
+
 .postTitle h1{
     margin: 20px 0px 5px 0px;
     font-size: 20px;
 }
 .postTitle p{
-    margin: 20px 0px 5px 0px;
-    font-size: 20px;
-    font-family: 'Roboto Slab', serif;
-    font-weight: 400 ;
+    margin-bottom: 5%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 23px; 
 }
 
 .postHook h1{

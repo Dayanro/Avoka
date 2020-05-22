@@ -150,7 +150,7 @@ class SearchPosts extends Component {
         return (
             <>
 
-                <Container fluid="md" as="section">
+                <Container fluid="md" as="section" className="searchTagContainer">
                     {this.state.posts.length == 0 ? (
                         <>
                             <h1 id="alert">Opps! no se encontraron resultados.</h1>

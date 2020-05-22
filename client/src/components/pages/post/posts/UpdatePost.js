@@ -68,6 +68,7 @@ class UpdatePost extends Component {
             })
         }
         this.getAllTags()
+        window.scrollTo(0, 0)
     }
 
     componentDidUpdate(prevProps) {
@@ -94,37 +95,37 @@ class UpdatePost extends Component {
 
     handleChangeTitle = (text) => {
         this.setState({ title: text });
-        
+
     }
     handleChangePhoto = (e) => {
         const photo = e.target.files[0]
         this.setState({ photo });
-        
+
     }
 
     handleChangeTheHook = (text) => {
         this.setState({ theHook: text });
-      
+
     }
 
     handleChangeRealStory = (text) => {
         this.setState({ realStory: text });
-       
+
     }
 
     handleChangeExpandOnThePoint = (text) => {
         this.setState({ expandOnThePoint: text });
-        
+
     }
 
     handleChangeClosing = (text) => {
         this.setState({ closing: text });
-       
+
     }
 
     handleChangeFastReceipe = (text) => {
         this.setState({ fastReceipe: text });
-       
+
     }
 
     updatePost = (e, status) => {
@@ -183,152 +184,158 @@ class UpdatePost extends Component {
     render() {
         return (
             <div >
-                <Container fluid="md" as="section" className="newPost">
+                <div className="readingContainer" >
+                    <img className="picReading" src="/img/avoka3.jpg"></img>
+                    <div id="writingSpace">
+                        <h2 id="writing">Reescribiendo...</h2>
+                    </div>
+                    <Container fluid="md" as="section" className="newPost">
 
-                    <div id="title" className="block">
-                        <div className="note" >
+                        <div id="title" className="block">
+                            {/* <div className="note" >
                             <img src="/img/undraw_wall_post_83ul.svg" className="picture" />
                             <p>Para empezar,escribe un título. </p>
+                        </div> */}
+                            <div className="titleEditor" style={{ marginBottom: "20px", height: "100%", marginTop: "31px" }}>
+                                <ReactQuill
+                                    theme={this.state.theme2}
+                                    onChange={this.handleChangeTitle}
+                                    value={this.state.title || ''}
+                                    modules={UpdatePost.modules}
+                                    formats={UpdatePost.formats}
+                                    bounds={'.app'}
+                                    placeholder={"Titulo..."}
+                                    style={{ height: "60px", width: "1057px" }}
+                                />
+                            </div>
                         </div>
-                        <div className="titleEditor" style={{ marginBottom: "20px", height: "100%" }}>
-                            <ReactQuill
-                                theme={this.state.theme2}
-                                onChange={this.handleChangeTitle}
-                                value={this.state.title || ''}
-                                modules={UpdatePost.modules}
-                                formats={UpdatePost.formats}
-                                bounds={'.app'}
-                                placeholder={"Titulo..."}
-                                style={{ height: "100px", width: "700px" }}
+
+                        <div id="theHook" className="block" >
+                            <div className="note">
+                                <img src="/img/undraw_body_text_l3ld.svg" className="picture" />
+                                <p><strong>El gancho:</strong> Punto(s) principal(es) de la publicación,improvisa alguna historia y, si te ves suelto, dale un toque ‘viral’ generando algo de curiosidad.</p>
+                            </div>
+                            <div className="theHookEditor" style={{ marginBottom: "20px", height: "100%" }}>
+                                <ReactQuill
+                                    theme={this.state.theme2}
+                                    onChange={this.handleChangeTheHook}
+                                    value={this.state.theHook || ''}
+                                    modules={UpdatePost.modules}
+                                    formats={UpdatePost.formats}
+                                    bounds={'.app'}
+                                    placeholder={"Subtítulo o entradilla..."}
+                                    style={{ height: "100px", width: "700px" }}
+                                />
+                            </div>
+                        </div>
+
+                        <div id="photo" className="block">
+                            <div className="notePicture">
+                                <img src="/img/undraw_image_post_24iy.svg" className="picture" />
+                                <p>Las imágenes de cabecera son opcionales, pero aportan un impacto visual tremendo, por lo que su utilización es más que recomendable. Para añadir una, haz click en el icono situado sobre el titular y selecciónala de entre los archivos de tu disco duro.</p>
+                            </div>
+                            <label id="largeFile" for="file">
+                                <input type="file" id="file" name="photo" onChange={this.handleChangePhoto} />
+                            </label>
+                        </div>
+
+
+                        <div id="realStory" className="block">
+                            <div className="note">
+                                <img src="/img/undraw_researching_22gp.svg" className="picture" />
+                                <p>Con tu espectacular cabecera ya en su sitio, es hora de ponerse manos a la obra con el texto propiamente dicho</p>
+                            </div>
+                            <div className="realStoryEditor" style={{ marginBottom: "20px" }}>
+                                <ReactQuill
+                                    theme={this.state.theme2}
+                                    onChange={this.handleChangeRealStory}
+                                    value={this.state.realStory || ''}
+                                    modules={UpdatePost.modules}
+                                    formats={UpdatePost.formats}
+                                    bounds={'.app'}
+                                    placeholder={"Cuentanos tu historia..."}
+                                    style={{ height: "300px", width: "700px" }}
+                                />
+                            </div>
+                        </div>
+
+                        <div id="realStory" className="block">
+                            <div className="note">
+                                <img src="/img/undraw_ideas_s70l.svg" className="picture" />
+                                <p><strong>Ampliar la idea: </strong>En caso de que desees profundizar podrías utilizar fuentes de apoyo (como otros artículos, recursos o citas)</p>
+                            </div>
+                            <div className="expandOnThePointEditor" style={{ marginBottom: "20px" }}>
+                                <ReactQuill
+                                    theme={this.state.theme2}
+                                    onChange={this.handleChangeExpandOnThePoint}
+                                    value={this.state.expandOnThePoint || ''}
+                                    modules={UpdatePost.modules}
+                                    formats={UpdatePost.formats}
+                                    bounds={'.app'}
+                                    placeholder={"...Y en caso de que desearas profundizar acerca del tema a tratar..."}
+                                    style={{ height: "300px", width: "700px" }}
+                                />
+                            </div>
+                        </div>
+
+                        <div id="closing" className="block">
+                            <div className="note">
+                                <img src="/img/undraw_done_a34vs.svg" className="picture" />
+                                <p><strong>Cierre: </strong>a medida que terminas los puntos de la historia, querrás concluir todo con otra conexión que se vincula con el gancho, la historia y luego llevarlo a una llamada a la acción. El llamado a la acción suele ser el aspecto final del artículo y, por lo general, es el mejor momento para lograr que un lector tome lo mejor de tu experiencia.</p>
+                            </div>
+                            <div className="closingEditor" style={{ marginBottom: "20px" }}>
+                                <ReactQuill
+                                    theme={this.state.theme2}
+                                    onChange={this.handleChangeClosing}
+                                    value={this.state.closing || ''}
+                                    modules={UpdatePost.modules}
+                                    formats={UpdatePost.formats}
+                                    bounds={'.app'}
+                                    placeholder={"¡Enhorabuena  has terminado tu post."}
+                                    style={{ height: "300px", width: "700px" }}
+                                />
+                            </div>
+                        </div>
+
+                        <div id="fastReceipe" className="block">
+                            <div className="note">
+                                <img src="/img/undraw_diet_ghvw.svg" className="picture" />
+                                <p></p>
+                            </div>
+                            <div className="fastReceipeEditor" style={{ marginBottom: "20px" }}>
+                                <ReactQuill
+                                    theme={this.state.theme2}
+                                    onChange={this.handleChangeFastReceipe}
+                                    value={this.state.fastReceipe || ''}
+                                    modules={UpdatePost.modules}
+                                    formats={UpdatePost.formats}
+                                    bounds={'.app'}
+                                    placeholder={"¿Alguna receta rápida para compartir?"}
+                                    style={{ height: "300px", width: "700px" }}
+                                />
+                            </div>
+                        </div>
+                        <div >
+                            <ReactTags
+                                tags={this.state.values}
+                                suggestions={this.state.tags}
+                                handleDelete={this.handleDelete}
+                                handleAddition={this.handleAddition}
+                                placeholder="No olvides Agregar tags para que los lectores sepan de qué trata tu post."
                             />
                         </div>
-                    </div>
 
-                    <div id="theHook" className="block" >
-                        <div className="note">
-                            <img src="/img/undraw_body_text_l3ld.svg" className="picture" />
-                            <p><strong>El gancho:</strong> Punto(s) principal(es) de la publicación,improvisa alguna historia y, si te ves suelto, dale un toque ‘viral’ generando algo de curiosidad.</p>
+                        <div style={{ display: "flex", justifyContent: "flex-end", margin: "40px 0px" }}>
+                            <Button style={{ marginRight: "20px" }} variant="info" onClick={this.updatePost}>Publicar</Button>
+                            <Button variant="info" onClick={this.scheduleForLater}>Guardar para despues</Button>
                         </div>
-                        <div className="theHookEditor" style={{ marginBottom: "20px", height: "100%" }}>
-                            <ReactQuill
-                                theme={this.state.theme2}
-                                onChange={this.handleChangeTheHook}
-                                value={this.state.theHook || ''}
-                                modules={UpdatePost.modules}
-                                formats={UpdatePost.formats}
-                                bounds={'.app'}
-                                placeholder={"Subtítulo o entradilla..."}
-                                style={{ height: "100px", width: "700px" }}
-                            />
-                        </div>
-                    </div>
 
-                    <div id="photo" className="block">
-                        <div className="notePicture">
-                            <img src="/img/undraw_image_post_24iy.svg" className="picture" />
-                            <p>Las imágenes de cabecera son opcionales, pero aportan un impacto visual tremendo, por lo que su utilización es más que recomendable. Para añadir una, haz click en el icono situado sobre el titular y selecciónala de entre los archivos de tu disco duro.</p>
-                        </div>
-                        <label id="largeFile" for="file">
-                            <input type="file" id="file" name="photo" onChange={this.handleChangePhoto} />
-                        </label>
-                    </div>
+                        <footer>
+                            <h2 id="autor">Autor: {this.props.loggedInUser ? this.props.loggedInUser.username : ""}</h2>
 
-                    
-                    <div id="realStory" className="block">
-                        <div className="note">
-                            <img src="/img/undraw_researching_22gp.svg" className="picture" />
-                            <p>Con tu espectacular cabecera ya en su sitio, es hora de ponerse manos a la obra con el texto propiamente dicho</p>
-                        </div>
-                        <div className="realStoryEditor" style={{ marginBottom: "20px" }}>
-                            <ReactQuill
-                                theme={this.state.theme2}
-                                onChange={this.handleChangeRealStory}
-                                value={this.state.realStory || ''}
-                                modules={UpdatePost.modules}
-                                formats={UpdatePost.formats}
-                                bounds={'.app'}
-                                placeholder={"Cuentanos tu historia..."}
-                                style={{ height: "300px", width: "700px" }}
-                            />
-                        </div>
-                    </div>
-
-                    <div id="realStory" className="block">
-                        <div className="note">
-                            <img src="/img/undraw_ideas_s70l.svg" className="picture" />
-                            <p><strong>Ampliar la idea: </strong>En caso de que desees profundizar podrías utilizar fuentes de apoyo (como otros artículos, recursos o citas)</p>
-                        </div>
-                        <div className="expandOnThePointEditor" style={{ marginBottom: "20px" }}>
-                            <ReactQuill
-                                theme={this.state.theme2}
-                                onChange={this.handleChangeExpandOnThePoint}
-                                value={this.state.expandOnThePoint || ''}
-                                modules={UpdatePost.modules}
-                                formats={UpdatePost.formats}
-                                bounds={'.app'}
-                                placeholder={"...Y en caso de que desearas profundizar acerca del tema a tratar..."}
-                                style={{ height: "300px", width: "700px" }}
-                            />
-                        </div>
-                    </div>
-
-                    <div id="closing" className="block">
-                        <div className="note">
-                            <img src="/img/undraw_done_a34vs.svg" className="picture" />
-                            <p><strong>Cierre: </strong>a medida que terminas los puntos de la historia, querrás concluir todo con otra conexión que se vincula con el gancho, la historia y luego llevarlo a una llamada a la acción. El llamado a la acción suele ser el aspecto final del artículo y, por lo general, es el mejor momento para lograr que un lector tome lo mejor de tu experiencia.</p>
-                        </div>
-                        <div className="closingEditor" style={{ marginBottom: "20px" }}>
-                            <ReactQuill
-                                theme={this.state.theme2}
-                                onChange={this.handleChangeClosing}
-                                value={this.state.closing || ''}
-                                modules={UpdatePost.modules}
-                                formats={UpdatePost.formats}
-                                bounds={'.app'}
-                                placeholder={"¡Enhorabuena  has terminado tu post."}
-                                style={{ height: "300px", width: "700px" }}
-                            />
-                        </div>
-                    </div>
-
-                    <div id="fastReceipe" className="block">
-                        <div className="note">
-                            <img src="/img/undraw_diet_ghvw.svg" className="picture" />
-                            <p></p>
-                        </div>
-                        <div className="fastReceipeEditor" style={{ marginBottom: "20px" }}>
-                            <ReactQuill
-                                theme={this.state.theme2}
-                                onChange={this.handleChangeFastReceipe}
-                                value={this.state.fastReceipe || ''}
-                                modules={UpdatePost.modules}
-                                formats={UpdatePost.formats}
-                                bounds={'.app'}
-                                placeholder={"¿Alguna receta rápida para compartir?"}
-                                style={{ height: "300px", width: "700px" }}
-                            />
-                        </div>
-                    </div>
-                    <div >
-                        <ReactTags
-                            tags={this.state.values}
-                            suggestions={this.state.tags}
-                            handleDelete={this.handleDelete}
-                            handleAddition={this.handleAddition}
-                            placeholder="No olvides Agregar tags para que los lectores sepan de qué trata tu post."
-                        />
-                    </div>
-
-                    <div style={{ display: "flex", justifyContent: "flex-end", margin: "40px 0px" }}>
-                        <Button style={{ marginRight: "20px" }} variant="info" onClick={this.updatePost}>Publicar</Button>
-                        <Button variant="info" onClick={this.scheduleForLater}>Guardar para despues</Button>
-                    </div>
-
-                    <footer>
-                        <h2>Autor: {this.props.loggedInUser ? this.props.loggedInUser.username : ""}</h2>
-
-                    </footer>
-                </Container>
+                        </footer>
+                    </Container>
+                </div>
             </div>
         )
     }

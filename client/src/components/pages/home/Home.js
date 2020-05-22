@@ -124,7 +124,7 @@ class Home extends Component {
 
                 </div>
                 <Container fluid="lg" as="section" className="containerHome">
-                    <h1 id="titleHome">Ultimas Publicaciones</h1>
+                    <h1 id="titleHome">Últimas Publicaciones</h1>
                     <hr id="hrHome"></hr>
                     <div className="homePost"  >
                         <div>

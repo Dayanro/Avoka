@@ -32,6 +32,7 @@ class MyPosts extends Component {
     }
 
     getAll = () => {
+        console.log('ENTRO')
         this.postService.getAllPost()
             .then(response => {
                 const data = response.data
@@ -43,7 +44,15 @@ class MyPosts extends Component {
     }
 
     componentDidMount = () => {
-        this.getAll()
+        if (this.props.loggedInUser) {
+            this.getAll()
+        } 
+    }
+
+    componentDidUpdate(prevProps) {
+        if (!prevProps.loggedInUser && this.props.loggedInUser) {
+            this.getAll()
+        }
     }
 
     draftOnClick = () => {
@@ -70,49 +79,53 @@ class MyPosts extends Component {
     createMarkup = (html) => ({ __html: html });
 
     render() {
+        console.log('PROSPSSS', this.props)
         const posts = this.getByStatus(this.state.status)
         return (
             <>
-                <Container fluid="md" as="section">
-                    <h1>Tus Posts</h1>
+                <div className="myPostContainer" >
+                    <img className="picMyPost" src="/img/avocado2.jpg"></img>
+                    <Container fluid="md" as="section" className="myPostsContainer">
 
-                    <Nav justify variant="tabs" defaultActiveKey="link-1">
-                        <Nav.Item>
-                            <Nav.Link eventKey="link-1" onClick={() => this.draftOnClick()}>Borradores</Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
-                            <Nav.Link eventKey="link-2" onClick={() => this.publishedOnClick()}>Publicados</Nav.Link>
-                        </Nav.Item>
-                    </Nav>
-                    <div>
-                        {posts && posts.map((post, idx) => (
-                            <Card className="post" style={{ borderLeft: "unset", borderRight: "unset", borderTop: "unset" }} key={idx} >
-                                <Card.Body style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                                    < div style={{ flexGrow: "1" }}>
-                                        <Link to={`/post/${post._id}`}>
-                                            <div>
+                        <h1>Mis Posts</h1>
+                        <Nav justify variant="tabs" defaultActiveKey="link-1">
+                            <Nav.Item>
+                                <Nav.Link className="myPostsSaved" eventKey="link-1" onClick={() => this.draftOnClick()}>Borradores</Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Nav.Link className="myPostsSaved" eventKey="link-2" onClick={() => this.publishedOnClick()}>Publicados</Nav.Link>
+                            </Nav.Item>
+                        </Nav>
+                        <div>
+                            {posts && posts.map((post, idx) => (
+                                <Card style={{ borderLeft: "unset", borderRight: "unset", borderTop: "unset" }} key={idx} >
+                                    <Card.Body className="myPost" style={{ justifyContent: "center", alignItems: "center" }}>
+                                        < div style={{ flexGrow: "1" }}>
+                                            <Link to={`/post/${post._id}`}>
                                                 <div>
-                                                    <div dangerouslySetInnerHTML={this.createMarkup(post.title)} className="postTitle" />
+                                                    <div>
+                                                        <div dangerouslySetInnerHTML={this.createMarkup(post.title)} className="postTitle" />
+                                                    </div>
+                                                    <Card.Text>
+                                                        <div dangerouslySetInnerHTML={this.createMarkup(post.theHook)} className="postHook" />
+                                                    </Card.Text>
                                                 </div>
-                                                <Card.Text>
-                                                    <div dangerouslySetInnerHTML={this.createMarkup(post.theHook)} className="postHook" />
-                                                </Card.Text>
-                                            </div>
-                                        </Link >
-                                    </div>
-                                    <div className="Buttons" style={{ display: "flex" }}>
-                                        <Link to={`/post/${post._id}/edit`}> <div style={{ marginRight: "10px" }}>
-                                            <FontAwesomeIcon icon={faPencilAlt} size="1x" color="grey" className="Button" />
-                                        </div></Link >
-                                        <div onClick={() => this.deletePost(post._id)} >
-                                            <FontAwesomeIcon icon={faTrash} size="1x" color="grey" className="Button" />
+                                            </Link >
                                         </div>
-                                    </div>
+                                        <div className="Buttons" style={{ display: "flex" }}>
+                                            <Link to={`/post/${post._id}/edit`}> <div style={{ marginRight: "10px" }}>
+                                                <FontAwesomeIcon icon={faPencilAlt} size="1x" color="grey" className="Button" />
+                                            </div></Link >
+                                            <div onClick={() => this.deletePost(post._id)} >
+                                                <FontAwesomeIcon icon={faTrash} size="1x" color="grey" className="Button" />
+                                            </div>
+                                        </div>
 
-                                </Card.Body>
-                            </Card>))}
-                    </div>
-                </Container>
+                                    </Card.Body>
+                                </Card>))}
+                        </div>
+                    </Container>
+                </div>
             </>
         )
     }

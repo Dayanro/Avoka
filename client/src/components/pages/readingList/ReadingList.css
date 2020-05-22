@@ -15,6 +15,7 @@
 }
 
 .readingList{
+    margin-bottom: 50px;
     position: relative;
     top: -24px;
     padding: 20px 40px;
@@ -83,6 +84,13 @@
 }
 
  #readingPostDate p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: capitalize;
+    color: gray;
+}
+ #readingPostDate {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     font-size: 14px;

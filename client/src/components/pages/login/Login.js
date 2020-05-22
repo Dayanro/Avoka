@@ -54,27 +54,23 @@ class Login extends Component {
         return (
 
             <Modal
-                size="lg"
                 show={true}
                 onHide={this.onHide}
                 aria-labelledby="example-modal-sizes-title-lg"
             >
-                <Modal.Header closeButton>
-                    <Modal.Title id="example-modal-sizes-title-lg">
+                <Modal.Header style={{ borderBottom: 'none', fontFamily: 'Rozha One, serif' }} closeButton />
+                <Modal.Body style={{textAlign: 'center'}}>
+                    <div style={{ fontSize: '40px', marginBottom: '30px', fontFamily: 'Rozha One, serif', textAlign: 'center'}}>
                         Inicio de sesión
-          </Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <Form onSubmit={this.handleSubmit}>
+                    </div>
+                    <Form style={{marginLeft: '0'}}onSubmit={this.handleSubmit}>
 
                         <Form.Group controlId="name">
-                            <Form.Label>Usuario</Form.Label>
-                            <Form.Control name="username" type="text" value={this.state.username} onChange={this.handleInputChange} style={{ width: "680px" }} />
+                            <Form.Control style={{ marginLeft: '0' }} placeholder="Nombre de usuario" name="username" type="text" value={this.state.username} onChange={this.handleInputChange} />
                         </Form.Group>
 
                         <Form.Group controlId="pwd">
-                            <Form.Label>Contraseña</Form.Label>
-                            <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} style={{ width: "680px" }} />
+                            <Form.Control style={{ marginLeft: '0' }} placeholder="Contraseña" name="password" type="password" value={this.state.password} onChange={this.handleInputChange} />
                         </Form.Group>
 
                         <p
@@ -82,10 +78,10 @@ class Login extends Component {
                             style={{ display: this.state.errorMessage ? 'block' : 'none' }}
                         >{this.state.errorMessage}</p>
 
-                        <Button variant="dark" type="submit">Iniciar sesión</Button>
+                        <Button style={{marginTop: '20px'}} variant="dark" type="submit">Iniciar sesión</Button>
                     </Form>
 
-                    <p><small>¿No tienes cuenta? <Link to="/signup">Regístrate</Link></small></p>
+                    <p style={{textAlign: 'center', marginTop: '15px'}}><small>¿No tienes cuenta? <Link to="/signup">Regístrate</Link></small></p>
 
 
                 </Modal.Body>

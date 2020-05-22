@@ -1,33 +1,103 @@
-.title p {
-    font-family: 'Roboto Slab', serif;
-    font-size: 50px;
-    font-weight: 500;
-}
-.title h1 {
-    font-family: 'Roboto Slab', serif;;
-    font-size: 30px;
-    font-weight: 700;
+
+.detailsContainer{
+    display: flex;
+    flex-direction: column;
+    padding: 40px 40px;
 }
 
-.picture{
+.titleDeta p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 45px;
+    text-align: center;
+    font-weight: 400;
+    color: black;
+}
+.titleDeta h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 45px;
+    text-align: center;
+    font-weight: 400;
+    color: black;
+}
+
+.titleDeta {
+    font-family: 'Roboto', sans-serif;
+    font-size: 45px;
+    text-align: center;
+    font-weight: 400;
+    color: black;
+}
+
+
+.pictureDeta{
     width: 100%;
     object-fit: cover;
 }
 
-.autor{
+.autorDeta{
     display: flex;
     align-items: center;
 }
-.autorInf{
+.autorInfDeta{
     display: flex;
     flex-direction: column;
     margin-left: 20px;
     line-height: 0.2;
+    font-family: 'Roboto', sans-serif;
+
 }
 
-.hook p{
-   font-family: 'Open Sans', sans-serif;
-   font: Regular 400 italic; 
-   font-size: 25px;
-   margin-top: 20px;
+.contenDeta {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: #605d5d;
+    text-align: justify;
+}
+
+
+.hookDeta {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: #605d5d;
+    text-align: justify;
+}
+
+p{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: #605d5d;
+    text-align: justify;
+}
+
+li{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: #605d5d;
+    text-align: justify;
+}
+
+.avatarDeta {
+display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0,1px solid;
+    background-color: transparent;
+    border-radius: 50%;
+    width: 90px;
+    height: 128px;
+    text-align: center;
+    padding: 9px;
+}
+
+#recipeDeta{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: #605d5d;
+    text-align: justify;
+
 }

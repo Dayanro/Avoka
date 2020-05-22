@@ -15,18 +15,17 @@ a, a:hover {
 }
 
 .error-message {
-  background: red;
-  color: white;
+  color: red;
   padding: 10px
 }
 
 .footertext{
-    display: grid;
-    grid-template-columns: 33% 33% 33% ;
-    grid-template-rows: 200px ;
+  display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 100px;
     text-align: center;
     align-items: center;
-    background-color:#333333;
+    background-color: #333333;
     color: white;
 }
 
@@ -49,4 +48,8 @@ color:whitesmoke
   bottom: 0;
   width: 100%;
   height: 2.5rem;            /* Footer height */
+}
+.follow{
+    display: flex;
+    justify-content: center;
 }

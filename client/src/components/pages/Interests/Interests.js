@@ -70,7 +70,7 @@ class Interests extends Component {
         return (
             <>
                 <Container fluid="sm" >
-                    <h1>Indica tus Intereses</h1>
+                    <h1 id="selecTitle">Indica tus Intereses</h1>
                     <hr />
                     <Row >
                         {this.state.tags && this.state.tags.map(tag => {
@@ -80,7 +80,7 @@ class Interests extends Component {
                                     <Card className="cards"  >
                                         <div style={{ display: "flex" }}>
                                             <Card.Body >
-                                                <Card.Title>{tag.name}</Card.Title>
+                                                <Card.Title className="cardTitle">{tag.name}</Card.Title>
                                             </Card.Body>
 
                                             <div >

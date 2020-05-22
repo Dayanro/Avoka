@@ -8,6 +8,7 @@ import PostService from '../../../../service/post.service'
 
 
 import Container from 'react-bootstrap/Container'
+import Card from 'react-bootstrap/Card'
 
 
 class PostDetails extends Component {
@@ -50,27 +51,39 @@ class PostDetails extends Component {
         const fastReceipe = this.state.post ? this.state.post.fastReceipe : null
         const views = this.state.post ? this.state.post.views : null
         const tags_id = this.state.post ? this.state.post.tags_id : null
-        const username = this.props.loggedInUser ? this.props.loggedInUser.username : null
+        const username = this.state.post && this.state.post.owner ? this.state.post.owner.username : null
         const email = this.props.loggedInUser ? this.props.loggedInUser.email : null
 
 
         return (
             <>
-                <Container >
-                    <div className="title" dangerouslySetInnerHTML={this.createMarkup(title)} />
-                    <div className="autor">
-                        <img className="profile" src="/img/undraw_female_avatar_w3jk.svg" className="avatar" />
-                        <div className="autorInf">
+                <Container fluid="md" className="detailsContainer">
+                    <div className="titleDeta" dangerouslySetInnerHTML={this.createMarkup(title)} />
+                    <div className="autorDeta">
+                        <img className="profile" src="/img/undraw_female_avatar_w3jk.svg" className="avatarDeta" />
+                        <div className="autorInfDeta">
                             <p>{username}</p>
                             <p>{email}</p>
                         </div>
                     </div>
-                    <div className="hook" dangerouslySetInnerHTML={this.createMarkup(theHook)} />
                     {photo ? (<img className="picture" src={photo} />) : null}
-                    <div className="content" dangerouslySetInnerHTML={this.createMarkup(realStory)} />
-                    <div className="content" dangerouslySetInnerHTML={this.createMarkup(expandOnThePoint)} />
-                    <div className="content" dangerouslySetInnerHTML={this.createMarkup(closing)} />
-                    <div className="recipe" dangerouslySetInnerHTML={this.createMarkup(fastReceipe)} />
+                    <div className="hookDeta" dangerouslySetInnerHTML={this.createMarkup(theHook)} />
+                    <div className="contenDeta" dangerouslySetInnerHTML={this.createMarkup(realStory)} />
+                    <div className="contenDeta" dangerouslySetInnerHTML={this.createMarkup(expandOnThePoint)} />
+                    <div className="contenDeta" dangerouslySetInnerHTML={this.createMarkup(closing)} />
+
+
+                    <Card>
+                        <Card.Header>Receta Rápida</Card.Header>
+                        <Card.Body>
+                            <blockquote className="blockquote mb-0">
+                                <div id="recipeDeta" dangerouslySetInnerHTML={this.createMarkup(fastReceipe)} />
+                                <footer className="blockquote-footer">
+
+                                </footer>
+                            </blockquote>
+                        </Card.Body>
+                    </Card>
 
                 </Container>
             </>
