@@ -85,9 +85,10 @@ class Home extends Component {
 
     displaySaveOptions = (postId) => {
         const { loggedInUser } = this.props
+        const readingAvailable = loggedInUser.readingList ? loggedInUser.readingList.length > 0 ? true : false : false
         return (
             <>
-                {loggedInUser && loggedInUser.readingList.length && loggedInUser.readingList.includes(postId) ?
+                {loggedInUser && readingAvailable && loggedInUser.readingList.includes(postId) ?
 
                     <div style={{ marginRight: "10px" }} onClick={() => this.unsave(postId)}>
                         <FontAwesomeIcon icon={faBookmark} size="1x" color=" #679186" className="Button1" />
@@ -162,7 +163,7 @@ class Home extends Component {
                                         <div className="postInfo" >
                                             <Link to={`/post/${post._id}`}>
                                                 <div id="sideContainer">
-                                                    <div dangerouslySetInnerHTML={this.createMarkup(post.title)}  id="popularTitle" />
+                                                    <div dangerouslySetInnerHTML={this.createMarkup(post.title)} id="popularTitle" />
                                                     <div dangerouslySetInnerHTML={this.createMarkup(post.theHook)} id="popularHook" />
                                                     <div id="popularUsername">{post.owner.username}</div>
                                                     <div id="popularDate">{this.createdAt(post.createdAt)}</div>
