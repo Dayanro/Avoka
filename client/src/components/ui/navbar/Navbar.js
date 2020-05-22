@@ -105,9 +105,11 @@ class Navigation extends Component {
                     <Link to='/' exact className="Home"><Navbar.Brand id="Brand" as="div">Avoka</Navbar.Brand></Link>
                 </div>
                 <div className="links">
-                    <div className="bookMarkNav">
-                        <Link to='/readingList'><FontAwesomeIcon icon={faBookmark} color="#cccccc" size="2x" className="uttonNav" /></Link>
-                    </div>
+                    {
+                        this.props.loggedInUser ?
+                            <div className="bookMarkNav">
+                                <Link to='/readingList'><FontAwesomeIcon icon={faBookmark} color="#cccccc" size="2x" className="uttonNav" /></Link>
+                            </div> : null}
                     <div className="searchNavBar">
                         <Select className="searchNav"
                             style={{ width: '200px', marginRight: '20px', alignItems: 'center', borderRadius: '3px', lineHeight: "40px" }}

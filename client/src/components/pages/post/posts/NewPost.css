@@ -1,5 +1,51 @@
+@font-face {
+  font-family: 'Australis';
+  src: local('Australis'), url(../../../../fonts/Australis.ttf) format('truetype');
+} 
+
+
+#writing{
+font-family: 'Australis';
+    font-size: 131px;
+    color: black;
+    margin: unset;
+    transform: rotate(-6deg);
+    font-weight: 100;
+  }
+
+  #autor{
+    font-family: 'Australis';
+    font-size: 50px;
+    color:grey;
+    margin: unset;
+    font-weight: 100;
+
+  }
+p{    
+  font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: #605d5d;}
+
+  .picReading{
+    width: 100%;
+    object-fit: cover;
+    height: 549px;
+  }
+
+#writingSpace{
+    z-index: 1000;
+    position: absolute;
+    top: 6%;
+    left: 4%;
+}
+
 .newPost{
-    margin-top: 70px;
+    position: relative;
+    top: -110px;
+    background-color: white;
+    padding: 76px 40px;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.05), 0 6px 12px rgba(0, 0, 0, 0.12);
 }
 
 .title{
@@ -13,10 +59,6 @@ font-size: 30px;
  border-radius: 12px;
 } 
 
-p{
-    font-family: 'Roboto', sans-serif;
-    font-size: 1em;
-}
 
 .note{
   display: flex;
@@ -40,6 +82,7 @@ p{
 .picture{
   width: 100%;
   object-fit: cover;
+  margin-bottom: 5%;
 }
 
 
@@ -232,20 +275,20 @@ font-size: 20px;
 * {border:0;outline:0;}
 
 label#largeFile:after {
-  position:absolute;
-  width:60%;
-  max-width:684px;
-  content:"Añade una imagen";
-  left:23%;
-  right:0;
-  margin:50px auto;
-  text-align:center;
-  padding:50px 0px 50px 0px;
-  border-radius:10px;
-  border: 2px dashed #ccc;
-  color:#ccc;
-  font-family:"Helvetica Neue", Helvetica, Arial;
-  font-size:30px; 
+position: absolute;
+    width: 58%;
+    max-width: 684px;
+    content: "Añade una imagen";
+    left: 33%;
+    right: 0;
+    margin: 50px auto;
+    text-align: center;
+    padding: 50px 0px 50px 0px;
+    border-radius: 10px;
+    border: 2px dashed #ccc;
+    color: #ccc;
+    font-family: "Helvetica Neue", Helvetica, Arial;
+    font-size: 30px;
 }
 
 label#largeFile:hover:after {
@@ -259,3 +302,23 @@ label#largeFile input#file {
     width: 0px;
     height: 0px;
 }
+
+
+.writerButon{
+ font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: #264e70;
+    text-align: center;
+    background-color: white;
+    font-weight: 300;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #264e70;
+    cursor: pointer;
+    padding: 6px;
+}
+
+.writerButon:hover {
+      color: white;
+      background-color: #264e70;
+  }

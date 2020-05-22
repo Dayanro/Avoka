@@ -142,14 +142,19 @@ class NewPost extends Component {
 
         return (
             <div >
+                <div className="readingContainer" >
+                    <img className="picReading" src="/img/avocado1.png"></img>
+                    <div id="writingSpace">
+                        <h2 id="writing">Escribiendo Historias</h2>
+                    </div>
                 <Container fluid="md" as="section" className="newPost">
 
                     <div id="title" className="block">
                         <div className="note" >
-                            <img src="/img/undraw_wall_post_83ul.svg" className="picture" />
-                            <p>Para empezar, escribe un título. </p>
+                            {/* <img src="/img/undraw_wall_post_83ul.svg" className="picture" /> */}
+                            {/* <p>Para empezar, escribe un título. </p> */}
                         </div>
-                        <div className="titleEditor" style={{ marginBottom: "20px", height: "100%" }}>
+                        <div className="titleEditor" style={{ marginBottom: "20px", height: "100%", marginTop:"31px" }}>
                             <ReactQuill
                                 theme={this.state.theme2}
                                 onChange={this.handleChangeTitle}
@@ -158,7 +163,7 @@ class NewPost extends Component {
                                 formats={NewPost.formats}
                                 bounds={'.app'}
                                 placeholder={"Titulo..."}
-                                style={{ height: "100px", width: "700px" }}
+                                style={{ height: "60px", width: "1024px" }}
                             />
                         </div>
                     </div>
@@ -185,7 +190,7 @@ class NewPost extends Component {
                     <div id="photo" className="block">
                         <div className="notePicture">
                             <img src="/img/undraw_image_post_24iy.svg" className="picture" />
-                            <p>Las imágenes de cabecera son opcionales, pero aportan un impacto visual tremendo, por lo que su utilización es más que recomendable. Para añadir una, haz click en el icono situado sobre el titular y selecciónala de entre los archivos de tu disco duro.</p>
+                            <p>Las imágenes de cabecera son opcionales, pero aportan un impacto visual tremendo, por lo que su utilización es más que recomendable.</p>
                         </div>
                         <label id="largeFile" for="file">
                             <input type="file" id="file" name="photo" onChange={this.handleChangePhoto} />
@@ -233,7 +238,7 @@ class NewPost extends Component {
                     <div id="closing" className="block">
                         <div className="note">
                             <img src="/img/undraw_done_a34vs.svg" className="picture" />
-                            <p><strong>Cierre: </strong>a medida que terminas los puntos de la historia, querrás concluir todo con otra conexión que se vincula con el gancho, la historia y luego llevarlo a una llamada a la acción. El llamado a la acción suele ser el aspecto final del artículo y, por lo general, es el mejor momento para lograr que un lector tome lo mejor de tu experiencia.</p>
+                            <p><strong>Cierre: </strong>a medida que terminas los puntos de la historia, querrás concluir todo con otra conexión que se vincula con el gancho, la historia y luego llevarlo a una llamada a la acción. El mejor momento para lograr que un lector tome lo mejor de tu experiencia.</p>
                         </div>
                         <div className="closingEditor" style={{ marginBottom: "20px" }}>
                             <ReactQuill
@@ -278,15 +283,16 @@ class NewPost extends Component {
                     </div>
 
                     <div style={{ display: "flex", justifyContent: "flex-end", margin: "40px 0px" }}>
-                        <Button style={{ marginRight: "20px" }} variant="info" onClick={this.createPost}>Publicar</Button>
-                        <Button variant="info" onClick={this.scheduleForLater}>Guardar para despues</Button>
+                            <div style={{ marginRight: "20px" }} onClick={this.createPost} className="writerButon">Publicar</div>
+                        <div onClick={this.scheduleForLater} className="writerButon">Guardar para despues</div>
                     </div>
 
                     <footer>
-                        <h2>Autor: {this.props.loggedInUser ? this.props.loggedInUser.username : ""}</h2>
+                        <h2 id="autor">Autor: {this.props.loggedInUser ? this.props.loggedInUser.username : ""}</h2>
 
                     </footer>
-                </Container>
+                    </Container>
+                    </div>
             </div>
         )
     }

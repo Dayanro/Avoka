@@ -49,8 +49,6 @@ class Signup extends Component {
         this.props.onHide();
     }
 
-
-
     render() {
         return (
             <Modal
