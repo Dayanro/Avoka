@@ -3,7 +3,6 @@ import './Profile.css'
 import UserService from './../../../service/user.service'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import EditProfile from './EditProfile'
-//import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import { faUserAlt } from '@fortawesome/free-solid-svg-icons'
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
@@ -48,7 +47,7 @@ class Profile extends Component {
                                                 <Button id="edit" variant="outline-secondary" onClick={this.buildProfile}>Editar</Button>
                                             </div>
                                             <div className="avatar">
-                                                {avatar ? <img src={avatar} /> : <FontAwesomeIcon icon={faUserAlt} size="5x" color="#f8f9fa" />}
+                                                {avatar ? <img src={avatar} className="profilePict" /> : <FontAwesomeIcon icon={faUserAlt} size="5x" color="#f8f9fa" />}
                                             </div>
                                         </div>
                                         <div className="shortBio">

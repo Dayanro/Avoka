@@ -38,6 +38,7 @@ class Signup extends Component {
             .then(response => {
                 this.props.setTheUser(response.data)
                 this.props.history.push('/')
+                this.onHide();
             })
             .catch(err => {
                 err.response.status === 400 && this.setState({ errorMessage: err.response.data.message })
@@ -45,39 +46,32 @@ class Signup extends Component {
     }
 
     onHide = () => {
-        this.props.history.push("/")
+        this.props.onHide();
     }
-
-
 
     render() {
         return (
             <Modal
-                size="lg"
                 show={true}
                 onHide={this.onHide}
                 aria-labelledby="example-modal-sizes-title-lg"
             >
-                <Modal.Header closeButton>
-                    <Modal.Title id="example-modal-sizes-title-lg">
+                <Modal.Header style={{ borderBottom: 'none', fontFamily: 'Rozha One, serif' }} closeButton />
+                <Modal.Body style={{ textAlign: 'center' }}>
+                    <div style={{ fontSize: '40px', marginBottom: '30px', fontFamily: 'Rozha One, serif', textAlign: 'center' }}>
                         Registro de usuario
-          </Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <Form onSubmit={this.handleSubmit}>
+                    </div>
+                    <Form style={{ marginLeft: '0' }} onSubmit={this.handleSubmit}>
                         <Form.Group controlId="name">
-                            <Form.Label>Usuario</Form.Label>
-                            <Form.Control name="username" type="text" value={this.state.loginInfo.username} onChange={this.handleInputChange} style={{width:"680px"}}/>
+                            <Form.Control style={{ marginLeft: '0' }} name="username" placeholder="Nombre de usuario" type="text" value={this.state.loginInfo.username} onChange={this.handleInputChange} />
                         </Form.Group>
 
                         <Form.Group controlId="email">
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control name="email" type="text" value={this.state.loginInfo.email} onChange={this.handleInputChange} style={{ width: "680px" }} />
+                            <Form.Control style={{ marginLeft: '0' }} name="email" placeholder="Email" type="text" value={this.state.loginInfo.email} onChange={this.handleInputChange} />
                         </Form.Group>
 
                         <Form.Group controlId="pwd">
-                            <Form.Label>Contraseña</Form.Label>
-                            <Form.Control name="password" type="password" value={this.state.loginInfo.password} onChange={this.handleInputChange} style={{ width: "680px" }}/>
+                            <Form.Control style={{ marginLeft: '0' }} name="password" placeholder="Contraseña" type="password" value={this.state.loginInfo.password} onChange={this.handleInputChange} />
                         </Form.Group>
 
                         <p
@@ -85,9 +79,9 @@ class Signup extends Component {
                             style={{ display: this.state.errorMessage ? 'block' : 'none' }}
                         >{this.state.errorMessage}</p>
 
-                        <Button variant="dark" type="submit">Registrarme</Button>
+                        <Button style={{ marginTop: '20px' }} variant="dark" type="submit">Registrarme</Button>
                     </Form>
-                    <p><small>¿Ya tienes cuenta? <Link to="/login">Inicia sesión</Link></small></p>
+                    <p style={{ textAlign: 'center', marginTop: '15px' }}><small>¿Ya tienes cuenta? <Link to="/login">Inicia sesión</Link></small></p>
 
                 </Modal.Body>
             </Modal>

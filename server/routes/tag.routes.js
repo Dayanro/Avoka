@@ -23,26 +23,16 @@ router.post("/tags", ensureLoggedIn(), uploadCloud.single('photo'), (req, res, n
     }
 })
 
-router.get("/tags", ensureLoggedIn(), (req, res, next) => {
-    const role = req.user.role
-    //if (role == "Admin") {
+router.get("/tags",  (req, res, next) => {
         Tag.find()
             .then(data => res.status(200).json(data))
             .catch(err => res.status(404).json({ message: 'No se encontró información en la base de datos' }))
-    //} else {
-       // res.status(401).json({ mensaje: "No esta autorizado" })
-    //}
 })
 
-router.get("/tags/:id", ensureLoggedIn(), (req, res, next) => {
-    const role = req.user.role
-    if (role == "Admin") {
+router.get("/tags/:id",  (req, res, next) => {
         Tag.findById(req.params.id)
             .then(data => res.status(200).json(data))
             .catch(err => res.status(404).json({ message: 'No se encontró información en la base de datos' }))
-    } else {
-        res.status(401).json({ mensaje: "No esta autorizado" })
-    }
 })
 
 router.put("/tags/:id", ensureLoggedIn(), uploadCloud.single('photo'), (req, res, next) => {

@@ -1,0 +1,113 @@
+
+/* .readingContainer{
+    background-image: url("/img/Hero_avoka.jpg");
+    min-height: 500px;
+    background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+
+.picHeroReading{
+    width: 100%;
+    object-fit: cover;
+    height: 385px;
+}
+
+.readingList{
+    margin-bottom: 50px;
+    position: relative;
+    top: -24px;
+    padding: 20px 40px;
+    background-color: white;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.05), 0 6px 12px rgba(0, 0, 0, 0.12);
+}
+
+#titleReading{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+
+.readingPost{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 70% 5% 25% ;
+    grid-template-rows: 200px ;
+    border-left: unset;
+    border-right: unset;
+    border-top: unset;
+} 
+
+
+.readingpostContainer{
+    display: grid;
+    height: 100%;
+    grid-template-rows: 40% 1fr auto auto;
+}
+
+#readingPostTitle {
+    margin-bottom: 5%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 23px; 
+}
+  #readingPostTitle p {
+    margin-bottom: 5%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 23px; 
+}
+
+  #readingPostTitle h1 {
+    margin-bottom: 5%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 23px; 
+}
+
+ #readingPostHook {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+
+#readingPostUsername{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: capitalize;
+    color: gray;
+}
+
+ #readingPostDate p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: capitalize;
+    color: gray;
+}
+ #readingPostDate {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: capitalize;
+    color: gray;
+}
+
+
+#alertReading{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 60px;
+    color: #3f3d56;
+}
+
+.notFoundImg{
+    width: 60%
+}

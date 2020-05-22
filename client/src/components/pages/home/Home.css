@@ -1,0 +1,263 @@
+@font-face {
+  font-family: 'Australis';
+  src: local('Australis'), url(../../../fonts/Australis.ttf) format('truetype');
+} 
+ 
+.containerHome{
+    position: relative;
+    background-color: white;
+    padding: 28px 40px;
+    box-shadow: 13px 12px white;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.05), 0 6px 12px rgba(0, 0, 0, 0.12);
+    margin-bottom: 50px;
+}
+
+.homeText{
+    z-index: 1000;
+    position: absolute;
+    top: 144%;
+    left: 39%;
+    opacity: 0.8;
+    /* z-index: 1000;
+    position: absolute;
+    top: 21%;
+    left: 10%; */
+}
+
+ .homeText h1{
+    font-family: 'Rozha One', serif;   
+    flex-grow: 12;
+    font-size: 156px;
+    color:white; 
+    /* font-family: 'Australis';
+    font-size: 220px;
+    color:black;
+    margin: unset;
+    transform: rotate(-15deg); */
+}
+
+
+.textOverVideo{
+    width: 100%;
+    object-fit: cover;
+    height: 57vh;
+}
+
+#titleHome{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 30px;
+    margin: 0px;
+}
+
+#hrHome{
+    width: 100%;
+}
+
+.post{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 70% 5% 25% ;
+    grid-template-rows: 200px ;
+    border-left: unset;
+    border-right: unset;
+    border-top: unset;
+} 
+
+.postContainer{
+    display: grid;
+    height: 100%;
+    grid-template-rows: 40% 1fr auto auto;
+}
+
+ #postTitle {
+    margin-bottom: 5%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 23px; 
+}
+  #postTitle p {
+    margin-bottom: 5%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 23px; 
+}
+
+  #postTitle h1 {
+    margin-bottom: 5%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 23px; 
+}
+
+ #postHook {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+
+#postUsername{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: capitalize;
+    color: gray;
+}
+
+ #postDate {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: capitalize;
+    color: gray;
+}
+
+.postSave{
+    display: flex;
+    height: 100%;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.side {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 15px;
+}
+
+#titleSide {
+font-family: 'Roboto', sans-serif;
+    font-size: 26px;
+    color: #264e70;
+    text-align: center;
+    font-weight: 400;
+}
+
+#sideContainer{
+    display: grid;
+    height: 100%;
+    grid-template-rows: 28% 1fr auto auto;
+    margin-bottom: 9px;
+}
+
+#popularNumb {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1em;
+    margin-right: 5px;
+}
+
+#popularTitle {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    text-transform: capitalize;
+    
+}
+#popularTitle h1{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    text-transform: capitalize;
+    align-self: flex-end;
+}
+#popularTitle p{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    text-transform: capitalize;
+    align-self: flex-end;
+}
+
+#popularTitle a{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    text-transform: capitalize;
+    align-self: flex-end;
+}
+
+ #popularHook {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    text-transform: capitalize;
+    text-align: justify;
+}
+
+#popularUsername{
+   font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 12px; 
+    text-transform: capitalize;
+    color: gray;
+}
+
+#popularDate {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 10px; 
+    text-transform: capitalize;
+    color: gray;
+}
+
+.hero {
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    top: -135px;
+}
+
+.pictureHero{
+width: 100%;
+object-fit: cover;
+height: 100vh;
+}
+
+.homePost{
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: 70% 30% ;
+    grid-column-gap: 1%;
+
+}
+
+.postItem{
+    font-family: 'Roboto', sans-serif;
+    font-size: 3em ;
+    color:#264e70 ;
+    align-self: flex-start;
+}
+
+
+.homeImg {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.popularPost{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 20% 80% ;
+    align-items: center;
+    border-left: unset;
+    border-right: unset;
+    border-top: unset;
+    grid-column-gap: 4%;
+}
+
+
+
+
+
+
+
+
+
+
+
+

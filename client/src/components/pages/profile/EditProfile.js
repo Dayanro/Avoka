@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
-import './Profile.css'
-import UserService from './../../../service/user.service'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import './EditProfile.css'
 
+import UserService from './../../../service/user.service'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserAlt } from '@fortawesome/free-solid-svg-icons'
+
 import Button from 'react-bootstrap/Button'
 import Toast from 'react-bootstrap/Toast'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+
 
 class EditProfile extends Component {
     constructor(props) {
@@ -52,13 +53,10 @@ class EditProfile extends Component {
         this.setState({ [e.target.name]: value })
     }
 
+    closeToast = () => this.setState({ showToast: false });
     render() {
-
-        const closeToast = () => this.setState({ showToast: false });
-        console.log("reneeeeeer")
         const { username, email, shortBio, avatar } = this.state;
         const name = username.charAt(0).toUpperCase() + username.slice(1)
-        console.log('AVATAR', avatar)
         return (
             <>
                 <form onSubmit={this.handleSubmit} className="updateData">
@@ -69,7 +67,7 @@ class EditProfile extends Component {
                         </div>
                         <div>
                             <div className="avatar">
-                                {avatar ? <img src={this.state.avatar} /> : <FontAwesomeIcon icon={faUserAlt} size="5x" color="#f8f9fa" />}
+                                {avatar ? <img src={this.state.avatar} className="profilePict"/> : <FontAwesomeIcon icon={faUserAlt} size="5x" color="#f8f9fa" />}
                             </div>
                             <input type="file" name="avatar" onChange={this.handleInputChange} />
                         </div>
@@ -87,7 +85,7 @@ class EditProfile extends Component {
                         maxHeight: '100px',
                     }}
                 >
-                    <Toast show={this.state.showToast} onClose={closeToast}
+                    <Toast show={this.state.showToast} onClose={this.closeToast}
                         style={{
                             position: 'absolute',
                             top: 70,

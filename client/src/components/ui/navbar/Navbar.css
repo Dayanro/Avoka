@@ -1,23 +1,60 @@
 .navbar{
-    display: flex;
-    padding-top: 9px;
-    margin-bottom: 9px;
+ margin: 0px;
 }
 
+.dropdown-item {
+    font-family: 'Roboto', serif;
+    font-size: 1em;
+    font-weight: 300;
+    color:#999999;
+}
+
+.nav-link{
+    font-family: 'Roboto', serif;
+    font-size: 1em;
+    font-weight: 300;
+    color:#999999;
+}
+
+.buttonNav{
+    margin: auto 20px;
+}
+
+.navBarMain{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 60px;
+  background-color: white;
+  transition: all .3s;
+} 
+.navBarMain div:nth-child(1) { grid-column-start: 1; } 
+
+.navBarMain div:nth-child(2) { margin-left: auto; }
+
+.links{
+    display: flex;
+    justify-content: flex-end;
+    align-self: flex-end;
+    align-items: center;
+    height: 100%;
+}
+
+
 #Brand{
+    font-family: 'Rozha One', serif;   
     flex-grow: 12;
-font-size: 30px;
-font-weight:bold;
+    font-size: 45px;
+    color:black;
+
 }
 .NavLogOut{
 display: flex;
-align-self:flex-end;
-padding-bottom: 10px;
 }
 
 Form{
     margin-left: 20px; 
 }
+
 input{
     margin-left: 20px;
     margin-bottom: 2px;
@@ -26,11 +63,94 @@ input{
     border: 0ch;
 }
 
-.UserList{
+.sectionInf{
     display: flex;
     flex-direction: column;
+    font-size: 0.9em;
+    align-items:flex-start
 }
+
 .NavUser{
     text-align: center;
     font-weight: 900;
+}
+
+.mr-auto{
+    margin: 20px;
+}
+
+.searchNav{
+    width: 20px;
+    border: solid #cccccc 0px;
+    font-size:10px;
+    margin: 0 10px;
+    height: 20px;
+    align-self: center;
+    font-family: 'Roboto', serif;
+    font-size: 1em;
+    font-weight: 300;
+    color:#999999;
+}
+
+.notFoundAvatar{
+    width: 20%;
+    object-fit: cover;
+    display: flex;
+    width: 100px;
+    height: 100px;
+}
+
+.bookMarkNav{
+    margin: 0px 26px 0px 25px;;
+}
+
+.profilePictNav{
+    width: 70px;
+    height: 70px;
+}
+
+.profiledrow{
+    width: 70px;
+    height: 70px;
+}
+
+.notFoundAvatarDrow{
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+}
+
+.mr-auto{
+    margin: 0px;
+}
+
+.dropdown-toggle:after {
+    display: none;
+}
+
+.css-148o527-ItemComponent.react-dropdown-select-item-selected {
+    background:gray !important;
+    color: #fff;
+    border-bottom: 1px solid #fff;
+    font-family: 'Roboto', serif;
+}
+
+.authButton{
+    align-self: center;
+    font-family: 'Roboto', serif;
+    font-size: 1em;
+    font-weight: 300;
+    color:#999999;
+}
+input{
+    align-self: center;
+    font-family: 'Roboto', serif;
+    font-size: 10px;
+    font-weight: 300;
+    color:#999999;
+}
+
+.hide {
+    transform: translateY(-100%);
+    transition: all .3s;
 }

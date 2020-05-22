@@ -1,0 +1,123 @@
+
+ .search{
+    padding: 40px 40px;
+    display: grid;
+    grid-column-gap: 12px;
+    grid-template-columns: 20% 80%;
+    align-items: center;
+    border-left: unset;
+    border-right: unset;
+    border-top: unset;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.05), 0 6px 12px rgba(0, 0, 0, 0.12);
+}
+
+  #searchMainText{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 30px;
+    margin: 0px;
+}
+.searchPost{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 70% 5% 25% ;
+    grid-template-rows: 200px ;
+    border-left: unset;
+    border-right: unset;
+    border-top: unset;
+}
+
+.searchImage {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.searchPostp{
+    display: grid;
+    height: 100%;
+    grid-template-rows: 40% 1fr auto auto;
+}
+
+#searchPostTitle {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 23px; 
+}
+  #searchPostTitle p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 23px; 
+}
+
+  #searchPostTitle h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 23px; 
+}
+
+ #searchPostHook {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+
+#searchUsername{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: capitalize;
+    color: gray;
+}
+
+  a #searchPostDate {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: capitalize;
+    color: gray;
+}
+
+.searchPostSave{
+    display: flex;
+    height: 100%;
+    align-items: flex-end;
+
+}
+
+  .tags{
+     align-self: flex-start;
+  }
+
+    #searchTags{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    color: #264e70;
+    text-align: center;
+    font-weight: 400;
+  }
+
+.searchTagsButton{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: #264e70;
+    text-align: center;
+    background-color: white;
+    font-weight: 300;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #264e70;
+    cursor: pointer;
+    padding: 6px;
+  }
+
+  .searchTagsButton:hover {
+      color: white;
+      background-color: #264e70;
+  }
+.searchTagContainer{
+      margin-top: 96px;
+}

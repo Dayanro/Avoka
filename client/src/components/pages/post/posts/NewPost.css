@@ -1,0 +1,324 @@
+@font-face {
+  font-family: 'Australis';
+  src: local('Australis'), url(../../../../fonts/Australis.ttf) format('truetype');
+} 
+
+
+#writing{
+font-family: 'Australis';
+    font-size: 131px;
+    color: black;
+    margin: unset;
+    transform: rotate(-6deg);
+    font-weight: 100;
+  }
+
+  #autor{
+    font-family: 'Australis';
+    font-size: 50px;
+    color:grey;
+    margin: unset;
+    font-weight: 100;
+
+  }
+p{    
+  font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: #605d5d;}
+
+  .picReading{
+    width: 100%;
+    object-fit: cover;
+    height: 549px;
+  }
+
+#writingSpace{
+    z-index: 1000;
+    position: absolute;
+    top: 6%;
+    left: 4%;
+}
+
+.newPost{
+    position: relative;
+    top: -110px;
+    background-color: white;
+    padding: 76px 40px;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.05), 0 6px 12px rgba(0, 0, 0, 0.12);
+}
+
+.title{
+    margin-bottom: 6%;
+   
+}
+.titleEditor .ql-container{ 
+font-family: 'Playfair Display', serif;
+font-size: 30px;
+ background-color:#f6f7f9;
+ border-radius: 12px;
+} 
+
+
+.note{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-right: 30px;
+}
+
+.notePicture{
+  display: flex;
+  flex-direction: column;
+  width: 36%;
+  margin-right: 30px;
+}
+.block{
+  margin-bottom: 6%;
+  display: flex;
+  height: 20%
+}
+
+.picture{
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 5%;
+}
+
+
+.theHookEditor .ql-container{ 
+font-size: 20px;
+ background-color:#f6f7f9;
+ border-radius: 12px;
+ font-family: 'Playfair Display', serif;
+} 
+
+
+.photoEditor .ql-container{ 
+font-size: 20px;
+ background-color:#f6f7f9;
+ border-radius: 12px;
+ font-family: 'Playfair Display', serif;
+} 
+
+
+
+.realStoryEditor .ql-container{ 
+font-size: 20px;
+ background-color:#f6f7f9;
+ border-radius: 12px;
+ font-family: 'Playfair Display', serif;
+} 
+
+
+.expandOnThePointEditor .ql-container{ 
+font-size: 20px;
+ background-color:#f6f7f9;
+ border-radius: 12px;
+ font-family: 'Playfair Display', serif;
+} 
+
+
+.closingEditor .ql-container{ 
+font-size: 20px;
+ background-color:#f6f7f9;
+ border-radius: 12px;
+ font-family: 'Playfair Display', serif;
+} 
+
+.fastReceipeEditor .ql-container{ 
+font-size: 20px;
+ background-color:#f6f7f9;
+ border-radius: 12px;
+ font-family: 'Playfair Display', serif;
+}
+
+  /* --------REACT TAGS--------------- */
+.react-tags {
+  position: relative;
+  padding: 6px 0 0 6px;
+  border: 1px solid #D1D1D1;
+  border-radius: 1px;
+
+  /* shared font styles */
+  font-size: 1em;
+  line-height: 1.2;
+
+  /* clicking anywhere will focus the input */
+  cursor: text;
+}
+
+.react-tags.is-focused {
+  border-color: #B1B1B1;
+}
+
+.react-tags__selected {
+  display: inline;
+}
+
+.react-tags__selected-tag {
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 0 6px 6px 0;
+  padding: 6px 8px;
+  border: 1px solid #D1D1D1;
+  border-radius: 2px;
+  background: #F1F1F1;
+
+  /* match the font styles */
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.react-tags__selected-tag:after {
+  content: '\2715';
+  color: #AAA;
+  margin-left: 8px;
+}
+
+.react-tags__selected-tag:hover,
+.react-tags__selected-tag:focus {
+  border-color: #B1B1B1;
+}
+
+.react-tags__search {
+  display: inline-block;
+
+  /* match tag layout */
+  padding: 7px 2px;
+  margin-bottom: 6px;
+
+  /* prevent autoresize overflowing the container */
+  max-width: 100%;
+}
+
+@media screen and (min-width: 30em) {
+
+  .react-tags__search {
+    /* this will become the offsetParent for suggestions */
+    position: relative;
+  }
+
+}
+
+.react-tags__search input {
+  /* prevent autoresize overflowing the container */
+  max-width: 100%;
+
+  /* remove styles and layout from this element */
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+
+  /* match the font styles */
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.react-tags__search input::-ms-clear {
+  display: none;
+}
+
+.react-tags__suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+}
+
+@media screen and (min-width: 30em) {
+
+  .react-tags__suggestions {
+    width: 240px;
+  }
+
+}
+
+.react-tags__suggestions ul {
+  margin: 4px -1px;
+  padding: 0;
+  list-style: none;
+  background: white;
+  border: 1px solid #D1D1D1;
+  border-radius: 2px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.react-tags__suggestions li {
+  border-bottom: 1px solid #ddd;
+  padding: 6px 8px;
+}
+
+.react-tags__suggestions li mark {
+  text-decoration: underline;
+  background: none;
+  font-weight: 600;
+}
+
+.react-tags__suggestions li:hover {
+  cursor: pointer;
+  background: #eee;
+}
+
+.react-tags__suggestions li.is-active {
+  background: #b7cfe0;
+}
+
+.react-tags__suggestions li.is-disabled {
+  opacity: 0.5;
+  cursor: auto;
+}
+
+/* --------File Input--------------- */
+
+* {border:0;outline:0;}
+
+label#largeFile:after {
+position: absolute;
+    width: 58%;
+    max-width: 684px;
+    content: "Añade una imagen";
+    left: 33%;
+    right: 0;
+    margin: 50px auto;
+    text-align: center;
+    padding: 50px 0px 50px 0px;
+    border-radius: 10px;
+    border: 2px dashed #ccc;
+    color: #ccc;
+    font-family: "Helvetica Neue", Helvetica, Arial;
+    font-size: 30px;
+}
+
+label#largeFile:hover:after {
+  background:#ccc;
+  color:#fff;
+  cursor:pointer;
+}
+
+
+label#largeFile input#file {
+    width: 0px;
+    height: 0px;
+}
+
+
+.writerButon{
+ font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: #264e70;
+    text-align: center;
+    background-color: white;
+    font-weight: 300;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #264e70;
+    cursor: pointer;
+    padding: 6px;
+}
+
+.writerButon:hover {
+      color: white;
+      background-color: #264e70;
+  }

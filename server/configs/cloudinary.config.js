@@ -17,6 +17,6 @@ var storage = cloudinaryStorage({
     }
 });
 
-const uploadCloud = multer({ storage: storage });
+const uploadCloud = multer({ storage: storage, limits: { fieldSize: 25 * 1024 * 1024 }  });
 
 module.exports = uploadCloud;
