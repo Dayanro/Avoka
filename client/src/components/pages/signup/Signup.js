@@ -38,6 +38,7 @@ class Signup extends Component {
             .then(response => {
                 this.props.setTheUser(response.data)
                 this.props.history.push('/')
+                this.onHide();
             })
             .catch(err => {
                 err.response.status === 400 && this.setState({ errorMessage: err.response.data.message })
@@ -45,7 +46,7 @@ class Signup extends Component {
     }
 
     onHide = () => {
-        this.props.history.push("/")
+        this.props.onHide();
     }
 
 
@@ -67,7 +68,7 @@ class Signup extends Component {
                     <Form onSubmit={this.handleSubmit}>
                         <Form.Group controlId="name">
                             <Form.Label>Usuario</Form.Label>
-                            <Form.Control name="username" type="text" value={this.state.loginInfo.username} onChange={this.handleInputChange} style={{width:"680px"}}/>
+                            <Form.Control name="username" type="text" value={this.state.loginInfo.username} onChange={this.handleInputChange} style={{ width: "680px" }} />
                         </Form.Group>
 
                         <Form.Group controlId="email">
@@ -77,7 +78,7 @@ class Signup extends Component {
 
                         <Form.Group controlId="pwd">
                             <Form.Label>Contraseña</Form.Label>
-                            <Form.Control name="password" type="password" value={this.state.loginInfo.password} onChange={this.handleInputChange} style={{ width: "680px" }}/>
+                            <Form.Control name="password" type="password" value={this.state.loginInfo.password} onChange={this.handleInputChange} style={{ width: "680px" }} />
                         </Form.Group>
 
                         <p

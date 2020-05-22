@@ -111,7 +111,7 @@ class Home extends Component {
 
                     <div className="homeText">
                         <h1>Avoka</h1>
-                    </div> 
+                    </div>
 
                     {/* <img className="pictureHero" src="/img/Hero_avoka.jpg"></img>
                     <div className="homeText">
@@ -133,10 +133,10 @@ class Home extends Component {
                                     <div className="postInfo" >
                                         <Link to={`/post/${post._id}`}>
                                             <div className="postContainer">
-                                                <div dangerouslySetInnerHTML={this.createMarkup(post.title)} className="postTitle" id="postTitle" /> 
+                                                <div dangerouslySetInnerHTML={this.createMarkup(post.title)} className="postTitle" id="postTitle" />
                                                 <div dangerouslySetInnerHTML={this.createMarkup(post.theHook)} className="postHook" id="postHook" />
-                                                <div className="postUsername">{post.owner.username}</div>
-                                                <div className="postDate">{this.createdAt(post.createdAt)}</div>
+                                                <div className="postUsername" id="postUsername" >{post.owner.username}</div>
+                                                <div className="postDate" id="postDate">{this.createdAt(post.createdAt)}</div>
                                             </div>
                                         </Link >
                                     </div>
@@ -161,12 +161,12 @@ class Home extends Component {
                                         </div>
                                         <div className="postInfo" >
                                             <Link to={`/post/${post._id}`}>
-                                                <div>
-                                                    <div dangerouslySetInnerHTML={this.createMarkup(post.title)} className="popularTitle" id="popularTitle" />
+                                                <div id="sideContainer">
+                                                    <div dangerouslySetInnerHTML={this.createMarkup(post.title)}  id="popularTitle" />
+                                                    <div dangerouslySetInnerHTML={this.createMarkup(post.theHook)} id="popularHook" />
+                                                    <div id="popularUsername">{post.owner.username}</div>
+                                                    <div id="popularDate">{this.createdAt(post.createdAt)}</div>
                                                 </div>
-                                                <div dangerouslySetInnerHTML={this.createMarkup(post.theHook)} id="popularHook" />
-                                                <div className="popularUsername">{post.owner.username}</div>
-                                                <div className="popularDate">{this.createdAt(post.createdAt)}</div>
                                             </Link >
                                         </div>
                                     </div>))}

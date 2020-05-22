@@ -38,6 +38,7 @@ class ReadingList extends Component {
 
     componentDidMount = () => {
         this.getAll()
+        window.scrollTo(0, 0)
     }
 
     componentDidUpdate = (prevProps) => {
@@ -107,51 +108,57 @@ class ReadingList extends Component {
     render() {
 
         return (
-            <>
-                <Container fluid="md" as="section">
-                    <div id="readingTitle">
-                        <h2 >Lista de Posts</h2>
+            this.state.readingList.length == 0 ? (
+                <Container  as="section">
+                    <div className="notFoundReading">
+                        <div id="readingAlert">
+                            <p id="alertReading">Aún no has guardado ningún post. Activando el icono <FontAwesomeIcon icon={faBookmark} size="1x" color="#bbd4ce" className="saveReading" /> de los post podras guardar el post para leer más tarde.</p>
+                        </div>
+                        <div className="readingImgAlert">
+                            <img className="notFoundImg" src="/img/undraw_reading_0re1.svg" />
+                        </div>
                     </div>
-                    {this.state.readingList.length == 0 ? (
-                        <div className="notFoundReading">
-                            <div className="readingAlert">
-                                <h3>Lista de Posts</h3>
-                                <hr />
-                                <p id="alert">Aún no has guardado ningún post. Activando el icono <FontAwesomeIcon icon={faBookmark} size="1x" color="#bbd4ce" className="saveReading" /> de los post podras guardar el post para leer más tarde.</p>
+                </Container>)
+
+                :
+                    
+                <div className="readingContainer" >
+                    <img className="picHeroReading" src="/img/Hero_avoka.jpg"></img>
+                    <Container fluid="md" as="section">
+                        <div className="readingList">
+                            <div id="readingTitle">
+                                <h2 >Lista de Posts</h2>
                             </div>
-                            <div className="readingImgAlert">
-                                <img className="notFoundImg" src="/img/undraw_reading_0re1.svg" />
-                            </div>
-                        </div>)
-                        : this.state.posts && this.state.savedPosts.map((post, idx) => (
-                            <>
-                                <Card className="searchPost">
-                                    <div className="searchPostInf" key={idx} >
-                                        <Link to={`/post/${post._id}`}>
-                                            <div>
-                                                <div>
-                                                    <div dangerouslySetInnerHTML={this.createMarkup(post.title)} className="searchPostTitle" />
+                            {this.state.posts && this.state.savedPosts.map((post, idx) => (
+                                <>
+                                    <Card className="readingPost">
+                                        <div className="searchPostInf" key={idx} >
+                                            <Link to={`/post/${post._id}`}>
+                                                <div className="readingpostContainer">
+                                                    <div>
+                                                        <div dangerouslySetInnerHTML={this.createMarkup(post.title)} id="readingPostTitle" />
+                                                    </div>
+                                                    <div dangerouslySetInnerHTML={this.createMarkup(post.theHook)} id="readingPostHook" />
+                                                    <div dangerouslySetInnerHTML={this.createMarkup(post.owner.username)} id="readingPostUsername" />
+                                                    <div id="readingPostDate">{this.createdAt(post.createdAt)} </div>
                                                 </div>
-                                                <div dangerouslySetInnerHTML={this.createMarkup(post.theHook)} className="searchPostHook" />
-                                                <div dangerouslySetInnerHTML={this.createMarkup(post.owner.username)} className="searchPosUsername" />
-                                                <div className="searchPostDate">{this.createdAt(post.createdAt)} </div>
-                                            </div>
-                                        </Link >
-                                    </div>
-                                    <div className="searchPostSave">
-                                        {this.props.loggedInUser ? this.displaySaveOptions(post._id) : null}
-                                    </div>
-                                    <div className="searchPostImage" style={{ display: "flex", width: '100%', height: '100%' }}>
-                                        {post.photo ? (<img className="searchImage" src={post.photo} />) : <img className="searchImage" src="/img/undraw_cooking_lyxy.svg" />}
-                                    </div>
-                                </Card>
+                                            </Link >
+                                        </div>
+                                        <div className="searchPostSave">
+                                            {this.props.loggedInUser ? this.displaySaveOptions(post._id) : null}
+                                        </div>
+                                        <div className="searchPostImage" style={{ display: "flex", width: '100%', height: '100%' }}>
+                                            {post.photo ? (<img className="searchImage" src={post.photo} />) : <img className="searchImage" src="/img/undraw_cooking_lyxy.svg" />}
+                                        </div>
+                                    </Card>
 
-                            </>
-                        ))
+                                </>
+                            ))
 
-                    }
-                </Container>
-            </>
+                            }
+                        </div>
+                    </Container>
+                </div>
         )
     }
 }

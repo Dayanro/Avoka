@@ -160,7 +160,7 @@ class SearchPosts extends Component {
                             <div className="tags">
                                 <p id="searchTags">Tag relacionados Avoka</p>
                                 {this.state.tags && this.state.relatedTags.map((tag, idx) => (
-                                    <Button size="sm" variant="outline-light" onClick={() => this.getPostsRelated(tag._id)} className="searchTagsB">{tag.name}</Button>
+                                    <div onClick={() => this.getPostsRelated(tag._id)} className="searchTagsButton">{tag.name}</div>
                                 ))}
 
                             </div>
@@ -171,10 +171,8 @@ class SearchPosts extends Component {
                                     <Card className="searchPost">
                                         <div className="searchPostInf" key={idx} >
                                             <Link to={`/post/${post._id}`}>
-                                                <div>
-                                                    <div>
-                                                        <div dangerouslySetInnerHTML={this.createMarkup(post.title)} id="searchPostTitle" />
-                                                    </div>
+                                                <div className="searchPostp">
+                                                    <div dangerouslySetInnerHTML={this.createMarkup(post.title)} id="searchPostTitle" />
                                                     <div dangerouslySetInnerHTML={this.createMarkup(post.theHook)} id="searchPostHook" />
                                                     <div id="searchUsername">{post.owner.username}</div>
                                                     <div id="searchPostDate">{this.createdAt(post.createdAt)}</div>

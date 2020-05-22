@@ -37,6 +37,7 @@ class Login extends Component {
         this.authService.login(this.state.loginInfo)
             .then(response => {
                 this.props.setTheUser(response.data)
+                this.props.onHide();
                 this.props.history.push('/')
             })
             .catch(err => {
@@ -46,7 +47,7 @@ class Login extends Component {
     }
 
     onHide = () => {
-        this.props.history.push("/")
+        this.props.onHide();
     }
 
     render() {

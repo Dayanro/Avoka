@@ -3,14 +3,14 @@
 }
 
 .dropdown-item {
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Roboto', serif;
     font-size: 1em;
     font-weight: 300;
     color:#999999;
 }
 
 .nav-link{
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Roboto', serif;
     font-size: 1em;
     font-weight: 300;
     color:#999999;
@@ -22,12 +22,12 @@
 
 .navBarMain{
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  justify-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 60px;
   background-color: white;
-  height: 15vh;
+  transition: all .3s;
 } 
-.navBarMain div:nth-child(1) { grid-column-start: 2; } 
+.navBarMain div:nth-child(1) { grid-column-start: 1; } 
 
 .navBarMain div:nth-child(2) { margin-left: auto; }
 
@@ -43,7 +43,7 @@
 #Brand{
     font-family: 'Rozha One', serif;   
     flex-grow: 12;
-    font-size: 90px;
+    font-size: 45px;
     color:black;
 
 }
@@ -81,7 +81,7 @@ input{
 .searchNav{
     width: 20px;
     border: solid #cccccc 0px;
-    font-size:12px;
+    font-size:10px;
     margin: 0 10px;
     height: 20px;
     align-self: center;
@@ -144,7 +144,12 @@ input{
 input{
     align-self: center;
     font-family: 'Roboto', serif;
-    font-size: 2em;
+    font-size: 10px;
     font-weight: 300;
     color:#999999;
+}
+
+.hide {
+    transform: translateY(-100%);
+    transition: all .3s;
 }

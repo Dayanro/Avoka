@@ -5,8 +5,6 @@ import './App.css'
 
 import Home from './pages/home/Home'
 import Navigation from './ui/navbar/Navbar'
-import Signup from './pages/signup/Signup'
-import Login from './pages/login/Login'
 import Profile from './pages/profile/Profile'
 import Tag from './pages/tag/Tag'
 import Interests from './pages/interests/Interests'
@@ -45,8 +43,6 @@ class App extends Component {
         <main id="content-wrap">
           <Switch>
             <Route exact path="/" render={props => <Home {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
-            <Route path="/signup" render={props => <Signup {...props} setTheUser={this.setTheUser} />} />
-            <Route path="/login" render={props => <Login {...props} setTheUser={this.setTheUser} />} />
             <Route path="/profile" render={props => <Profile {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
             <Route path="/tag" render={props => <Tag {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
             <Route path="/interests" render={props => <Interests {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
@@ -54,7 +50,7 @@ class App extends Component {
             <Route path="/readinglist" render={props => <ReadingList {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
           </Switch>
         </main>
-        <footer id="footer" className="footer">
+        {/* <footer id="footer" className="footer">
           <div className="footertext">
             <div className="about">
               <p> Avoka</p>
@@ -66,7 +62,7 @@ class App extends Component {
               <p> Avoka</p>
             </div>
           </div>
-        </footer>
+        </footer> */}
       </div>
     )
   }

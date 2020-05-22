@@ -1,82 +1,30 @@
- #searchMainText{
-     margin-top: 10%;
-     margin-top: 5%;
-    margin-bottom: 0%;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    font-size: 30px;
-}
- 
- 
- #searchPostTitle{
-    font-family: 'Roboto', serif;
-    font-weight: 700;
-    font-size: 20px;
-    margin: 0px;
-}
 
-#searchPostHook {
-    font-family: 'Roboto', serif;
-    font-weight: 400;
-    font-size: 18px; 
-}
-#searchUsername {
-    font-family: 'Roboto', serif;
-    font-weight: 300;
-    font-size: 16px; 
-    margin-top: 5%;
-}
-#searchPostDate {
-    font-family: 'Roboto', serif;
-    font-weight: 300;
-    font-size: 12px; 
-}
-
-.search{
-    padding: 10px;
+ .search{
+    padding: 40px 40px;
     display: grid;
-    grid-column-gap: 30px;
-    grid-template-columns: 20% 80% ;
+    grid-column-gap: 12px;
+    grid-template-columns: 20% 80%;
     align-items: center;
     border-left: unset;
     border-right: unset;
     border-top: unset;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.05), 0 6px 12px rgba(0, 0, 0, 0.12);
 }
 
+  #searchMainText{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 30px;
+    margin: 0px;
+}
 .searchPost{
     padding: 10px;
     display: grid;
     grid-template-columns: 70% 5% 25% ;
-    grid-template-rows: 200px;
-    align-items: center;
+    grid-template-rows: 200px ;
     border-left: unset;
     border-right: unset;
     border-top: unset;
-    cursor: pointer;
-
-} 
-.searchPost:hover{
-    background-color:#f8f8f8;
-  }
-
-
-.searchPostSave{
-    display: flex;
-    height: 100%;
-    align-items: flex-end;
-
-}
-
-.searchPostDate{
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    font-size: 0.7em;
-}
-
-.searchPostItem{
-    font-family: 'Suez One', serif;
-    font-size: 3em ;
-    color:#264e70 ;
 }
 
 .searchImage {
@@ -86,50 +34,87 @@
     object-fit: cover;
 }
 
-.searchTagsB{
-    width: 200px;
-    margin-top: 10px;
-    background-color:white ;
-    border: #264e70 solid 1px;
-    color:#264e70;
+
+.searchPostp{
+    display: grid;
+    height: 100%;
+    grid-template-rows: 40% 1fr auto auto;
 }
-.searchTagsB:hover{
-    background-color:#264e70;
-    color: white;
-    border: #bbd4ce solid 1px;
-  }
 
-  .buttonSafe{
-      cursor: pointer;
-  }
-
-  .notFound{
-      width: 60%;
-  }
-
-  #alert{
-    font-family: 'Merriweather', serif;
+#searchPostTitle {
+    font-family: 'Roboto', sans-serif;
     font-weight: 300;
-    font-size: 40px; 
-    text-align: center;
-    margin-top: 60px;
-    margin-bottom: 60px;
-    color:#3f3d56;
-    font-weight: 500;
-  }
+    font-size: 23px; 
+}
+  #searchPostTitle p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 23px; 
+}
+
+  #searchPostTitle h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 23px; 
+}
+
+ #searchPostHook {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+
+#searchUsername{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: capitalize;
+    color: gray;
+}
+
+  a #searchPostDate {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: capitalize;
+    color: gray;
+}
+
+.searchPostSave{
+    display: flex;
+    height: 100%;
+    align-items: flex-end;
+
+}
 
   .tags{
      align-self: flex-start;
   }
 
-  #hrCompl{
-      width: 100%;
+    #searchTags{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    color: #264e70;
+    text-align: center;
+    font-weight: 400;
   }
 
-  #searchTags{
+.searchTagsButton{
     font-family: 'Roboto', sans-serif;
-    font-size: 20px ;
-    color:#264e70 ;
+    font-size: 15px;
+    color: #264e70;
     text-align: center;
-    font-weight: 600;
+    background-color: white;
+    font-weight: 300;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #264e70;
+    cursor: pointer;
+    padding: 6px;
+  }
+
+  .searchTagsButton:hover {
+      color: white;
+      background-color: #264e70;
   }

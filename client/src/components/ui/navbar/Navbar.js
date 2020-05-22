@@ -13,6 +13,8 @@ import Navbar from 'react-bootstrap/Navbar'
 import Image from 'react-bootstrap/Image'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
+import Signup from '../../pages/signup/Signup'
+import Login from '../../pages/login/Login'
 
 import Select from 'react-dropdown-select';
 
@@ -22,8 +24,11 @@ class Navigation extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            hideNavBar: true,
             tags: [],
             values: [],
+            showLogin: false,
+            showSignup: false,
         }
         this.authService = new AuthService()
         this.tagService = new TagService()
@@ -48,7 +53,22 @@ class Navigation extends Component {
 
     componentDidMount = () => {
         this.showAllTags()
+        window.addEventListener('scroll', this.hideBar)
     }
+
+    componentWillUnmount = () => {
+        window.removeEventListener('scroll', this.hideBar)
+    }
+
+    hideBar = () => {
+        if (window.scrollY > 200 && this.state.hideNavBar) {
+            this.setState({ hideNavBar: false })
+        } else if (window.scrollY <= 100 && !this.state.hideNavBar) {
+            this.setState({ hideNavBar: true })
+        }
+    }
+
+
 
     searchPost = (value) => {
         const tagId = value[0].value
@@ -58,9 +78,29 @@ class Navigation extends Component {
         });
     }
 
+    showLogin = () => {
+        this.setState({ showLogin: true })
+    }
+
+
+    showSignup = () => {
+        this.setState({ showSignup: true })
+    }
+
+    hideLogin = () => {
+        this.setState({ showLogin: false })
+    }
+
+    hideSignup = () => {
+        this.setState({ showSignup: false })
+    }
+
     render() {
+        console.log("Props", this.props)
+        const hideClass = this.state.hideNavBar && this.props.location.pathname == "/" ? "hide" : "";
+
         return (
-            <Navbar className="navBarMain" expand="lg" sticky="top">
+            <Navbar className={`navBarMain ${hideClass}`} expand="lg" sticky="top">
                 <div className="logo">
                     <Link to='/' exact className="Home"><Navbar.Brand id="Brand" as="div">Avoka</Navbar.Brand></Link>
                 </div>
@@ -70,7 +110,7 @@ class Navigation extends Component {
                     </div>
                     <div className="searchNavBar">
                         <Select className="searchNav"
-                            style={{ width: '200px', marginRight: '20px', alignItems: 'center', borderRadius: '3px', lineHeight: "40px"}}
+                            style={{ width: '200px', marginRight: '20px', alignItems: 'center', borderRadius: '3px', lineHeight: "40px" }}
                             placeholder={`Busquedas por Tags`}
                             loading={this.state.tags.length < 0 ? true : false}
                             searchable="true"
@@ -82,8 +122,8 @@ class Navigation extends Component {
                         {
                             !this.props.loggedInUser ?
                                 <>
-                                    <Nav.Link as={NavLink} to='/login' exact className="authButton">Iniciar sesión</Nav.Link>
-                                    <Nav.Link as={NavLink} to='/signup' exact className="authButton">Registro</Nav.Link>
+                                    <Nav.Link onClick={this.showLogin} className="authButton">Iniciar sesión</Nav.Link>
+                                    <Nav.Link onClick={this.showSignup} className="authButton">Registro</Nav.Link>
                                 </>
                                 :
                                 <div>
@@ -121,11 +161,11 @@ class Navigation extends Component {
                                         </NavDropdown>
                                     </Nav>
                                 </div>
-
-
                         }
                     </Navbar.Collapse>
                 </div>
+                {this.state.showLogin ? <Login {...this.props} setTheUser={this.props.setTheUser} onHide={this.hideLogin} /> : null}
+                {this.state.showSignup ? <Signup {...this.props} setTheUser={this.props.setTheUser} onHide={this.hideSignup} /> : null}
             </Navbar>
 
         )
